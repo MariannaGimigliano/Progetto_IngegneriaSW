@@ -1,0 +1,43 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	
+	<ui:style>
+	
+		HTMLpanel {
+			background-color: lightgray;
+		}
+		
+		#logo {
+			text-align: center;
+		}
+		
+		#content {
+			margin: 30px;
+		}
+	
+	</ui:style>
+
+	<g:HTMLPanel id="panel">
+		<div id="content">
+		
+			<img id="logo" src="logo.jpeg" height="150px"/>
+	    
+	    	<g:HorizontalPanel id="navbar">
+	    		<g:Button ui:field = "btnHome" text="Home"/>
+	       		<g:Button ui:field = "btnDipartimenti" text="Dipartimenti"/>
+	       		<g:Button ui:field = "btnContatti" text="Contatti"/>
+	      		<g:Button ui:field = "btnLogin" text="Login" />
+	    	</g:HorizontalPanel> 
+	    	
+	    	<div>
+				<h2>Chi siamo</h2>
+				<h3>La storia dell'Alma Mater e tutte le informazioni utili per conoscere l'Ateneo</h3>
+				<p>L'Alma Mater Studiorum - Università di Bologna è un'università italiana statale. Attiva dall'XI secolo, è considerata da molteplici fonti la più antica università del mondo tuttora in funzione.</p>
+				<h3>L'Università oggi: tra numeri e innovazione</h3>
+				<p>L’eccellenza della didattica, la ricerca all’avanguardia, la presenza sul territorio, l'apertura internazionale, i servizi informativi: in questi e in molti altri ambiti l'Alma Mater promuove e percorre oggi la strada dell'innovazione.</p>
+	    	</div>
+	    	
+		</div>
+	</g:HTMLPanel>
+	
+</ui:UiBinder> 
