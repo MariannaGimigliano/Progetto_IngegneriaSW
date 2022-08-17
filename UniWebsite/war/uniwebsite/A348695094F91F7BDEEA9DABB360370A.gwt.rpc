@@ -1,0 +1,22 @@
+@FinalFields, false
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException, true, true, true, true, com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException/3936916533, 3936916533
+com.google.gwt.user.client.rpc.RpcTokenException, true, true, false, false, com.google.gwt.user.client.rpc.RpcTokenException/2345075298, 2345075298
+com.google.gwt.user.client.rpc.XsrfToken, false, false, true, true, com.google.gwt.user.client.rpc.XsrfToken/4254043109, 4254043109
+com.uniwebsite.client.GreetingService, false, false, false, false, _, 4134836299
+com.uniwebsite.shared.Amministratore, true, true, false, false, com.uniwebsite.shared.Amministratore/1748673447, 1748673447
+com.uniwebsite.shared.Corso, true, true, false, false, com.uniwebsite.shared.Corso/422496538, 422496538
+com.uniwebsite.shared.Docente, true, true, false, false, com.uniwebsite.shared.Docente/3728698110, 3728698110
+com.uniwebsite.shared.Esame, true, true, false, false, com.uniwebsite.shared.Esame/4243742302, 4243742302
+com.uniwebsite.shared.Segreteria, true, true, false, false, com.uniwebsite.shared.Segreteria/1824582861, 1824582861
+com.uniwebsite.shared.Studente, true, true, false, false, com.uniwebsite.shared.Studente/2173984388, 2173984388
+com.uniwebsite.shared.Utente, true, true, false, false, com.uniwebsite.shared.Utente/1938988270, 1938988270
+com.uniwebsite.shared.Voto, true, true, true, true, com.uniwebsite.shared.Voto/4013023893, 4013023893
+java.lang.Exception, true, false, true, false, java.lang.Exception/1920171873, 1920171873
+java.lang.IllegalArgumentException, true, true, false, false, java.lang.IllegalArgumentException/1755012560, 1755012560
+java.lang.Integer, true, true, true, true, java.lang.Integer/3438268394, 3438268394
+java.lang.Number, true, false, true, false, java.lang.Number/300033342, 300033342
+java.lang.NumberFormatException, true, true, false, false, java.lang.NumberFormatException/3305228476, 3305228476
+java.lang.RuntimeException, true, false, true, false, java.lang.RuntimeException/515124647, 515124647
+java.lang.String, true, true, true, true, java.lang.String/2004016611, 2004016611
+java.lang.Throwable, true, false, true, false, java.lang.Throwable/2953622131, 2953622131
+java.util.ArrayList, true, true, true, true, java.util.ArrayList/4159755760, 4159755760
