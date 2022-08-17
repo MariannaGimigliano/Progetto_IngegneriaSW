@@ -1,0 +1,38 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	
+	<ui:style>
+			
+		#content {
+			margin: 30px;
+		}
+	
+	</ui:style>
+
+	<g:HTMLPanel>
+		<div id="content">
+		
+			<img id="logo" src="logo.jpeg" height="150px"/>
+	    
+	    	<g:HorizontalPanel id="navbar">
+	    		<g:Button ui:field = "btnHome" text="Home"/>
+	       		<g:Button ui:field = "btnDipartimenti" text="Dipartimenti"/>
+	       		<g:Button ui:field = "btnContatti" text="Contatti"/>
+	      		<g:Button ui:field = "btnLogin" text="Login" />
+	    	</g:HorizontalPanel> 
+	    	
+	    	<div>
+				<h2>Contatti</h2>
+				<h3>Indirizzo dell'Amministrazione Generale</h3>
+				<p><a>Via Zamboni, 33 - 40126, Bologna</a></p>
+				<br></br>
+				<h3>Numero di telefono</h3>
+				<p><a>0547-1137365</a></p>
+				<h3>Indirizzo email</h3>
+				<p><a>almaBologna@unibo.it</a></p>
+			</div>
+	    	
+		</div>
+	</g:HTMLPanel>
+	
+</ui:UiBinder> 

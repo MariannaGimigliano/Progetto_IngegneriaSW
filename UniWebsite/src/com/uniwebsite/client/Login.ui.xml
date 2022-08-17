@@ -1,0 +1,40 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:gwt = 'urn:import:com.google.gwt.user.client.ui'>
+	
+	<ui:style>
+			
+		#content {
+			margin: 30px;
+		}
+	
+	</ui:style>
+
+	<g:HTMLPanel>
+		<div id="content">
+		
+			<img id="logo" src="logo.jpeg" height="150px"/>
+	    
+	    	<g:HorizontalPanel id="navbar">
+	    		<g:Button ui:field = "btnHome" text="Home"/>
+	       		<g:Button ui:field = "btnDipartimenti" text="Dipartimenti"/>
+	       		<g:Button ui:field = "btnContatti" text="Contatti"/>
+	      		<g:Button ui:field = "btnLogin" text="Login" />
+	    	</g:HorizontalPanel> 
+	    	
+	    	<div>
+	    		<br></br>
+				<form>
+					<h2>Accedi al portale</h2>
+				    <label for="emailInput">Email</label>
+				    <gwt:TextBox ui:field="txtEmail"></gwt:TextBox>
+			    	<label for="passwordInput">Password</label>
+			    	<gwt:PasswordTextBox ui:field="txtPassword"></gwt:PasswordTextBox>
+					<gwt:Button ui:field="btnLog" text="Login"></gwt:Button>
+				</form>
+			</div>
+	    	
+		</div>
+	</g:HTMLPanel>
+	
+</ui:UiBinder> 

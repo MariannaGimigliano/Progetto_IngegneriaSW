@@ -8,6 +8,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class Home extends Composite {
@@ -33,4 +34,21 @@ public class Home extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 	
+	@UiHandler("btnDipartimenti")
+	void doClickDip(ClickEvent event) {
+		RootPanel.get().clear();
+		RootPanel.get().add(new Dipartimenti());
+	}
+	
+	@UiHandler("btnContatti")
+	void doClickCont(ClickEvent event) {
+		RootPanel.get().clear();
+		RootPanel.get().add(new Contatti());
+	}
+	
+	@UiHandler("btnLogin")
+	void doClickLog(ClickEvent event) {
+		RootPanel.get().clear();
+		RootPanel.get().add(new Login());
+	}
 }
