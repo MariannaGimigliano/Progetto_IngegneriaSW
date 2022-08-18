@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 import org.mapdb.BTreeMap;
 import org.mapdb.DB;
 import org.mapdb.DBMaker;
+
 import com.uniwebsite.shared.*;
 
 public class utentiDB {
@@ -26,7 +27,7 @@ public class utentiDB {
 	private static boolean trovaUtente(String email) {
 		boolean trovato = false;
 		DB db = getDB();
-		BTreeMap<String,Utente> utenti = db.getTreeMap("UtentiMap");
+		BTreeMap<String,Utente> utenti = db.getTreeMap("Utenti");
 		
 		for(Entry<String,Utente> utente : utenti.entrySet()) {
 			if(utente.getValue().getEmail().equals(email)) {
@@ -34,9 +35,10 @@ public class utentiDB {
 			}
 		} return trovato;
 	}
+	
 	public static Utente login(String email, String password) throws IllegalArgumentException{
 		DB db = getDB();
-		BTreeMap<String,Utente> utenti = db.getTreeMap("UtentiMap");
+		BTreeMap<String,Utente> utenti = db.getTreeMap("Utenti");
 		
 		if(trovaUtente(email)) {
 			Utente utente = utenti.get(email);
@@ -71,8 +73,14 @@ public class utentiDB {
 	}
 
 	public static String getInfoUtente(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		DB db = getDB();
+		BTreeMap<String, Utente> utenti = db.getTreeMap("Utenti");
+
+		Studente user = (Studente) utenti.get(email);
+
+		String info = "Email :" + user.getEmail() + "\nPassword : " + user.getPassword() + "\nMatricola : " + 
+				user.getMatricola() + "\nNome : " + user.getNome() + "\nCognome : " + user.getCognome();
+		return info;
 	}
 
 	public static String eliminaUtente(String email) {
@@ -85,9 +93,13 @@ public class utentiDB {
 		return null;
 	}
 
+	/* metodo che data l'email trova un utente specifico */
 	public static Utente getUtente(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		DB db = getDB();
+		BTreeMap<String, Utente> utenti = db.getTreeMap("Utenti");
+
+		Utente user = utenti.get(email);
+		return user;
 	}
 
 	public static ArrayList<Studente> getStudenti() {
@@ -100,8 +112,15 @@ public class utentiDB {
 		return null;
 	}
 
+	/* metodo che ritorna la lista di tutti gli utenti nel sistema */
 	public static ArrayList<Utente> getUtenti() {
-		// TODO Auto-generated method stub
-		return null;
+		DB db = getDB();
+		BTreeMap<String, Utente> utenti = db.getTreeMap("Utenti");
+		
+		ArrayList<Utente> listaUtenti = new ArrayList<Utente>();
+		for(Entry<String,Utente> test : utenti.entrySet()) {
+			listaUtenti.add(test.getValue());
+		}
+		return listaUtenti;
 	}
 }
