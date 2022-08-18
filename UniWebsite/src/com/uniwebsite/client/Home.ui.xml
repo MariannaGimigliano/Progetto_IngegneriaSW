@@ -14,7 +14,7 @@
 		
 			<img id="logo" src="logo.jpeg" height="150px"/>
 	    
-	    	<g:HorizontalPanel id="navbar">
+	    	<g:HorizontalPanel>
 	    		<g:Button ui:field = "btnHome" text="Home"/>
 	       		<g:Button ui:field = "btnDipartimenti" text="Dipartimenti"/>
 	       		<g:Button ui:field = "btnContatti" text="Contatti"/>

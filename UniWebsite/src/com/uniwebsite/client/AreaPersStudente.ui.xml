@@ -1,0 +1,60 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:gwt = 'urn:import:com.google.gwt.user.client.ui'
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<ui:style>
+			
+		#content {
+			margin: 30px;
+		}
+	
+	</ui:style>
+
+	<g:HTMLPanel>
+		<div id="content">
+		
+			<img id="logo" src="logo.jpeg" height="150px"/>
+	    
+	    	<g:HorizontalPanel>
+	    		<g:Button ui:field = "btnHome" text="Home"/>
+	       		<g:Button ui:field = "btnCorsi" text="Corsi"/>
+	       		<g:Button ui:field = "btnEsami" text="Esami"/>
+	      		<g:Button ui:field = "btnVoti" text="Voti"/>
+	      		<g:Button ui:field = "btnPers" text="Area Personale"/>
+	      		<g:Button ui:field = "btnLogout" text="Logout"/>
+	    	</g:HorizontalPanel> 
+	    	
+	    	<div>
+				<h2>I tuoi dati personali</h2>
+				<div>
+					<p>
+			    		<label><b>Matricola: </b></label>
+			    		<gwt:Label ui:field="lblMatricola" ></gwt:Label>
+			    	</p>
+			    	<p>
+			    		<label><b>Nome: </b></label>
+			    		<gwt:Label ui:field="lblNome" ></gwt:Label>
+			    	</p>
+			    	<p>
+			    		<label><b>Cognome: </b></label>
+			    		<gwt:Label ui:field="lblCognome" ></gwt:Label>
+			    	</p>
+			    	<p>
+			    		<label><b>Mail: </b></label>
+			    		<gwt:Label ui:field="lblMail" ></gwt:Label>
+			    	</p>
+			    	<p>
+			    		<label><b>Corsi: </b></label>
+			    		<gwt:Label ui:field="lblCorsi" ></gwt:Label>
+			    	</p>
+			    	<p>
+			    		<label><b>Esami: </b></label>
+			    		<gwt:Label ui:field="lblEsami" ></gwt:Label>
+			    	</p>
+			    </div>
+	    	</div>
+	    	
+		</div>
+	</g:HTMLPanel>
+
+</ui:UiBinder> 

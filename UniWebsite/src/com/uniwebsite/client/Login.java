@@ -91,5 +91,7 @@ public class Login extends Composite {
 
 			}
 		});*/
+		RootPanel.get().clear();
+		RootPanel.get().add(new HomeStudente());
 	}
 }

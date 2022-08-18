@@ -7,36 +7,20 @@ public class Corso implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private int idCorso; 
-	private String emailDocente;
 	private String nomeCorso;
 	private String descrizione;
+	private String dataInizio;
+	private String dataFine;
 	private ArrayList<String> listaStudenti; 
 	
 	public Corso() {}
 
-	public Corso(int idCorso, String emailDocente, String nomeCorso, String descrizione) {
-		this.idCorso = idCorso;
-		this.emailDocente = emailDocente;
+	public Corso(String nomeCorso, String descrizione, String dataInizio, String dataFine) {
 		this.nomeCorso = nomeCorso;
 		this.descrizione = descrizione;
+		this.dataInizio = dataInizio;
+		this.dataFine = dataFine;
 		listaStudenti = new ArrayList<>();
-	}
-
-	public int getIdCorso() {
-		return idCorso;
-	}
-
-	public void setIdCorso(int idCorso) {
-		this.idCorso = idCorso;
-	}
-
-	public String getEmailDocente() {
-		return emailDocente;
-	}
-
-	public void setEmailDocente(String emailDocente) {
-		this.emailDocente = emailDocente;
 	}
 
 	public String getNomeCorso() {
@@ -53,6 +37,22 @@ public class Corso implements Serializable {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+
+	public String getDataInizio() {
+		return dataInizio;
+	}
+
+	public void setDataInizio(String dataInizio) {
+		this.dataInizio = dataInizio;
+	}
+
+	public String getDataFine() {
+		return dataFine;
+	}
+
+	public void setDataFine(String dataFine) {
+		this.dataFine = dataFine;
 	}
 
 	public ArrayList<String> getListaStudenti() {

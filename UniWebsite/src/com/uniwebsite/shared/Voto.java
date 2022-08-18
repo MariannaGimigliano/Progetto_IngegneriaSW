@@ -8,15 +8,15 @@ private static final long serialVersionUID = 1L;
 
 	private Integer idVoto;
 	private String esame;
-	private String matricola;
+	private String email;
 	private String voto;
 		
 	public Voto() {}
 
-	public Voto(Integer idVoto, String esame, String matricola, String voto) {
+	public Voto(Integer idVoto, String esame, String email, String voto) {
 		this.idVoto = idVoto;
 		this.esame = esame;
-		this.matricola = matricola;
+		this.email = email;
 		this.voto = voto;
 	}
 
@@ -36,12 +36,12 @@ private static final long serialVersionUID = 1L;
 		this.esame = esame;
 	}
 
-	public String getMatricola() {
-		return matricola;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setMatricola(String matricola) {
-		this.matricola = matricola;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getVoto() {
