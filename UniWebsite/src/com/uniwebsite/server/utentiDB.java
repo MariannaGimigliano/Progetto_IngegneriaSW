@@ -73,14 +73,7 @@ public class utentiDB {
 	}
 
 	public static String getInfoUtente(String email) {
-		DB db = getDB();
-		BTreeMap<String, Utente> utenti = db.getTreeMap("Utenti");
-
-		Studente user = (Studente) utenti.get(email);
-
-		String info = "Email :" + user.getEmail() + "\nPassword : " + user.getPassword() + "\nMatricola : " + 
-				user.getMatricola() + "\nNome : " + user.getNome() + "\nCognome : " + user.getCognome();
-		return info;
+		return null;
 	}
 
 	public static String eliminaUtente(String email) {
@@ -93,12 +86,15 @@ public class utentiDB {
 		return null;
 	}
 
-	/* metodo che data l'email trova un utente specifico */
-	public static Utente getUtente(String email) {
+	/* metodo che data l'email trova uno studente specifico */
+	public static Studente getStudente(String email) {
 		DB db = getDB();
 		BTreeMap<String, Utente> utenti = db.getTreeMap("Utenti");
-
-		Utente user = utenti.get(email);
+		
+		utenti.put("ciao", new Studente("marianna@unibo.it", "mari00", "mari", "gimi", "00000"));
+		db.commit();
+		
+		Studente user = (Studente) utenti.get(email);
 		return user;
 	}
 

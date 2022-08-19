@@ -55,8 +55,8 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}
 
 	@Override
-	public Utente getUtente(String email) throws IllegalArgumentException {
-		return utentiDB.getUtente(email);
+	public Studente getStudente(String email) throws IllegalArgumentException { //
+		return utentiDB.getStudente(email);
 	}
 
 	@Override
@@ -102,7 +102,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}
 
 	@Override
-	public ArrayList<Integer> getCorsiStudente(String email) throws IllegalArgumentException {
+	public ArrayList<Corso> getCorsiStudente(String email) throws IllegalArgumentException { //
 		return corsiDB.getCorsiStudente(email);
 	}	
 	
@@ -112,7 +112,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}
 
 	@Override
-	public ArrayList<Corso> getCorsi() throws IllegalArgumentException {
+	public ArrayList<Corso> getCorsi() throws IllegalArgumentException { 
 		return corsiDB.getCorsi();
 	}
 

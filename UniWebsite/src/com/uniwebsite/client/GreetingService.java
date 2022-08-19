@@ -26,7 +26,7 @@ public interface GreetingService extends RemoteService {
 
 	String getInfoUtente(String email) throws IllegalArgumentException;
 
-	Utente getUtente(String email) throws IllegalArgumentException;
+	Studente getStudente(String email) throws IllegalArgumentException; //
 
 	ArrayList<Studente> getStudenti() throws IllegalArgumentException;
 
@@ -46,11 +46,11 @@ public interface GreetingService extends RemoteService {
 
 	String iscrizioneCorso(String email, int idCorso) throws IllegalArgumentException;
 
-	ArrayList<Integer> getCorsiStudente(String email) throws IllegalArgumentException;
+	ArrayList<Corso> getCorsiStudente(String email) throws IllegalArgumentException; 
 	
 	String eliminaCorso(String nomeCorso) throws IllegalArgumentException;
 
-	ArrayList<Corso> getCorsi() throws IllegalArgumentException;
+	ArrayList<Corso> getCorsi() throws IllegalArgumentException; //
 
 
 	// METODI PER GESIRE GLI ESAMI

@@ -12,6 +12,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.uniwebsite.shared.Studente;
 import com.uniwebsite.shared.Utente;
 
 
@@ -60,7 +61,7 @@ public class AreaPersStudente extends Composite {
 	
 	public AreaPersStudente() {
 		initWidget(uiBinder.createAndBindUi(this));
-		getUtente();
+		getStudente();
 	}
 	
 	@UiHandler("btnHome")
@@ -93,16 +94,18 @@ public class AreaPersStudente extends Composite {
 		RootPanel.get().add(new Home());
 	}
 	
-	/* Mostra i dati dell'utente */
-	public void getUtente() {
+	/* Mostra i dati dello studente */
+	public void getStudente() {
 		try {
 			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 
-			greetingService.getUtente("ciao", new AsyncCallback<Utente>() {
-				public void onFailure(Throwable caught) {}
+			greetingService.getStudente("ciao", new AsyncCallback<Studente>() {
+				public void onFailure(Throwable caught) {
+					lblMatricola.setText("errore");
+				}
 				@Override
-				public void onSuccess(Utente user) {
-					lblMatricola.setText(user.getNome());
+				public void onSuccess(Studente user) {
+					lblMatricola.setText(user.getMatricola());
 					lblNome.setText(user.getNome());
 					lblCognome.setText(user.getCognome());
 					lblMail.setText(user.getEmail());

@@ -1,20 +1,32 @@
 package com.uniwebsite.client;
 
+import java.util.ArrayList;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
+import com.google.gwt.user.cellview.client.CellTable;
+import com.google.gwt.user.cellview.client.TextColumn;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.uniwebsite.client.*;
+import com.uniwebsite.server.*;
+import com.uniwebsite.shared.*;
+
 
 public class CorsiStudente extends Composite {
 
 	private static CorsiStudenteUiBinder uiBinder = GWT.create(CorsiStudenteUiBinder.class);
-
+	private static ArrayList<Corso> corsi = new ArrayList<Corso>();
+	
 	@UiTemplate("CorsiStudente.ui.xml")
 	interface CorsiStudenteUiBinder extends UiBinder<Widget, CorsiStudente> {}
 
@@ -39,8 +51,15 @@ public class CorsiStudente extends Composite {
 	@UiField
 	Button btnIscriviti;
 	
+	@UiField
+	CellTable<Corso> cellTable;
+	
+	@UiField
+	ListBox listaCorsi;
+
 	public CorsiStudente() {
 		initWidget(uiBinder.createAndBindUi(this));
+		getCorsi();
 	}
 
 	@UiHandler("btnHome")
@@ -76,5 +95,53 @@ public class CorsiStudente extends Composite {
 	@UiHandler("btnIscriviti")
 	void doClickIscr(ClickEvent event) {
 
+	}
+
+	/* Ritorna tutti i corsi disponibili per l'utente e riempie la tabella */
+	public void getCorsi() {
+		corsi.clear();
+		try {
+			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+
+			greetingService.getCorsi(new AsyncCallback<ArrayList<Corso>>() {
+				public void onFailure(Throwable caught) {}
+				@Override
+				public void onSuccess(ArrayList<Corso> allCorsi) {
+					for(int i=0;i<allCorsi.size();i++) {
+						corsi.add(allCorsi.get(i));
+						listaCorsi.addItem(corsi.get(i).getNomeCorso());
+					}
+					TextColumn<Corso> colCorso = new TextColumn<Corso>() {
+						@Override
+						public String getValue(Corso obj) {
+							return obj.getNomeCorso();
+						}
+					}; cellTable.addColumn(colCorso, "Corso");
+
+					TextColumn<Corso> colDescrizione = new TextColumn<Corso>() {
+						public String getValue(Corso obj) {
+							return obj.getDescrizione();
+						}
+					}; cellTable.addColumn(colDescrizione, "Descrizione");
+
+					TextColumn<Corso> colInizio = new TextColumn<Corso>() {
+						@Override
+						public String getValue(Corso obj) {
+							return obj.getDataInizio();
+						}
+					}; cellTable.addColumn(colInizio, "Data Inizio");
+
+					TextColumn<Corso> colFine = new TextColumn<Corso>() {
+						@Override
+						public String getValue(Corso obj) {
+							return obj.getDataFine();
+						}
+					}; cellTable.addColumn(colFine, "Data Fine");
+
+					cellTable.setRowCount(corsi.size(), true);
+					cellTable.setRowData(0, corsi);
+				}
+			});
+		} catch(Error e){};
 	}
 }
