@@ -27,9 +27,9 @@
 				<form>
 					<h2>Accedi al portale</h2>
 				    <label for="emailInput">Email</label>
-				    <gwt:TextBox ui:field="txtEmail"></gwt:TextBox>
+				    <gwt:TextBox ui:field="emailInput"></gwt:TextBox>
 			    	<label for="passwordInput">Password</label>
-			    	<gwt:PasswordTextBox ui:field="txtPassword"></gwt:PasswordTextBox>
+			    	<gwt:PasswordTextBox ui:field="passwordInput"></gwt:PasswordTextBox>
 					<gwt:Button ui:field="btnLog" text="Login"></gwt:Button>
 				</form>
 			</div>

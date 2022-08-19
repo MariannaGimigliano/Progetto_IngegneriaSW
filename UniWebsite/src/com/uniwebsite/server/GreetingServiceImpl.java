@@ -45,7 +45,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}
 
 	@Override
-	public Utente login(String username, String password) throws IllegalArgumentException {
+	public Utente login(String username, String password) throws IllegalArgumentException { //
 		return utentiDB.login(username, password);
 	}
 
@@ -97,13 +97,13 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}
 
 	@Override
-	public String iscrizioneCorso(String email, int idCorso) throws IllegalArgumentException {
-		return corsiDB.iscrizioneCorso(email, idCorso);
+	public String iscrizioneCorso(String email, String corso) throws IllegalArgumentException { //
+		return iscrizioneCorsoDB.iscrizioneCorso(email, corso);
 	}
 
 	@Override
-	public ArrayList<Corso> getCorsiStudente(String email) throws IllegalArgumentException { //
-		return corsiDB.getCorsiStudente(email);
+	public ArrayList<String> getCorsiStudente(String email) throws IllegalArgumentException { //
+		return iscrizioneCorsoDB.getCorsiStudente(email);
 	}	
 	
 	@Override
@@ -112,7 +112,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}
 
 	@Override
-	public ArrayList<Corso> getCorsi() throws IllegalArgumentException { 
+	public ArrayList<Corso> getCorsi() throws IllegalArgumentException { //
 		return corsiDB.getCorsi();
 	}
 
@@ -139,12 +139,12 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}
 
 	@Override
-	public ArrayList<Esame> getEsami() throws IllegalArgumentException {
+	public ArrayList<Esame> getEsami() throws IllegalArgumentException { //
 		return esamiDB.getEsami();
 	}
 
 	@Override
-	public ArrayList<Integer> getEsamiStudente(String email) throws IllegalArgumentException {
+	public ArrayList<Esame> getEsamiStudente(String email) throws IllegalArgumentException { 
 		return esamiDB.getEsamiStudente(email);
 	}
 
@@ -166,8 +166,8 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}
 
 	@Override
-	public ArrayList<Voto> getVotiStudente(String matricola) throws IllegalArgumentException {
-		return votiDB.getVotiStudente(matricola);
+	public ArrayList<Voto> getVotiStudente(String email) throws IllegalArgumentException { //
+		return votiDB.getVotiStudente(email);
 	}
 
 	@Override

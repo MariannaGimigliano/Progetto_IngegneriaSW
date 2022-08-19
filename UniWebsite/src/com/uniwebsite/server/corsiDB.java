@@ -17,35 +17,17 @@ public class corsiDB {
 		DB db = DBMaker.newFileDB(new File("corsiDB")).make();
 		return db;
 	}
-	
-	/* metodo che data l'email di uno studente trova i corsi a cui è iscritto */
-	public static ArrayList<Corso> getCorsiStudente(String email) {
-		DB db = getDB();
-		BTreeMap<String, Corso> corsi = db.getTreeMap("Corsi");
-		
-		
-		
-		ArrayList<Corso> corsiOutput = new ArrayList<Corso>();
-
-		for(Entry<String, Corso> test : corsi.entrySet()) {
-			//if(test.getValue().get())) {
-				corsiOutput.add(test.getValue());
-			//}
-		}
-		return corsiOutput;
-	}
 
 	/* metodo che ritorna tutti i corsi presenti nel db */
 	public static ArrayList<Corso> getCorsi() {
 		DB db = getDB();
 		BTreeMap<String, Corso> corsi = db.getTreeMap("Corsi");
 		
-		corsi.put("analisi", new Corso("analisi", "sss", "12/06", "13/07"));
-		corsi.put("albebra", new Corso("algebra", "sss", "12/06", "13/07"));
+		corsi.put("analisi", new Corso("analisi", "ciao", "sss", "12/06", "13/07"));
+		corsi.put("albebra", new Corso("algebra", "ciao", "sss", "12/06", "13/07"));
 		db.commit();
 		
 		ArrayList<Corso> corsiOutput = new ArrayList<Corso>();
-		
 		for(Entry<String, Corso> test : corsi.entrySet()) {
 			corsiOutput.add(test.getValue());
 		}

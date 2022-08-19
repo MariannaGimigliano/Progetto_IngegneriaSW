@@ -36,6 +36,7 @@ public class utentiDB {
 		} return trovato;
 	}
 	
+	/* metodo per login */
 	public static Utente login(String email, String password) throws IllegalArgumentException{
 		DB db = getDB();
 		BTreeMap<String,Utente> utenti = db.getTreeMap("Utenti");
@@ -91,7 +92,8 @@ public class utentiDB {
 		DB db = getDB();
 		BTreeMap<String, Utente> utenti = db.getTreeMap("Utenti");
 		
-		utenti.put("ciao", new Studente("marianna@unibo.it", "mari00", "mari", "gimi", "00000"));
+		utenti.put("mari", new Studente("mari", "mari00", "mari", "gimi", "00000"));
+		utenti.put("ciao", new Studente("ciao", "ciao00", "ciao", "ciao", "00000"));
 		db.commit();
 		
 		Studente user = (Studente) utenti.get(email);

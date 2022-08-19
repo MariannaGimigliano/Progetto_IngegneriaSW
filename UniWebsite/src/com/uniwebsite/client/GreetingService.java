@@ -22,7 +22,7 @@ public interface GreetingService extends RemoteService {
 
 	String registrazioneDocente(ArrayList<String> dati) throws IllegalArgumentException;
 
-	Utente login(String username, String password) throws IllegalArgumentException;
+	Utente login(String username, String password) throws IllegalArgumentException; //
 
 	String getInfoUtente(String email) throws IllegalArgumentException;
 
@@ -44,9 +44,9 @@ public interface GreetingService extends RemoteService {
 
 	String aggiornaCorso(ArrayList<String> corsoUpdate, String nomeCorso) throws IllegalArgumentException;
 
-	String iscrizioneCorso(String email, int idCorso) throws IllegalArgumentException;
+	String iscrizioneCorso(String email, String corso) throws IllegalArgumentException; //
 
-	ArrayList<Corso> getCorsiStudente(String email) throws IllegalArgumentException; 
+	ArrayList<String> getCorsiStudente(String email) throws IllegalArgumentException; //
 	
 	String eliminaCorso(String nomeCorso) throws IllegalArgumentException;
 
@@ -62,9 +62,9 @@ public interface GreetingService extends RemoteService {
 
 	ArrayList<Esame> getEsamiDocente(String email) throws IllegalArgumentException;
 
-	ArrayList<Esame> getEsami() throws IllegalArgumentException;
+	ArrayList<Esame> getEsami() throws IllegalArgumentException; //
 
-	ArrayList<Integer> getEsamiStudente(String email) throws IllegalArgumentException;
+	ArrayList<Esame> getEsamiStudente(String email) throws IllegalArgumentException; 
 
 	String eliminaEsame(int idCorso) throws IllegalArgumentException;
 
@@ -74,7 +74,7 @@ public interface GreetingService extends RemoteService {
 	// METODI PER GESTIRE I VOTI
 	String aggiuntaVoto(ArrayList<String> dati) throws IllegalArgumentException;
 
-	ArrayList<Voto> getVotiStudente(String matricola) throws IllegalArgumentException;
+	ArrayList<Voto> getVotiStudente(String email) throws IllegalArgumentException; //
 
 	ArrayList<Voto> getVoti() throws IllegalArgumentException;
 

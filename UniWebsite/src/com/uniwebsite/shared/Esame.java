@@ -13,7 +13,6 @@ public class Esame implements Serializable {
 	private String ora; 
 	private String durata;
 	private String aula;
-	private ArrayList<String> listaStudenti; 
 	
 	public Esame() {}
 
@@ -24,7 +23,6 @@ public class Esame implements Serializable {
 		this.ora = ora;
 		this.durata = durata;
 		this.aula = aula;
-		listaStudenti = new ArrayList<>();
 	}
 
 	public String getEsame() {
@@ -73,13 +71,5 @@ public class Esame implements Serializable {
 
 	public void setAula(String aula) {
 		this.aula = aula;
-	}
-
-	public ArrayList<String> getListaStudenti() {
-		return listaStudenti;
-	}
-
-	public void setListaStudenti(ArrayList<String> listaStudenti) {
-		this.listaStudenti = listaStudenti;
 	}
 }

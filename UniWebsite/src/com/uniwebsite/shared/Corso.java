@@ -1,26 +1,25 @@
 package com.uniwebsite.shared;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Corso implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	private String nomeCorso;
+	private String emailDocente;
 	private String descrizione;
 	private String dataInizio;
 	private String dataFine;
-	private ArrayList<String> listaStudenti; 
 	
 	public Corso() {}
 
-	public Corso(String nomeCorso, String descrizione, String dataInizio, String dataFine) {
+	public Corso(String nomeCorso, String emailDocente, String descrizione, String dataInizio, String dataFine) {
 		this.nomeCorso = nomeCorso;
+		this.emailDocente = emailDocente;
 		this.descrizione = descrizione;
 		this.dataInizio = dataInizio;
 		this.dataFine = dataFine;
-		listaStudenti = new ArrayList<>();
 	}
 
 	public String getNomeCorso() {
@@ -29,6 +28,14 @@ public class Corso implements Serializable {
 
 	public void setNomeCorso(String nomeCorso) {
 		this.nomeCorso = nomeCorso;
+	}
+
+	public String getEmailDocente() {
+		return emailDocente;
+	}
+
+	public void setEmailDocente(String emailDocente) {
+		this.emailDocente = emailDocente;
 	}
 
 	public String getDescrizione() {
@@ -53,13 +60,5 @@ public class Corso implements Serializable {
 
 	public void setDataFine(String dataFine) {
 		this.dataFine = dataFine;
-	}
-
-	public ArrayList<String> getListaStudenti() {
-		return listaStudenti;
-	}
-
-	public void setListaStudenti(ArrayList<String> listaStudenti) {
-		this.listaStudenti = listaStudenti;
 	}
 }

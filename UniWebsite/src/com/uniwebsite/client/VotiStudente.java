@@ -19,6 +19,7 @@ import com.uniwebsite.shared.Voto;
 
 public class VotiStudente extends Composite {
 
+	String logged = "";
 	private static VotiStudenteUiBinder uiBinder = GWT.create(VotiStudenteUiBinder.class);
 	private static  ArrayList<Voto> voti = new ArrayList<Voto>();
 	
@@ -46,33 +47,34 @@ public class VotiStudente extends Composite {
 	@UiField
 	CellTable<Voto> cellTable;
 	
-	public VotiStudente() {
+	public VotiStudente(String email) {
 		initWidget(uiBinder.createAndBindUi(this));
-		table();
+		logged = email;
+		getVoti();
 	}
 
 	@UiHandler("btnHome")
 	void doClickHome(ClickEvent event) {
 		RootPanel.get().clear();
-		RootPanel.get().add(new HomeStudente());
+		RootPanel.get().add(new HomeStudente(logged));
 	}
 	
 	@UiHandler("btnCorsi")
 	void doClickCorsi(ClickEvent event) {
 		RootPanel.get().clear();
-		RootPanel.get().add(new CorsiStudente());
+		RootPanel.get().add(new CorsiStudente(logged));
 	}
 	
 	@UiHandler("btnEsami")
 	void doClickEs(ClickEvent event) {
 		RootPanel.get().clear();
-		RootPanel.get().add(new EsamiStudente());
+		RootPanel.get().add(new EsamiStudente(logged));
 	}
 	
 	@UiHandler("btnPers")
 	void doClickPers(ClickEvent event) {
 		RootPanel.get().clear();
-		RootPanel.get().add(new AreaPersStudente());
+		RootPanel.get().add(new AreaPersStudente(logged));
 	}
 	
 	@UiHandler("btnLogout")
@@ -82,38 +84,36 @@ public class VotiStudente extends Composite {
 	}
 	
 	public void getVoti() {
+		voti.clear();
 		try {
 			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 
-			greetingService.getVotiStudente("ciao", new AsyncCallback<ArrayList<Voto>>() {
+			greetingService.getVotiStudente(logged, new AsyncCallback<ArrayList<Voto>>() {
 				public void onFailure(Throwable caught) {}
 				@Override
 				public void onSuccess(ArrayList<Voto> votiOutput) {
-					voti.clear();
 					for(int i=0;i<votiOutput.size();i++) {
 						voti.add(votiOutput.get(i));
 					}
+					
+					TextColumn<Voto> colEsame = new TextColumn<Voto>() {
+						@Override
+						public String getValue(Voto obj) {
+							return obj.getEsame();
+						}
+					}; cellTable.addColumn(colEsame, "Esame");
+
+					TextColumn<Voto> colVoto = new TextColumn<Voto>() {
+						@Override
+						public String getValue(Voto obj) {
+							return obj.getVoto();
+						}
+					}; cellTable.addColumn(colVoto, "Voto");
+
+					cellTable.setRowCount(voti.size(), true);
+					cellTable.setRowData(0, voti);
 				}		
 			});
 		}catch(Error e){};
-	}
-	
-	public void table() {
-		TextColumn<Voto> colEsame = new TextColumn<Voto>() {
-			@Override
-			public String getValue(Voto obj) {
-				return obj.getEsame();
-			}
-		}; cellTable.addColumn(colEsame, "Esame");
-
-		TextColumn<Voto> colVoto = new TextColumn<Voto>() {
-			@Override
-			public String getValue(Voto obj) {
-				return obj.getVoto();
-			}
-		}; cellTable.addColumn(colVoto, "Voto");
-
-		cellTable.setRowCount(voti.size(), true);
-		cellTable.setRowData(0, voti);
 	}
 }

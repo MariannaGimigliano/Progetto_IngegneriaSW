@@ -9,7 +9,9 @@ import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.uniwebsite.shared.*;
 
@@ -35,6 +37,12 @@ public class Login extends Composite {
 	@UiField
 	Button btnLog;
 	
+	@UiField
+	TextBox emailInput;
+
+	@UiField
+	PasswordTextBox passwordInput;
+	
 	public Login() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
@@ -59,39 +67,29 @@ public class Login extends Composite {
 	
 	@UiHandler("btnLog")
 	void doClickLog(ClickEvent event) {
-		/*final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
-		greetingService.login(txtMail.getText(), txtPassword.getText(), new AsyncCallback<Utente>() {
+		final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+		greetingService.login(emailInput.getText(), passwordInput.getText(), new AsyncCallback<Utente>() {
 
-			public void onFailure(Throwable c) {
-				RootPanel.get().clear();
-				RootPanel.get().add(new Login());
-			}
+			public void onFailure(Throwable c) {}
 
 			@Override
 			public void onSuccess(Utente user) {
-				Account.email = txtMail.getText();
-
-				RootPanel.get("container").clear();
+				RootPanel.get().clear();
 				if(user instanceof Studente) {
-					Account.matricola=((Studente) user).getMatricola();
-					RootPanel.get("container").add(new HomePageUtente());
+					RootPanel.get().add(new HomeStudente(user.getEmail()));
 
-				}else if(user instanceof Docente) {
+				}/*else if(user instanceof Docente) {
 					RootPanel.get("container").add(new HomePageDocente());
 				}else if(user instanceof Amministratore) {
 					RootPanel.get("container").add(new HomePageAdmin());
 				}else if(user instanceof Segreteria) {
 					RootPanel.get("container").add(new HomePageSegreteria(listaStudenti));
-				}
+				}*/
 
 				else {
-					RootPanel.get("container").add(new HomePage());
+					RootPanel.get().add(new Home()); //mettere alert errore
 				}
-
-
 			}
-		});*/
-		RootPanel.get().clear();
-		RootPanel.get().add(new HomeStudente());
+		});
 	}
 }

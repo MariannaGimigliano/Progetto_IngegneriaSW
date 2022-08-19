@@ -53,6 +53,9 @@ public class votiDB {
 		DB db = getDB();
 		BTreeMap<Integer, Voto> voti = db.getTreeMap("Voti");
 		
+		voti.put(1, new Voto(1, "analisi", "mari", "30"));
+		db.commit();
+		
 		ArrayList<Voto> votiOutput = new ArrayList<Voto>();
 		for(Entry<Integer, Voto> test : voti.entrySet()) {
 			if(email.equals(test.getValue().getEmail())) {

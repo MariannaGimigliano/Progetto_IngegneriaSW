@@ -10,20 +10,18 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.TextColumn;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.uniwebsite.client.*;
-import com.uniwebsite.server.*;
 import com.uniwebsite.shared.*;
 
 
 public class CorsiStudente extends Composite {
 
+	String logged = "";
 	private static CorsiStudenteUiBinder uiBinder = GWT.create(CorsiStudenteUiBinder.class);
 	private static ArrayList<Corso> corsi = new ArrayList<Corso>();
 	
@@ -57,33 +55,34 @@ public class CorsiStudente extends Composite {
 	@UiField
 	ListBox listaCorsi;
 
-	public CorsiStudente() {
+	public CorsiStudente(String email) {
 		initWidget(uiBinder.createAndBindUi(this));
+		logged = email;
 		getCorsi();
 	}
 
 	@UiHandler("btnHome")
 	void doClickHome(ClickEvent event) {
 		RootPanel.get().clear();
-		RootPanel.get().add(new HomeStudente());
+		RootPanel.get().add(new HomeStudente(logged));
 	}
 	
 	@UiHandler("btnEsami")
 	void doClickEs(ClickEvent event) {
 		RootPanel.get().clear();
-		RootPanel.get().add(new EsamiStudente());
+		RootPanel.get().add(new EsamiStudente(logged));
 	}
 	
 	@UiHandler("btnVoti")
 	void doClickVoti(ClickEvent event) {
 		RootPanel.get().clear();
-		RootPanel.get().add(new VotiStudente());
+		RootPanel.get().add(new VotiStudente(logged));
 	}
 	
 	@UiHandler("btnPers")
 	void doClickPers(ClickEvent event) {
 		RootPanel.get().clear();
-		RootPanel.get().add(new AreaPersStudente());
+		RootPanel.get().add(new AreaPersStudente(logged));
 	}
 	
 	@UiHandler("btnLogout")
@@ -94,7 +93,25 @@ public class CorsiStudente extends Composite {
 	
 	@UiHandler("btnIscriviti")
 	void doClickIscr(ClickEvent event) {
+		final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+		String nomeCorso = listaCorsi.getSelectedValue();
+		
+		greetingService.iscrizioneCorso(logged, nomeCorso, new AsyncCallback<String>() {
+			public void onFailure(Throwable caught) {}
+			@Override
+			public void onSuccess(String result) {
+				if(result=="iscritto") {
+					//Alert nice = new Alert("Iscrizione al corso effettuata!");
+					//System.out.println(nice);
+				}else {
+					//Alert e = new Alert("Sei gia iscritto a questo corso!");
+					//System.out.println(e);
+				}
+			}
 
+		});
+		RootPanel.get().clear();
+		RootPanel.get().add(new CorsiStudente(logged));
 	}
 
 	/* Ritorna tutti i corsi disponibili per l'utente e riempie la tabella */
@@ -111,12 +128,20 @@ public class CorsiStudente extends Composite {
 						corsi.add(allCorsi.get(i));
 						listaCorsi.addItem(corsi.get(i).getNomeCorso());
 					}
+					
 					TextColumn<Corso> colCorso = new TextColumn<Corso>() {
 						@Override
 						public String getValue(Corso obj) {
 							return obj.getNomeCorso();
 						}
 					}; cellTable.addColumn(colCorso, "Corso");
+					
+					TextColumn<Corso> colDocente = new TextColumn<Corso>() {
+						@Override
+						public String getValue(Corso obj) {
+							return obj.getEmailDocente();
+						}
+					}; cellTable.addColumn(colDocente, "Docente");
 
 					TextColumn<Corso> colDescrizione = new TextColumn<Corso>() {
 						public String getValue(Corso obj) {

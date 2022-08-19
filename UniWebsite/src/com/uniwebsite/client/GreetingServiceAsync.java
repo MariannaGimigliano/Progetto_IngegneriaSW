@@ -26,7 +26,7 @@ public interface GreetingServiceAsync {
 	
 	void registrazioneDocente(ArrayList<String> dati, AsyncCallback<String> callback) throws IllegalArgumentException;
 	
-	void login(String username, String password, AsyncCallback<Utente> callback) throws IllegalArgumentException;
+	void login(String username, String password, AsyncCallback<Utente> callback) throws IllegalArgumentException; //
 	
 	void getInfoUtente(String email, AsyncCallback<String> callback) throws IllegalArgumentException;
 	
@@ -48,9 +48,9 @@ public interface GreetingServiceAsync {
 	
 	void aggiornaCorso(ArrayList<String> corsoUpdate, String nomeCorso, AsyncCallback<String> callback) throws IllegalArgumentException;
 	
-	void iscrizioneCorso(String email, int idCorso, AsyncCallback<String> callback) throws IllegalArgumentException;
+	void iscrizioneCorso(String email, String corso, AsyncCallback<String> callback) throws IllegalArgumentException; //
 	
-	void getCorsiStudente(String email, AsyncCallback<ArrayList<Corso>> callback) throws IllegalArgumentException; 
+	void getCorsiStudente(String email, AsyncCallback<ArrayList<String>> callback) throws IllegalArgumentException; //
 	
 	void eliminaCorso(String nomeCorso, AsyncCallback<String> callback) throws IllegalArgumentException;
 	
@@ -66,9 +66,9 @@ public interface GreetingServiceAsync {
 	
 	void getEsamiDocente(String email, AsyncCallback<ArrayList<Esame>> callback) throws IllegalArgumentException;
 	
-	void getEsami(AsyncCallback<ArrayList<Esame>> callback) throws IllegalArgumentException;
+	void getEsami(AsyncCallback<ArrayList<Esame>> callback) throws IllegalArgumentException; //
 	
-	void getEsamiStudente(String email, AsyncCallback<ArrayList<Integer>> callback) throws IllegalArgumentException;
+	void getEsamiStudente(String email, AsyncCallback<ArrayList<Esame>> callback) throws IllegalArgumentException; 
 	
 	void eliminaEsame(int idCorso, AsyncCallback<String> callback) throws IllegalArgumentException;
 	
@@ -78,7 +78,7 @@ public interface GreetingServiceAsync {
 	// METODI PER GESTIRE I VOTI
 	void aggiuntaVoto(ArrayList<String> dati, AsyncCallback<String> callback) throws IllegalArgumentException;
 	
-	void getVotiStudente(String matricola, AsyncCallback<ArrayList<Voto>> callback) throws IllegalArgumentException;
+	void getVotiStudente(String email, AsyncCallback<ArrayList<Voto>> callback) throws IllegalArgumentException; //
 	
 	void getVoti(AsyncCallback<ArrayList<Voto>> callback) throws IllegalArgumentException;
 	

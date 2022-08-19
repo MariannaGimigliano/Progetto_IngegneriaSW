@@ -27,6 +27,7 @@
 	    	
 	    	<div>
 				<h2>Elenco degli esami disponibili</h2>
+				<p>Sono disponibili solo gli esami dei corsi a cui sei iscritto.</p>
 				<c:CellTable ui:field='cellTable'></c:CellTable>
 				
 			    <br></br>
