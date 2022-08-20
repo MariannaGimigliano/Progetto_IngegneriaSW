@@ -65,6 +65,7 @@ public class AreaPersStudente extends Composite {
 		logged = email;
 		getStudente();
 		getCorsoStudente();
+		getEsameStudente();
 	}
 	
 	@UiHandler("btnHome")
@@ -123,7 +124,9 @@ public class AreaPersStudente extends Composite {
 			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 
 			greetingService.getCorsiStudente(logged, new AsyncCallback<ArrayList<String>>() {
-				public void onFailure(Throwable caught) {}
+				public void onFailure(Throwable caught) {
+					lblCorsi.setText(caught.getMessage());
+				}
 				@Override
 				public void onSuccess(ArrayList<String> corsi) {
 					String test = "";
@@ -131,6 +134,27 @@ public class AreaPersStudente extends Composite {
 						test += corsi.get(i) + ", ";
 					}
 					lblCorsi.setText(test);
+				}
+			});
+		}catch(Error e){};
+	}
+	
+	/* Mostra gli esami a cui lo studente è iscritto */
+	public void getEsameStudente() {
+		try {
+			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+
+			greetingService.getEsamiStudente(logged, new AsyncCallback<ArrayList<String>>() {
+				public void onFailure(Throwable caught) {
+					lblEsami.setText("errore");
+				}
+				@Override
+				public void onSuccess(ArrayList<String> corsi) {
+					String test = "";
+					for(int i=0;i<corsi.size();i++) {
+						test += corsi.get(i) + ", ";
+					}
+					lblEsami.setText(test);
 				}
 			});
 		}catch(Error e){};

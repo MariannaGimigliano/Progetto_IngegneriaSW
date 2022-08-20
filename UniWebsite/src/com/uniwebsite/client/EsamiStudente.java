@@ -20,11 +20,12 @@ import com.uniwebsite.shared.*;
 
 public class EsamiStudente extends Composite {
 
-	//NON FUNZIONA VISUALIZZAZIONE ESAMI
+	//NON FUNZIONA VISUALIZZAZIONE ESAMI (perchè non funziona getCorsiStudente)
 	
 	String logged = "";
 	private static EsamiStudenteUiBinder uiBinder = GWT.create(EsamiStudenteUiBinder.class);
 	private static ArrayList<Esame> esamiStudente = new ArrayList<Esame>();
+	private static ArrayList<Esame> esami = new ArrayList<Esame>();
 	private static ArrayList<String> corsiStudente = new ArrayList<String>();
 
 	@UiTemplate("EsamiStudente.ui.xml")
@@ -120,7 +121,7 @@ public class EsamiStudente extends Composite {
 	
 	/* Metodo che ritorna tutti gli esami nel db */
 	public void getEsami() {
-		esamiStudente.clear();
+		esami.clear();
 		try {
 			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 
@@ -129,7 +130,7 @@ public class EsamiStudente extends Composite {
 				@Override
 				public void onSuccess(ArrayList<Esame> esami) {
 					for(int i=0;i<esami.size();i++) {
-						esamiStudente.add(esami.get(i));
+						esami.add(esami.get(i));
 					}
 				}
 			});
@@ -138,12 +139,12 @@ public class EsamiStudente extends Composite {
 	
 	/* Ritorna tutti gli esami disponibili per lo studente e riempie la tabella */
 	public void getEsamiStudente() {
-		getCorsiStudente();
-		getEsami();
+		esamiStudente.clear();
 		for(int i=0;i<corsiStudente.size();i++) { 
-			for(int j=0;j<esamiStudente.size();j++) { 
-				if(corsiStudente.get(i).equals(esamiStudente.get(j).getEsame())) {
-					listaEsami.addItem(esamiStudente.get(j).getEsame());
+			for(int j=0;j<esami.size();j++) { 
+				if(corsiStudente.get(i).equals(esami.get(j).getEsame())) {
+					listaEsami.addItem(esami.get(j).getEsame());
+					esamiStudente.add(esami.get(j));
 				}
 			}
 		}
@@ -155,12 +156,12 @@ public class EsamiStudente extends Composite {
 			}
 		}; cellTable.addColumn(colEsame, "Esame");
 		
-		TextColumn<Esame> colCorso = new TextColumn<Esame>() {
+		TextColumn<Esame> colDocente = new TextColumn<Esame>() {
 			@Override
 			public String getValue(Esame obj) {
-				return obj.getCorso();
+				return obj.getEmailDocente();
 			}
-		}; cellTable.addColumn(colCorso, "Corso");
+		}; cellTable.addColumn(colDocente, "Corso");
 		
 		TextColumn<Esame> colData = new TextColumn<Esame>() {
 			@Override

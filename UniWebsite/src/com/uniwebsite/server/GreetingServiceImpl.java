@@ -53,6 +53,12 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	public String getInfoUtente(String email) throws IllegalArgumentException {
 		return utentiDB.getInfoUtente(email);
 	}
+	
+	@Override
+	public Utente getUtente(String email) throws IllegalArgumentException { //
+		return utentiDB.getUtente(email);
+	}
+
 
 	@Override
 	public Studente getStudente(String email) throws IllegalArgumentException { //
@@ -87,18 +93,23 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 
 	// METODI PER GESTIRE I CORSI
 	@Override
-	public String creazioneCorso(ArrayList<String> dati) throws IllegalArgumentException {
+	public String creazioneCorso(ArrayList<String> dati) throws IllegalArgumentException { //
 		return corsiDB.creazioneCorso(dati);
 	}
 
 	@Override
-	public String aggiornaCorso(ArrayList<String> corsoUpdate, String nomeCorso) throws IllegalArgumentException {
-		return corsiDB.aggiornaCorso(dati);
+	public String aggiornaCorso(ArrayList<String> corsoUpdate, String nomeCorso) throws IllegalArgumentException { //
+		return corsiDB.aggiornaCorso(corsoUpdate, nomeCorso);
 	}
 
 	@Override
 	public String iscrizioneCorso(String email, String corso) throws IllegalArgumentException { //
 		return iscrizioneCorsoDB.iscrizioneCorso(email, corso);
+	}
+	
+	@Override
+	public ArrayList<Corso> getCorsiDocente(String email) throws IllegalArgumentException { //
+		return corsiDB.getCorsiDocente(email);
 	}
 
 	@Override
@@ -107,7 +118,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}	
 	
 	@Override
-	public String eliminaCorso(String nomeCorso) throws IllegalArgumentException {
+	public String eliminaCorso(String nomeCorso) throws IllegalArgumentException { //
 		return corsiDB.eliminaCorso(nomeCorso);
 	}
 
@@ -129,12 +140,12 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}
 
 	@Override
-	public String iscrizioneEsame(String email, int idCorso) throws IllegalArgumentException {
-		return esamiDB.iscrizioneEsame(email, idCorso);
+	public String iscrizioneEsame(String email, String esame) throws IllegalArgumentException { //
+		return iscrizioneEsameDB.iscrizioneEsame(email, esame);
 	}
 
 	@Override
-	public ArrayList<Esame> getEsamiDocente(String email) throws IllegalArgumentException {
+	public ArrayList<Esame> getEsamiDocente(String email) throws IllegalArgumentException { //
 		return esamiDB.getEsamiDocente(email);
 	}
 
@@ -144,8 +155,8 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}
 
 	@Override
-	public ArrayList<Esame> getEsamiStudente(String email) throws IllegalArgumentException { 
-		return esamiDB.getEsamiStudente(email);
+	public ArrayList<String> getEsamiStudente(String email) throws IllegalArgumentException {  //
+		return iscrizioneEsameDB.getEsamiStudente(email);
 	}
 
 	@Override

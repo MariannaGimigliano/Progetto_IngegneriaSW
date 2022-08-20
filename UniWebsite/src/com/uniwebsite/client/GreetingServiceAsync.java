@@ -30,6 +30,8 @@ public interface GreetingServiceAsync {
 	
 	void getInfoUtente(String email, AsyncCallback<String> callback) throws IllegalArgumentException;
 	
+	void getUtente(String email, AsyncCallback<Utente> callback) throws IllegalArgumentException; //
+	
 	void getStudente(String email, AsyncCallback<Studente> callback) throws IllegalArgumentException; //
 	
 	void getStudenti(AsyncCallback<ArrayList<Studente>> callback) throws IllegalArgumentException;
@@ -44,15 +46,17 @@ public interface GreetingServiceAsync {
 	
 	
 	// METODI PER GESTIRE I CORSI
-	void creazioneCorso(ArrayList<String> dati, AsyncCallback<String> callback) throws IllegalArgumentException;
+	void creazioneCorso(ArrayList<String> dati, AsyncCallback<String> callback) throws IllegalArgumentException; //
 	
-	void aggiornaCorso(ArrayList<String> corsoUpdate, String nomeCorso, AsyncCallback<String> callback) throws IllegalArgumentException;
+	void aggiornaCorso(ArrayList<String> corsoUpdate, String nomeCorso, AsyncCallback<String> callback) throws IllegalArgumentException; //
 	
 	void iscrizioneCorso(String email, String corso, AsyncCallback<String> callback) throws IllegalArgumentException; //
 	
+	void getCorsiDocente(String email, AsyncCallback<ArrayList<Corso>> callback) throws IllegalArgumentException; //
+
 	void getCorsiStudente(String email, AsyncCallback<ArrayList<String>> callback) throws IllegalArgumentException; //
 	
-	void eliminaCorso(String nomeCorso, AsyncCallback<String> callback) throws IllegalArgumentException;
+	void eliminaCorso(String nomeCorso, AsyncCallback<String> callback) throws IllegalArgumentException; //
 	
 	void getCorsi(AsyncCallback<ArrayList<Corso>> callback) throws IllegalArgumentException; //
 	
@@ -62,13 +66,13 @@ public interface GreetingServiceAsync {
 	
 	void aggiornaEsame(ArrayList<String> esameUpdate, int idCorso, AsyncCallback<String> callback) throws IllegalArgumentException;
 	
-	void iscrizioneEsame(String email, int idCorso, AsyncCallback<String> callback) throws IllegalArgumentException;
+	void iscrizioneEsame(String email, String esame, AsyncCallback<String> callback) throws IllegalArgumentException; //
 	
-	void getEsamiDocente(String email, AsyncCallback<ArrayList<Esame>> callback) throws IllegalArgumentException;
+	void getEsamiDocente(String email, AsyncCallback<ArrayList<Esame>> callback) throws IllegalArgumentException; //
 	
 	void getEsami(AsyncCallback<ArrayList<Esame>> callback) throws IllegalArgumentException; //
 	
-	void getEsamiStudente(String email, AsyncCallback<ArrayList<Esame>> callback) throws IllegalArgumentException; 
+	void getEsamiStudente(String email, AsyncCallback<ArrayList<String>> callback) throws IllegalArgumentException; //
 	
 	void eliminaEsame(int idCorso, AsyncCallback<String> callback) throws IllegalArgumentException;
 	

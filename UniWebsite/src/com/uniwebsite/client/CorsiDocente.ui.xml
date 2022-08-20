@@ -1,0 +1,60 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:gwt = 'urn:import:com.google.gwt.user.client.ui'
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	
+	<ui:style>
+			
+		#content {
+			margin: 30px;
+		}
+	
+	</ui:style>
+
+	<g:HTMLPanel>
+		<div id="content">
+		
+			<img id="logo" src="logo.jpeg" height="150px"/>
+	    
+	    	<g:HorizontalPanel>
+	    		<g:Button ui:field = "btnHome" text="Home"/>
+	       		<g:Button ui:field = "btnCorsi" text="Gestisci Corsi"/>
+	       		<g:Button ui:field = "btnEsami" text="Gestisci Esami"/>
+	      		<g:Button ui:field = "btnVoti" text="Gestisci Voti"/>
+	      		<g:Button ui:field = "btnPers" text="Area Personale"/>
+	      		<g:Button ui:field = "btnLogout" text="Logout"/>
+	    	</g:HorizontalPanel> 
+	    	
+	    	<div>
+	    		<h2>Crea un corso</h2>
+			    <div>
+					<label>Nome Corso</label><gwt:TextBox ui:field="txtCorso"></gwt:TextBox>
+				    <label>Descrizione</label><gwt:TextBox ui:field="txtDescr"></gwt:TextBox>
+				    <label>Data inizio</label><gwt:TextBox ui:field="txtInizio"></gwt:TextBox>
+					<label>Data fine</label><gwt:TextBox ui:field="txtFine"></gwt:TextBox>
+			  		<gwt:Button ui:field="btnCrea" text="Crea Corso"></gwt:Button>
+		    	</div>
+			  
+			    <br></br>
+				<h2>Modifica un corso</h2>
+				<p>Puoi modificare solo corsi da te creati!</p>
+			  	<div>
+					<label>Nome Corso</label><gwt:ListBox ui:field="listaCorsi"></gwt:ListBox>
+				    <label>Descrizione</label><gwt:TextBox ui:field="txtModDescr"></gwt:TextBox>
+				    <label>Data inizio</label><gwt:TextBox ui:field="txtModInizio"></gwt:TextBox>
+				    <label>Data fine</label><gwt:TextBox ui:field="txtModFine"></gwt:TextBox>
+			  		<gwt:Button ui:field="btnModifica" text="Modifica Corso"></gwt:Button>
+		    	</div>
+			  
+			  	<br></br>
+				<h2>Elimina un corso</h2>
+				<p>Puoi eliminare solo corsi da te creati!</p>
+			  	<div>
+					<label>Nome Corso</label><gwt:ListBox ui:field="listaCorsiElimina"></gwt:ListBox>
+			  		<gwt:Button ui:field="btnElimina" text="Elimina Corso"></gwt:Button>
+		    	</div>
+			</div>
+	    	
+		</div>
+	</g:HTMLPanel>
+	
+</ui:UiBinder> 

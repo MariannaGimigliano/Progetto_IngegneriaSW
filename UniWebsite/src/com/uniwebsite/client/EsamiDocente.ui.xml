@@ -1,0 +1,62 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:gwt = 'urn:import:com.google.gwt.user.client.ui'
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	
+	<ui:style>
+			
+		#content {
+			margin: 30px;
+		}
+	
+	</ui:style>
+
+	<g:HTMLPanel>
+		<div id="content">
+		
+			<img id="logo" src="logo.jpeg" height="150px"/>
+	    
+	    	<g:HorizontalPanel>
+	    		<g:Button ui:field = "btnHome" text="Home"/>
+	       		<g:Button ui:field = "btnCorsi" text="Gestisci Corsi"/>
+	       		<g:Button ui:field = "btnEsami" text="Gestisci Esami"/>
+	      		<g:Button ui:field = "btnVoti" text="Gestisci Voti"/>
+	      		<g:Button ui:field = "btnPers" text="Area Personale"/>
+	      		<g:Button ui:field = "btnLogout" text="Logout"/>
+	    	</g:HorizontalPanel> 
+	    	
+	    	<div>
+	    		<h2>Crea un'esame</h2>
+			    <div>
+					<label>Nome Esame</label><gwt:ListBox ui:field="txtEsame"></gwt:ListBox>
+				    <label>Data</label><gwt:TextBox ui:field="txtData"></gwt:TextBox>
+				    <label>Ora</label><gwt:TextBox ui:field="txtOra"></gwt:TextBox>
+					<label>Durata</label><gwt:TextBox ui:field="txtDurata"></gwt:TextBox>
+					<label>Aula</label><gwt:TextBox ui:field="txtAula"></gwt:TextBox>
+			  		<gwt:Button ui:field="btnCrea" text="Crea Esame"></gwt:Button>
+		    	</div>
+			  
+			    <br></br>
+				<h2>Modifica un'esame</h2>
+				<p>Puoi modificare solo esami da te creati!</p>
+			  	<div>
+					<label>Nome Esame</label><gwt:ListBox ui:field="listaEsami"></gwt:ListBox>
+				    <label>Data</label><gwt:TextBox ui:field="txtModData"></gwt:TextBox>
+				    <label>Ora</label><gwt:TextBox ui:field="txtModOra"></gwt:TextBox>
+				    <label>Durata</label><gwt:TextBox ui:field="txtModDurata"></gwt:TextBox>
+				    <label>Aula</label><gwt:TextBox ui:field="txtModAula"></gwt:TextBox>
+			  		<gwt:Button ui:field="btnModifica" text="Modifica Esame"></gwt:Button>
+		    	</div>
+			  
+			  	<br></br>
+				<h2>Elimina un'esame</h2>
+				<p>Puoi eliminare solo esami da te creati!</p>
+			  	<div>
+					<label>Nome Esame</label><gwt:ListBox ui:field="listaEsamiElimina"></gwt:ListBox>
+			  		<gwt:Button ui:field="btnElimina" text="Elimina Esame"></gwt:Button>
+		    	</div>
+			</div>
+	    	
+		</div>
+	</g:HTMLPanel>
+
+</ui:UiBinder> 

@@ -8,6 +8,7 @@ import org.mapdb.BTreeMap;
 import org.mapdb.DB;
 import org.mapdb.DBMaker;
 
+import com.uniwebsite.shared.Corso;
 import com.uniwebsite.shared.IscrizioneCorso;
 
 public class iscrizioneCorsoDB {
@@ -21,7 +22,7 @@ public class iscrizioneCorsoDB {
 	/* Metodo per ottenere tutti i corsi a cui uno studente è iscritto 
 	 * (ritona un arraylist di nomi di corsi)
 	 */
-	public static ArrayList<String> getCorsiStudente(String email){
+	public static ArrayList<String> getCorsiStudente(String email){       	//NON FUNZIONA !!!??????
 		DB db = getDB();
 		BTreeMap<String, IscrizioneCorso> iscrizioni = db.getTreeMap("IscrizioniCorso");
 		
@@ -53,11 +54,11 @@ public class iscrizioneCorsoDB {
 			iscrizioni.put(iscrizione.getCorso(), iscrizione);
 			db.commit();
 			db.close();
-			return "già presente";
+			return "iscritto";
 		} else {
 			db.commit();
 			db.close();		
-			return "iscritto";
+			return "già presente";
 		}
 	}
 }

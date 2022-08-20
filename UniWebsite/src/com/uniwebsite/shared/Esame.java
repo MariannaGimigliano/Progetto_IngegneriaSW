@@ -1,14 +1,13 @@
 package com.uniwebsite.shared;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Esame implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	private String esame;
-	private String corso; 
+	private String emailDocente; 
 	private String data; 
 	private String ora; 
 	private String durata;
@@ -16,9 +15,9 @@ public class Esame implements Serializable {
 	
 	public Esame() {}
 
-	public Esame(String esame, String corso, String data, String ora, String durata, String aula) {
+	public Esame(String esame, String emailDocente, String data, String ora, String durata, String aula) {
 		this.esame = esame;
-		this.corso = corso;
+		this.emailDocente = emailDocente;
 		this.data = data;
 		this.ora = ora;
 		this.durata = durata;
@@ -33,12 +32,12 @@ public class Esame implements Serializable {
 		this.esame = esame;
 	}
 
-	public String getCorso() {
-		return corso;
+	public String getEmailDocente() {
+		return emailDocente;
 	}
 
-	public void setCorso(String corso) {
-		this.corso = corso;
+	public void setEmailDocente(String emailDocente) {
+		this.emailDocente = emailDocente;
 	}
 
 	public String getData() {

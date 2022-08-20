@@ -1,6 +1,7 @@
 package com.uniwebsite.client;
 
 import java.util.ArrayList;
+
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.uniwebsite.shared.*;
@@ -25,6 +26,8 @@ public interface GreetingService extends RemoteService {
 	Utente login(String username, String password) throws IllegalArgumentException; //
 
 	String getInfoUtente(String email) throws IllegalArgumentException;
+	
+	Utente getUtente(String email) throws IllegalArgumentException; //
 
 	Studente getStudente(String email) throws IllegalArgumentException; //
 
@@ -40,15 +43,17 @@ public interface GreetingService extends RemoteService {
 
 
 	// METODI PER GESTIRE I CORSI
-	String creazioneCorso(ArrayList<String> dati) throws IllegalArgumentException;
+	String creazioneCorso(ArrayList<String> dati) throws IllegalArgumentException; //
 
-	String aggiornaCorso(ArrayList<String> corsoUpdate, String nomeCorso) throws IllegalArgumentException;
+	String aggiornaCorso(ArrayList<String> corsoUpdate, String nomeCorso) throws IllegalArgumentException; //
 
 	String iscrizioneCorso(String email, String corso) throws IllegalArgumentException; //
 
+	ArrayList<Corso> getCorsiDocente(String email) throws IllegalArgumentException; //
+	
 	ArrayList<String> getCorsiStudente(String email) throws IllegalArgumentException; //
 	
-	String eliminaCorso(String nomeCorso) throws IllegalArgumentException;
+	String eliminaCorso(String nomeCorso) throws IllegalArgumentException; //
 
 	ArrayList<Corso> getCorsi() throws IllegalArgumentException; //
 
@@ -58,13 +63,13 @@ public interface GreetingService extends RemoteService {
 
 	String aggiornaEsame(ArrayList<String> esameUpdate, int idCorso) throws IllegalArgumentException;
 
-	String iscrizioneEsame(String email, int idCorso) throws IllegalArgumentException;
+	String iscrizioneEsame(String email, String esame) throws IllegalArgumentException; //
 
-	ArrayList<Esame> getEsamiDocente(String email) throws IllegalArgumentException;
+	ArrayList<Esame> getEsamiDocente(String email) throws IllegalArgumentException; //
 
 	ArrayList<Esame> getEsami() throws IllegalArgumentException; //
 
-	ArrayList<Esame> getEsamiStudente(String email) throws IllegalArgumentException; 
+	ArrayList<String> getEsamiStudente(String email) throws IllegalArgumentException; //
 
 	String eliminaEsame(int idCorso) throws IllegalArgumentException;
 

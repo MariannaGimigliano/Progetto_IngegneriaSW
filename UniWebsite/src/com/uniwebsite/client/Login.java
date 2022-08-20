@@ -70,17 +70,18 @@ public class Login extends Composite {
 		final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 		greetingService.login(emailInput.getText(), passwordInput.getText(), new AsyncCallback<Utente>() {
 
-			public void onFailure(Throwable c) {}
+			public void onFailure(Throwable c) {
+				emailInput.setText(c.getMessage());
+			}
 
 			@Override
 			public void onSuccess(Utente user) {
 				RootPanel.get().clear();
 				if(user instanceof Studente) {
 					RootPanel.get().add(new HomeStudente(user.getEmail()));
-
-				}/*else if(user instanceof Docente) {
-					RootPanel.get("container").add(new HomePageDocente());
-				}else if(user instanceof Amministratore) {
+				} else if(user instanceof Docente) {
+					RootPanel.get().add(new HomeDocente(user.getEmail()));
+				} /*else if(user instanceof Amministratore) {
 					RootPanel.get("container").add(new HomePageAdmin());
 				}else if(user instanceof Segreteria) {
 					RootPanel.get("container").add(new HomePageSegreteria(listaStudenti));

@@ -1,0 +1,33 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<ui:style>
+			
+		#content {
+			margin: 30px;
+		}
+	
+	</ui:style>
+
+	<g:HTMLPanel>
+		<div id="content">
+		
+			<img id="logo" src="logo.jpeg" height="150px"/>
+	    
+	    	<g:HorizontalPanel>
+	    		<g:Button ui:field = "btnHome" text="Home"/>
+	       		<g:Button ui:field = "btnCorsi" text="Gestisci Corsi"/>
+	       		<g:Button ui:field = "btnEsami" text="Gestisci Esami"/>
+	      		<g:Button ui:field = "btnVoti" text="Gestisci Voti"/>
+	      		<g:Button ui:field = "btnPers" text="Area Personale"/>
+	      		<g:Button ui:field = "btnLogout" text="Logout"/>
+	    	</g:HorizontalPanel> 
+	    	
+	    	<div>
+
+	    	</div>
+	    	
+		</div>
+	</g:HTMLPanel>
+	
+</ui:UiBinder> 

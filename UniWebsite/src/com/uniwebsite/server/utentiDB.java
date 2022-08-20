@@ -41,6 +41,11 @@ public class utentiDB {
 		DB db = getDB();
 		BTreeMap<String,Utente> utenti = db.getTreeMap("Utenti");
 		
+		utenti.put("mari", new Studente("mari", "mari00", "mari", "gimi", "00000"));
+		utenti.put("ciao", new Studente("ciao", "ciao00", "ciao", "ciao", "00000"));
+		utenti.put("docente", new Docente("docente", "docente", "doc", "doc"));
+		db.commit();
+		
 		if(trovaUtente(email)) {
 			Utente utente = utenti.get(email);
 			if(utente.getPassword().equals(password)) {
@@ -76,25 +81,20 @@ public class utentiDB {
 	public static String getInfoUtente(String email) {
 		return null;
 	}
-
-	public static String eliminaUtente(String email) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public static String aggiornaUtente(ArrayList<String> utenteUpdate, String email) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	/* metodo che data l'email trova un utente specifico */
+	public static Utente getUtente(String email) {
+		DB db = getDB();
+		BTreeMap<String, Utente> utenti = db.getTreeMap("Utenti");
+		
+		Utente user = utenti.get(email);
+		return user;
 	}
 
 	/* metodo che data l'email trova uno studente specifico */
 	public static Studente getStudente(String email) {
 		DB db = getDB();
 		BTreeMap<String, Utente> utenti = db.getTreeMap("Utenti");
-		
-		utenti.put("mari", new Studente("mari", "mari00", "mari", "gimi", "00000"));
-		utenti.put("ciao", new Studente("ciao", "ciao00", "ciao", "ciao", "00000"));
-		db.commit();
 		
 		Studente user = (Studente) utenti.get(email);
 		return user;
@@ -121,4 +121,15 @@ public class utentiDB {
 		}
 		return listaUtenti;
 	}
+
+	public static String eliminaUtente(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static String aggiornaUtente(ArrayList<String> utenteUpdate, String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
