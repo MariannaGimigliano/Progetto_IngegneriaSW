@@ -19,36 +19,25 @@ public class votiDB {
 	}
 
 	/* aggiunta voto (segreteria) */
-	public static void aggiuntaVoto(ArrayList<String> dati) {
+	public static String aggiuntaVoto(ArrayList<String> dati) {
 		DB db = getDB();
 		BTreeMap<Integer, Voto> voti = db.getTreeMap("Voti");
-
-		voti.put(1, new Voto(1, "ciao", "ciao", "22"));
+				
+		Voto voto = new Voto(
+				voti.size(), // id voto
+				dati.get(1), // esame
+				dati.get(2), // email studente
+				dati.get(3)  // voto
+				); 
+				
+		voti.put(voto.getIdVoto(), voto);
 		db.commit();
 		db.close();
-		
-		/*boolean trovato = false;
-		
-		Voto voto = new Voto(
-				voti.size(), //id voto
-				dati.get(1), //esame
-				dati.get(2), //email studente
-				dati.get(3)); //voto
-				
-		for(Entry<Integer, Voto> test : voti.entrySet()) {
-			if(test.getValue().getEmail().equals(voto.getEmail()) && test.getValue().getEsame().equals(voto.getEsame())) {
-				trovato = true; //il voto era già presente nel db
-			}
-		}
-		//aggiunta effettiva del voto nel db
-		if(dati.get(1).length()>=1 && dati.get(2).length()>=1 && dati.get(3).length()>=1 && !trovato) {
-			voti.put(voto.getIdVoto(), voto);
-			db.commit();
-			db.close();
-		}*/
+		return "Successo";	
+
 	}
 	
-	/* Metodo per ottenere tutti i voti assegnati ad uno studente, prendendo in input la sua email */
+	/* metodo per ottenere tutti i voti di uno studente data la sua email */
 	public static ArrayList<Voto> getVotiStudente(String email){
 		DB db = getDB();
 		BTreeMap<Integer, Voto> voti = db.getTreeMap("Voti");

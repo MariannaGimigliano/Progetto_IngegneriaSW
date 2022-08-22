@@ -81,12 +81,11 @@ public class Login extends Composite {
 					RootPanel.get().add(new HomeStudente(user.getEmail()));
 				} else if(user instanceof Docente) {
 					RootPanel.get().add(new HomeDocente(user.getEmail()));
-				} /*else if(user instanceof Amministratore) {
-					RootPanel.get("container").add(new HomePageAdmin());
-				}else if(user instanceof Segreteria) {
-					RootPanel.get("container").add(new HomePageSegreteria(listaStudenti));
-				}*/
-
+				} else if(user instanceof Amministratore) {
+					RootPanel.get().add(new HomeAmministratore(user.getEmail()));
+				} else if(user instanceof Segreteria) {
+					RootPanel.get().add(new HomeSegreteria(user.getEmail()));
+				}
 				else {
 					RootPanel.get().add(new Home()); //mettere alert errore
 				}

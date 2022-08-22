@@ -77,7 +77,7 @@ public interface GreetingService extends RemoteService {
 
 	
 	// METODI PER GESTIRE I VOTI
-	String aggiuntaVoto(ArrayList<String> dati) throws IllegalArgumentException;
+	String aggiuntaVoto(ArrayList<String> dati) throws IllegalArgumentException; //
 
 	ArrayList<Voto> getVotiStudente(String email) throws IllegalArgumentException; //
 

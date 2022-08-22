@@ -172,7 +172,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	
 	// METODI PER GESTIRE I VOTI
 	@Override
-	public String aggiuntaVoto(ArrayList<String> dati) throws IllegalArgumentException {
+	public String aggiuntaVoto(ArrayList<String> dati) throws IllegalArgumentException { //
 		return votiDB.aggiuntaVoto(dati);
 	}
 

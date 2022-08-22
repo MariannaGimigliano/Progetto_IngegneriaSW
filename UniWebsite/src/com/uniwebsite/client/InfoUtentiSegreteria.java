@@ -11,13 +11,13 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
-public class HomeSegreteria extends Composite {
+public class InfoUtentiSegreteria extends Composite {
 
 	String logged = "";
-	private static HomeSegreteriaUiBinder uiBinder = GWT.create(HomeSegreteriaUiBinder.class);
+	private static InfoUtentiSegreteriaUiBinder uiBinder = GWT.create(InfoUtentiSegreteriaUiBinder.class);
 
-	@UiTemplate("HomeSegreteria.ui.xml")
-	interface HomeSegreteriaUiBinder extends UiBinder<Widget, HomeSegreteria> {}
+	@UiTemplate("InfoUtentiSegreteria.ui.xml")
+	interface InfoUtentiSegreteriaUiBinder extends UiBinder<Widget, InfoUtentiSegreteria> {}
 
 	@UiField
 	Button btnHome;
@@ -28,15 +28,15 @@ public class HomeSegreteria extends Composite {
 	@UiField
 	Button btnVoti;
 	
-	public HomeSegreteria(String email) {
+	public InfoUtentiSegreteria(String email) {
 		initWidget(uiBinder.createAndBindUi(this));
 		logged = email;
 	}
 	
-	@UiHandler("btnStudenti")
-	void doClickStud(ClickEvent event) {
+	@UiHandler("btnHome")
+	void doClickHome(ClickEvent event) {
 		RootPanel.get().clear();
-		RootPanel.get().add(new InfoUtentiSegreteria(logged));
+		RootPanel.get().add(new HomeSegreteria(logged));
 	}
 	
 	@UiHandler("btnVoti")
@@ -44,4 +44,5 @@ public class HomeSegreteria extends Composite {
 		RootPanel.get().clear();
 		RootPanel.get().add(new VotiSegreteria(logged));
 	}
+
 }

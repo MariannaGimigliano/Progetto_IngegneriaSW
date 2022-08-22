@@ -44,6 +44,7 @@ public class utentiDB {
 		utenti.put("mari", new Studente("mari", "mari00", "mari", "gimi", "00000"));
 		utenti.put("ciao", new Studente("ciao", "ciao00", "ciao", "ciao", "00000"));
 		utenti.put("docente", new Docente("docente", "docente", "doc", "doc"));
+		utenti.put("segreteria", new Segreteria("segreteria", "segreteria", "seg", "seg"));
 		db.commit();
 		
 		if(trovaUtente(email)) {

@@ -21,11 +21,10 @@
 	    	</g:HorizontalPanel> 
 	    	
 	    	<div>
-				<h2>Benvenuto nella sezione Segreteria!</h2>
-				<p>In alto troverai i bottoni per usufruire dei nostri servizi.</p>
+
 	    	</div>
 	    	
 		</div>
 	</g:HTMLPanel>
-
+	
 </ui:UiBinder> 

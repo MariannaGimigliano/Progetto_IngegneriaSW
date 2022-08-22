@@ -80,7 +80,7 @@ public interface GreetingServiceAsync {
 	
 	
 	// METODI PER GESTIRE I VOTI
-	void aggiuntaVoto(ArrayList<String> dati, AsyncCallback<String> callback) throws IllegalArgumentException;
+	void aggiuntaVoto(ArrayList<String> dati, AsyncCallback<String> callback) throws IllegalArgumentException; //
 	
 	void getVotiStudente(String email, AsyncCallback<ArrayList<Voto>> callback) throws IllegalArgumentException; //
 	
