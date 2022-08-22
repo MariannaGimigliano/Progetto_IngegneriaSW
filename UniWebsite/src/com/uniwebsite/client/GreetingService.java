@@ -59,9 +59,9 @@ public interface GreetingService extends RemoteService {
 
 
 	// METODI PER GESIRE GLI ESAMI
-	String creazioneEsame(ArrayList<String> dati, int idCorso) throws IllegalArgumentException;
+	String creazioneEsame(ArrayList<String> dati) throws IllegalArgumentException; //
 
-	String aggiornaEsame(ArrayList<String> esameUpdate, int idCorso) throws IllegalArgumentException;
+	String aggiornaEsame(ArrayList<String> esameUpdate, String nomeEsame) throws IllegalArgumentException; //
 
 	String iscrizioneEsame(String email, String esame) throws IllegalArgumentException; //
 
@@ -71,7 +71,7 @@ public interface GreetingService extends RemoteService {
 
 	ArrayList<String> getEsamiStudente(String email) throws IllegalArgumentException; //
 
-	String eliminaEsame(int idCorso) throws IllegalArgumentException;
+	String eliminaEsame(String esame) throws IllegalArgumentException; //
 
 	ArrayList<String> getIscrittiEsame(Integer idEsame) throws IllegalArgumentException;
 

@@ -130,13 +130,13 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 
 	// METODI PER GESIRE GLI ESAMI
 	@Override
-	public String creazioneEsame(ArrayList<String> dati, int idCorso) throws IllegalArgumentException {
-		return esamiDB.creazioneEsame(dati, idCorso);
+	public String creazioneEsame(ArrayList<String> dati) throws IllegalArgumentException {
+		return esamiDB.creazioneEsame(dati);
 	}
 
 	@Override
-	public String aggiornaEsame(ArrayList<String> esameUpdate, int idCorso) throws IllegalArgumentException {
-		return esamiDB.aggiornaEsame(esameUpdate, idCorso);
+	public String aggiornaEsame(ArrayList<String> esameUpdate, String nomeEsame) throws IllegalArgumentException { //
+		return esamiDB.aggiornaEsame(esameUpdate, nomeEsame);
 	}
 
 	@Override
@@ -160,8 +160,8 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}
 
 	@Override
-	public String eliminaEsame(int idCorso) throws IllegalArgumentException {
-		return esamiDB.eliminaEsame(idCorso);
+	public String eliminaEsame(String esame) throws IllegalArgumentException { //
+		return esamiDB.eliminaEsame(esame);
 	}
 
 	@Override

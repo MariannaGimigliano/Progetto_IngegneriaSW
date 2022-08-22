@@ -52,4 +52,62 @@ public class esamiDB {
 		return esamiOutput;
 	}
 
+	/* metodo che crea un nuovo esame dato un array di dati */
+	public static String creazioneEsame(ArrayList<String> dati) {
+		DB db = getDB();
+		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");
+
+		Esame esame = new Esame(
+				dati.get(0), // esame
+				dati.get(1), // docente
+				dati.get(2), // data 
+				dati.get(3), // ora 
+				dati.get(4), // durata  
+				dati.get(5)  // aula  
+				);
+		esami.put(esame.getEsame(), esame);
+		db.commit();
+		db.close();
+		return "Successo";			
+	}
+
+	/* metodo che elimina un'esame dato il suo nome */
+	public static String eliminaEsame(String esame) {
+		DB db = getDB();
+		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");
+
+		for(Entry<String, Esame> test : esami.entrySet()) {
+			if(esame.equals(test.getValue().getEsame())) {
+				esami.remove(test.getKey());
+			}
+		}
+		db.commit();
+		db.close();
+		return "Successo";
+	}
+
+	/* metodo che aggiorna i dati di un'esame dato il suo nome */
+	public static String aggiornaEsame(ArrayList<String> dati, String nomeEsame) {
+		DB db = getDB();
+		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");
+
+		Esame esame = esami.get(nomeEsame);
+		esami.remove(nomeEsame);
+		if(dati.get(0) != "") {
+			esame.setData(dati.get(0));
+		}
+		if(dati.get(1) != "") {
+			esame.setOra(dati.get(1));
+		}
+		if(dati.get(2) != "") {
+			esame.setDurata(dati.get(2));
+		}
+		if(dati.get(3) != "") {
+			esame.setAula(dati.get(2));
+		}
+		esami.put(nomeEsame, esame);
+		db.commit();
+		db.close();
+		return "Successo";
+	}
 }

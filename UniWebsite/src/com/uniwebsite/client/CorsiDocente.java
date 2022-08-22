@@ -117,7 +117,7 @@ public class CorsiDocente extends Composite {
 		RootPanel.get().add(new Home());
 	}
 	
-	/* Riempie la listbox con gli esami del docente */
+	/* Riempie le listbox con i corsi del docente */
 	public void listBox() {
 		try {
 			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
@@ -125,18 +125,18 @@ public class CorsiDocente extends Composite {
 			greetingService.getCorsiDocente(logged, new AsyncCallback<ArrayList<Corso>>() {
 				public void onFailure(Throwable caught) {}
 				@Override
-				public void onSuccess(ArrayList<Corso> corsi) {
-					for(int i=0;i<corsi.size();i++){
-						listaCorsi.addItem(corsi.get(i).getNomeCorso());
-						listaCorsiElimina.addItem(corsi.get(i).getNomeCorso());
-						corsi.add(corsi.get(i));
+				public void onSuccess(ArrayList<Corso> corsiDocente) {
+					for(int i=0;i<corsiDocente.size();i++){
+						listaCorsi.addItem(corsiDocente.get(i).getNomeCorso());
+						listaCorsiElimina.addItem(corsiDocente.get(i).getNomeCorso());
+						corsi.add(corsiDocente.get(i));
 					}
 				}
 			});
 		}catch(Error e){};
 	}
 	
-	/* Crea un nuovo esame associato al docente */
+	/* Crea un nuovo corso associato al docente */
 	@UiHandler("btnCrea")
 	void doClickCrea(ClickEvent event) {
 		ArrayList<String> dati = new ArrayList<String>();
@@ -164,7 +164,7 @@ public class CorsiDocente extends Composite {
 
 	}
 	
-	/* Modifica un'esame associato al docente */
+	/* Modifica un corso associato al docente */
 	@UiHandler("btnModifica")
 	void doClickMod(ClickEvent event) {
 		ArrayList<String> dati = new ArrayList<String>();
@@ -209,7 +209,7 @@ public class CorsiDocente extends Composite {
 		}); 
 	}
 	
-	/* Elimina un'esame associato al docente */
+	/* Elimina un corso associato al docente */
 	@UiHandler("btnElimina")
 	void doClickCanc(ClickEvent event) {
 		String nomeCorso = listaCorsiElimina.getSelectedValue();

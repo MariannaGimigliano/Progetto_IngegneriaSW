@@ -26,6 +26,7 @@
 	    	
 	    	<div>
 	    		<h2>Crea un'esame</h2>
+	    		<p>Puoi creare solo esami di cui esiste già un corso!</p>
 			    <div>
 					<label>Nome Esame</label><gwt:ListBox ui:field="txtEsame"></gwt:ListBox>
 				    <label>Data</label><gwt:TextBox ui:field="txtData"></gwt:TextBox>

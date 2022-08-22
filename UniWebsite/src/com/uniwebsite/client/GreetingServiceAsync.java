@@ -62,9 +62,9 @@ public interface GreetingServiceAsync {
 	
 	
 	// METODI PER GESIRE GLI ESAMI
-	void creazioneEsame(ArrayList<String> dati, int idCorso, AsyncCallback<String> callback) throws IllegalArgumentException;
+	void creazioneEsame(ArrayList<String> dati, AsyncCallback<String> callback) throws IllegalArgumentException; //
 	
-	void aggiornaEsame(ArrayList<String> esameUpdate, int idCorso, AsyncCallback<String> callback) throws IllegalArgumentException;
+	void aggiornaEsame(ArrayList<String> esameUpdate, String nomeEsame, AsyncCallback<String> callback) throws IllegalArgumentException; //
 	
 	void iscrizioneEsame(String email, String esame, AsyncCallback<String> callback) throws IllegalArgumentException; //
 	
@@ -74,7 +74,7 @@ public interface GreetingServiceAsync {
 	
 	void getEsamiStudente(String email, AsyncCallback<ArrayList<String>> callback) throws IllegalArgumentException; //
 	
-	void eliminaEsame(int idCorso, AsyncCallback<String> callback) throws IllegalArgumentException;
+	void eliminaEsame(String esame, AsyncCallback<String> callback) throws IllegalArgumentException; //
 	
 	void getIscrittiEsame(Integer idEsame, AsyncCallback<ArrayList<String>> callback) throws IllegalArgumentException;
 	
