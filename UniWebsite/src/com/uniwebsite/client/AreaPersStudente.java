@@ -149,10 +149,10 @@ public class AreaPersStudente extends Composite {
 					lblEsami.setText("errore");
 				}
 				@Override
-				public void onSuccess(ArrayList<String> corsi) {
+				public void onSuccess(ArrayList<String> esami) {
 					String test = "";
-					for(int i=0;i<corsi.size();i++) {
-						test += corsi.get(i) + ", ";
+					for(int i=0;i<esami.size();i++) {
+						test += esami.get(i) + ", ";
 					}
 					lblEsami.setText(test);
 				}

@@ -39,10 +39,6 @@ public class corsiDB {
 		DB db = getDB();
 		BTreeMap<String, Corso> corsi = db.getTreeMap("Corsi");
 		
-		corsi.put("analisi", new Corso("analisi", "docente", "descr", "12/06", "13/07"));
-		corsi.put("albebra", new Corso("algebra", "docente2", "descr", "12/06", "13/07"));
-		db.commit();
-		
 		ArrayList<Corso> corsiOutput = new ArrayList<Corso>();
 		for(Entry<String, Corso> test : corsi.entrySet()) {
 			if(email.equals(test.getValue().getEmailDocente())) {

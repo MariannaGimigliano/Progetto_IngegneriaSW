@@ -8,7 +8,6 @@ import org.mapdb.BTreeMap;
 import org.mapdb.DB;
 import org.mapdb.DBMaker;
 
-import com.uniwebsite.shared.Corso;
 import com.uniwebsite.shared.Esame;
 
 public class esamiDB {

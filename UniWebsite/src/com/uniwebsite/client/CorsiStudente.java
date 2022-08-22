@@ -102,10 +102,8 @@ public class CorsiStudente extends Composite {
 			public void onSuccess(String result) {
 				if(result=="iscritto") {
 					//Alert nice = new Alert("Iscrizione al corso effettuata!");
-					//System.out.println(nice);
 				}else {
 					//Alert e = new Alert("Sei gia iscritto a questo corso!");
-					//System.out.println(e);
 				}
 			}
 

@@ -19,8 +19,6 @@ import com.google.gwt.user.client.ui.Widget;
 import com.uniwebsite.shared.*;
 
 public class EsamiStudente extends Composite {
-
-	//NON FUNZIONA VISUALIZZAZIONE ESAMI (perchè non funziona getCorsiStudente)
 	
 	String logged = "";
 	private static EsamiStudenteUiBinder uiBinder = GWT.create(EsamiStudenteUiBinder.class);
@@ -98,12 +96,27 @@ public class EsamiStudente extends Composite {
 	
 	@UiHandler("btnIscriviti")
 	void doClickIscr(ClickEvent event) {
+		final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+		String nomeEsame = listaEsami.getSelectedValue();
+		
+		greetingService.iscrizioneEsame(logged, nomeEsame, new AsyncCallback<String>() {
+			public void onFailure(Throwable caught) {}
+			@Override
+			public void onSuccess(String result) {
+				if(result=="iscritto") {
+					//Alert nice = new Alert("Iscrizione al corso effettuata!");
+				}else {
+					//Alert e = new Alert("Sei gia iscritto a questo corso!");
+				}
+			}
 
+		});
+		RootPanel.get().clear();
+		RootPanel.get().add(new EsamiStudente(logged));
 	}
 	
 	/* Ritorna tutti i corsi a cui lo studente è iscritto */
 	public void getCorsiStudente() {
-		corsiStudente.clear();
 		try {
 			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 
@@ -111,6 +124,7 @@ public class EsamiStudente extends Composite {
 				public void onFailure(Throwable caught) {}
 				@Override
 				public void onSuccess(ArrayList<String> corsi) {
+					corsiStudente.clear();
 					for(int i=0;i<corsi.size();i++) {
 						corsiStudente.add(corsi.get(i));
 					}
@@ -121,16 +135,16 @@ public class EsamiStudente extends Composite {
 	
 	/* Metodo che ritorna tutti gli esami nel db */
 	public void getEsami() {
-		esami.clear();
 		try {
 			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 
 			greetingService.getEsami(new AsyncCallback<ArrayList<Esame>>() {
 				public void onFailure(Throwable caught) {}
 				@Override
-				public void onSuccess(ArrayList<Esame> esami) {
-					for(int i=0;i<esami.size();i++) {
-						esami.add(esami.get(i));
+				public void onSuccess(ArrayList<Esame> allEsami) {
+					esami.clear();
+					for(int i=0;i<allEsami.size();i++) {
+						esami.add(allEsami.get(i));
 					}
 				}
 			});
@@ -140,6 +154,7 @@ public class EsamiStudente extends Composite {
 	/* Ritorna tutti gli esami disponibili per lo studente e riempie la tabella */
 	public void getEsamiStudente() {
 		esamiStudente.clear();
+		
 		for(int i=0;i<corsiStudente.size();i++) { 
 			for(int j=0;j<esami.size();j++) { 
 				if(corsiStudente.get(i).equals(esami.get(j).getEsame())) {
@@ -161,7 +176,7 @@ public class EsamiStudente extends Composite {
 			public String getValue(Esame obj) {
 				return obj.getEmailDocente();
 			}
-		}; cellTable.addColumn(colDocente, "Corso");
+		}; cellTable.addColumn(colDocente, "Docente");
 		
 		TextColumn<Esame> colData = new TextColumn<Esame>() {
 			@Override
