@@ -59,8 +59,6 @@ public class EsamiStudente extends Composite {
 	public EsamiStudente(String email) {
 		initWidget(uiBinder.createAndBindUi(this));
 		logged = email;
-		getCorsiStudente();
-		getEsami();
 		getEsamiStudente();
 	}
 
@@ -154,7 +152,8 @@ public class EsamiStudente extends Composite {
 	/* Ritorna tutti gli esami disponibili per lo studente e riempie la tabella */
 	public void getEsamiStudente() {
 		esamiStudente.clear();
-		
+		getCorsiStudente();
+		getEsami();
 		for(int i=0;i<corsiStudente.size();i++) { 
 			for(int j=0;j<esami.size();j++) { 
 				if(corsiStudente.get(i).equals(esami.get(j).getEsame())) {

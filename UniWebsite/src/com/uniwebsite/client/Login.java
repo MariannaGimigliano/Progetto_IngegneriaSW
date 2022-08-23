@@ -82,9 +82,9 @@ public class Login extends Composite {
 				} else if(user instanceof Docente) {
 					RootPanel.get().add(new HomeDocente(user.getEmail()));
 				} else if(user instanceof Amministratore) {
-					RootPanel.get().add(new HomeAmministratore(user.getEmail()));
+					RootPanel.get().add(new HomeAmministratore());
 				} else if(user instanceof Segreteria) {
-					RootPanel.get().add(new HomeSegreteria(user.getEmail()));
+					RootPanel.get().add(new HomeSegreteria());
 				}
 				else {
 					RootPanel.get().add(new Home()); //mettere alert errore

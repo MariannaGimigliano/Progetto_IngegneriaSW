@@ -88,6 +88,7 @@ public class corsiDB {
 
 		Corso corso = corsi.get(nomeCorso);
 		corsi.remove(nomeCorso);
+		
 		if(dati.get(0) != "") {
 			corso.setDescrizione(dati.get(0));
 		}

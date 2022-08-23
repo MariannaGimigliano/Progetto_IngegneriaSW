@@ -18,7 +18,7 @@ public class votiDB {
 		return db;
 	}
 
-	/* aggiunta voto (segreteria) */
+	/* aggiunta voto (docente invia voto a segreteria) */
 	public static String aggiuntaVoto(ArrayList<String> dati) {
 		DB db = getDB();
 		BTreeMap<Integer, Voto> voti = db.getTreeMap("Voti");
@@ -54,6 +54,12 @@ public class votiDB {
 			}
 		}
 		return votiOutput;
+	}
+
+	/* aggiunta voto (segreteria pubblica voto per lo studente) */
+	public static String pubblicazioneVoti(ArrayList<String> dati) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

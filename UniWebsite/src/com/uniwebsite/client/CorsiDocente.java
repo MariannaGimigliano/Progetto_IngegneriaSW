@@ -193,11 +193,8 @@ public class CorsiDocente extends Composite {
 		}
 
 		final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
-
 		greetingService.aggiornaCorso(dati, nomeCorso, new AsyncCallback<String>() {
-			public void onFailure(Throwable c) {
-				
-			}
+			public void onFailure(Throwable c) {}
 			@Override
 			public void onSuccess(String result) {
 				if(result.equals("Successo")) {

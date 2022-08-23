@@ -13,7 +13,6 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class VotiSegreteria extends Composite {
 
-	String logged = "";
 	private static VotiSegreteriaUiBinder uiBinder = GWT.create(VotiSegreteriaUiBinder.class);
 
 	@UiTemplate("VotiSegreteria.ui.xml")
@@ -28,21 +27,29 @@ public class VotiSegreteria extends Composite {
 	@UiField
 	Button btnVoti;
 	
-	public VotiSegreteria(String email) {
+	@UiField
+	Button btnLogout;
+	
+	public VotiSegreteria() {
 		initWidget(uiBinder.createAndBindUi(this));
-		logged = email;
 	}
 
 	@UiHandler("btnHome")
 	void doClickHome(ClickEvent event) {
 		RootPanel.get().clear();
-		RootPanel.get().add(new HomeSegreteria(logged));
+		RootPanel.get().add(new HomeSegreteria());
 	}
 	
 	@UiHandler("btnStudenti")
 	void doClickStud(ClickEvent event) {
 		RootPanel.get().clear();
-		RootPanel.get().add(new InfoUtentiSegreteria(logged));
+		RootPanel.get().add(new InfoUtentiSegreteria());
+	}
+	
+	@UiHandler("btnLogout")
+	void doClickOut(ClickEvent event) {
+		RootPanel.get().clear();
+		RootPanel.get().add(new Home());
 	}
 
 }

@@ -4,6 +4,7 @@ import com.uniwebsite.client.GreetingService;
 import com.uniwebsite.shared.Corso;
 import com.uniwebsite.shared.Docente;
 import com.uniwebsite.shared.Esame;
+import com.uniwebsite.shared.Segreteria;
 import com.uniwebsite.shared.Studente;
 import com.uniwebsite.shared.Utente;
 import com.uniwebsite.shared.Voto;
@@ -25,18 +26,13 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	
 	// METODI PER GESTIRE TUTTE LE TIPOLOGIE DI UTENTE
 	@Override
-	public String registrazioneStudente(ArrayList<String> dati) throws IllegalArgumentException {
+	public String registrazioneStudente(ArrayList<String> dati) throws IllegalArgumentException { 
 		return utentiDB.registrazioneStudente(dati);
 	}
 
 	@Override
-	public String registrazioneSegreteria(ArrayList<String> dati) throws IllegalArgumentException {
+	public String registrazioneSegreteria(ArrayList<String> dati) throws IllegalArgumentException { 
 		return utentiDB.registrazioneSegreteria(dati);
-	}
-	
-	@Override
-	public String registrazioneAmministratore(ArrayList<String> dati) throws IllegalArgumentException {
-		return utentiDB.registrazioneAmministratore(dati);
 	}
 
 	@Override
@@ -45,128 +41,117 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}
 
 	@Override
-	public Utente login(String username, String password) throws IllegalArgumentException { //
+	public Utente login(String username, String password) throws IllegalArgumentException {
 		return utentiDB.login(username, password);
 	}
 
 	@Override
-	public String getInfoUtente(String email) throws IllegalArgumentException {
-		return utentiDB.getInfoUtente(email);
-	}
-	
-	@Override
-	public Utente getUtente(String email) throws IllegalArgumentException { //
+	public Utente getUtente(String email) throws IllegalArgumentException { 
 		return utentiDB.getUtente(email);
 	}
 
-
 	@Override
-	public Studente getStudente(String email) throws IllegalArgumentException { //
+	public Studente getStudente(String email) throws IllegalArgumentException { 
 		return utentiDB.getStudente(email);
 	}
 
 	@Override
-	public ArrayList<Studente> getStudenti() throws IllegalArgumentException {
+	public ArrayList<Studente> getStudenti() throws IllegalArgumentException { 
 		return utentiDB.getStudenti();
 	}
 
 	@Override
-	public ArrayList<Docente> getDocenti() throws IllegalArgumentException {
+	public ArrayList<Docente> getDocenti() throws IllegalArgumentException { 
 		return utentiDB.getDocenti();
 	}
-
+	
 	@Override
-	public ArrayList<Utente> getUtenti() throws IllegalArgumentException {
-		return utentiDB.getUtenti();
+	public ArrayList<Segreteria> getSegreteria() throws IllegalArgumentException {
+		return utentiDB.getSegreteria();
 	}
 
 	@Override
-	public String eliminaUtente(String email) throws IllegalArgumentException {
-		return utentiDB.eliminaUtente(email);
+	public String aggiornaStudente(ArrayList<String> utenteUpdate, String email) throws IllegalArgumentException {
+		return utentiDB.aggiornaStudente(utenteUpdate, email);
 	}
-
+	
 	@Override
-	public String aggiornaUtente(ArrayList<String> utenteUpdate, String email) throws IllegalArgumentException {
-		return utentiDB.aggiornaUtente(utenteUpdate, email);
+	public String aggiornaDocente(ArrayList<String> utenteUpdate, String email) throws IllegalArgumentException { 
+		return utentiDB.aggiornaDocente(utenteUpdate, email);
 	}
 
 
 	// METODI PER GESTIRE I CORSI
 	@Override
-	public String creazioneCorso(ArrayList<String> dati) throws IllegalArgumentException { //
+	public String creazioneCorso(ArrayList<String> dati) throws IllegalArgumentException { 
 		return corsiDB.creazioneCorso(dati);
 	}
 
 	@Override
-	public String aggiornaCorso(ArrayList<String> corsoUpdate, String nomeCorso) throws IllegalArgumentException { //
+	public String aggiornaCorso(ArrayList<String> corsoUpdate, String nomeCorso) throws IllegalArgumentException { 
 		return corsiDB.aggiornaCorso(corsoUpdate, nomeCorso);
 	}
 
 	@Override
-	public String iscrizioneCorso(String email, String corso) throws IllegalArgumentException { //
+	public String iscrizioneCorso(String email, String corso) throws IllegalArgumentException { 
 		return iscrizioneCorsoDB.iscrizioneCorso(email, corso);
 	}
 	
 	@Override
-	public ArrayList<Corso> getCorsiDocente(String email) throws IllegalArgumentException { //
+	public ArrayList<Corso> getCorsiDocente(String email) throws IllegalArgumentException { 
 		return corsiDB.getCorsiDocente(email);
 	}
 
 	@Override
-	public ArrayList<String> getCorsiStudente(String email) throws IllegalArgumentException { //
+	public ArrayList<String> getCorsiStudente(String email) throws IllegalArgumentException { 
 		return iscrizioneCorsoDB.getCorsiStudente(email);
 	}	
 	
 	@Override
-	public String eliminaCorso(String nomeCorso) throws IllegalArgumentException { //
+	public String eliminaCorso(String nomeCorso) throws IllegalArgumentException { 
 		return corsiDB.eliminaCorso(nomeCorso);
 	}
 
 	@Override
-	public ArrayList<Corso> getCorsi() throws IllegalArgumentException { //
+	public ArrayList<Corso> getCorsi() throws IllegalArgumentException {
 		return corsiDB.getCorsi();
 	}
 
 
 	// METODI PER GESIRE GLI ESAMI
 	@Override
-	public String creazioneEsame(ArrayList<String> dati) throws IllegalArgumentException {
+	public String creazioneEsame(ArrayList<String> dati) throws IllegalArgumentException { 
 		return esamiDB.creazioneEsame(dati);
 	}
 
 	@Override
-	public String aggiornaEsame(ArrayList<String> esameUpdate, String nomeEsame) throws IllegalArgumentException { //
+	public String aggiornaEsame(ArrayList<String> esameUpdate, String nomeEsame) throws IllegalArgumentException { 
 		return esamiDB.aggiornaEsame(esameUpdate, nomeEsame);
 	}
 
 	@Override
-	public String iscrizioneEsame(String email, String esame) throws IllegalArgumentException { //
+	public String iscrizioneEsame(String email, String esame) throws IllegalArgumentException { 
 		return iscrizioneEsameDB.iscrizioneEsame(email, esame);
 	}
 
 	@Override
-	public ArrayList<Esame> getEsamiDocente(String email) throws IllegalArgumentException { //
+	public ArrayList<Esame> getEsamiDocente(String email) throws IllegalArgumentException {
 		return esamiDB.getEsamiDocente(email);
 	}
 
 	@Override
-	public ArrayList<Esame> getEsami() throws IllegalArgumentException { //
-		return esamiDB.getEsami();
-	}
-
-	@Override
-	public ArrayList<String> getEsamiStudente(String email) throws IllegalArgumentException {  //
+	public ArrayList<String> getEsamiStudente(String email) throws IllegalArgumentException { 
 		return iscrizioneEsameDB.getEsamiStudente(email);
 	}
 
 	@Override
-	public String eliminaEsame(String esame) throws IllegalArgumentException { //
+	public String eliminaEsame(String esame) throws IllegalArgumentException { 
 		return esamiDB.eliminaEsame(esame);
 	}
-
+	
 	@Override
-	public ArrayList<String> getIscrittiEsame(Integer idEsame) throws IllegalArgumentException {
-		return esamiDB.getIscrittiEsame(idEsame);
+	public ArrayList<Esame> getEsami() throws IllegalArgumentException { 
+		return esamiDB.getEsami();
 	}
 
 	
@@ -182,17 +167,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 	}
 
 	@Override
-	public ArrayList<Voto> getVoti() throws IllegalArgumentException {
-		return votiDB.getVoti();
-	}
-
-	@Override
 	public String pubblicazioneVoti(ArrayList<String> dati) throws IllegalArgumentException {
 		return votiDB.pubblicazioneVoti(dati);
-	}
-	
-	@Override
-	public String eliminaVoto(Voto voto)  throws IllegalArgumentException {
-		return votiDB.eliminaVoto(voto);
 	}
 }

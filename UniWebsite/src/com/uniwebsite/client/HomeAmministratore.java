@@ -6,24 +6,58 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class HomeAmministratore extends Composite {
 
-	String logged = "";
 	private static HomeAmministratoreUiBinder uiBinder = GWT.create(HomeAmministratoreUiBinder.class);
 
 	@UiTemplate("HomeAmministratore.ui.xml")
 	interface HomeAmministratoreUiBinder extends UiBinder<Widget, HomeAmministratore> {}
 
-	public HomeAmministratore(String email) {
+	@UiField
+	Button btnHome;
+	
+	@UiField
+	Button btnVisualizza;
+	
+	@UiField
+	Button btnCreaAccount;
+
+	@UiField
+	Button btnGestisci;
+	
+	@UiField
+	Button btnLogout;
+	
+	public HomeAmministratore() {
 		initWidget(uiBinder.createAndBindUi(this));
-		logged = email;
 	}
-
-
+	
+	@UiHandler("btnVisualizza")
+	void doClickVis(ClickEvent event) {
+		RootPanel.get().clear();
+		RootPanel.get().add(new InfoUtentiAmministratore());
+	}
+	
+	@UiHandler("btnCreaAccount")
+	void doClickCrea(ClickEvent event) {
+		RootPanel.get().clear();
+		RootPanel.get().add(new CreaUtentiAmministratore());
+	}
+	
+	@UiHandler("btnGestisci")
+	void doClickGest(ClickEvent event) {
+		RootPanel.get().clear();
+		RootPanel.get().add(new ModificaUtentiAmministratore());
+	}
+	
+	@UiHandler("btnLogout")
+	void doClickOut(ClickEvent event) {
+		RootPanel.get().clear();
+		RootPanel.get().add(new Home());
+	}
 }

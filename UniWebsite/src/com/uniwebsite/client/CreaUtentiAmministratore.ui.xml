@@ -1,0 +1,63 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:gwt = 'urn:import:com.google.gwt.user.client.ui'
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	
+	<ui:style>
+			
+		#content {
+			margin: 30px;
+		}
+	
+	</ui:style>
+
+	<g:HTMLPanel>
+		<div id="content">
+		
+			<img id="logo" src="logo.jpeg" height="150px"/>
+	    
+	    	<g:HorizontalPanel>
+	    		<g:Button ui:field = "btnHome" text="Home"/>
+	    		<g:Button ui:field = "btnVisualizza" text="Visualizza Account"/>
+	       		<g:Button ui:field = "btnCreaAccount" text="Crea Account"/>
+	       		<g:Button ui:field = "btnGestisci" text="Modifica Account"/>
+	      		<g:Button ui:field = "btnLogout" text="Logout"/>
+	    	</g:HorizontalPanel> 
+	    	
+	    	<div>
+				<h2>Crea un account Studente</h2>
+			    <div>
+					<label>Matricola</label><gwt:TextBox ui:field="txtMatrStud"></gwt:TextBox>
+				    <label>Email</label><gwt:TextBox ui:field="txtEmailStud"></gwt:TextBox>
+				    <label>Password</label><gwt:TextBox ui:field="txtPsswStud"></gwt:TextBox>
+					<label>Nome</label><gwt:TextBox ui:field="txtNomeStud"></gwt:TextBox>
+					<label>Cognome</label><gwt:TextBox ui:field="txtCognomeStud"></gwt:TextBox>
+			  		<gwt:Button ui:field="btnCreaStud" text="Crea Studente"></gwt:Button>
+		    	</div>
+			  
+			    <br></br>
+			    
+			    <h2>Crea un account Docente</h2>
+			    <div>
+				    <label>Email</label><gwt:TextBox ui:field="txtEmailDoc"></gwt:TextBox>
+				    <label>Password</label><gwt:TextBox ui:field="txtPsswDoc"></gwt:TextBox>
+					<label>Nome</label><gwt:TextBox ui:field="txtNomeDoc"></gwt:TextBox>
+					<label>Cognome</label><gwt:TextBox ui:field="txtCognomeDoc"></gwt:TextBox>
+			  		<gwt:Button ui:field="btnCreaDoc" text="Crea Docente"></gwt:Button>
+		    	</div>
+			  
+			    <br></br>
+			    
+			    <h2>Crea un account Segreteria</h2>
+			    <div>
+				    <label>Email</label><gwt:TextBox ui:field="txtEmailSeg"></gwt:TextBox>
+				    <label>Password</label><gwt:TextBox ui:field="txtPsswSeg"></gwt:TextBox>
+					<label>Nome</label><gwt:TextBox ui:field="txtNomeSeg"></gwt:TextBox>
+					<label>Cognome</label><gwt:TextBox ui:field="txtCognomeSeg"></gwt:TextBox>
+			  		<gwt:Button ui:field="btnCreaSeg" text="Crea Segreteria"></gwt:Button>
+		    	</div>
+	    	</div>
+	    	
+		</div>
+	</g:HTMLPanel>
+	
+</ui:UiBinder> 
