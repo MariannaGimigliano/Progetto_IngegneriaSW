@@ -25,7 +25,7 @@ public class iscrizioneEsameDB {
 		DB db = getDB();
 		BTreeMap<String, IscrizioneEsame> iscrizioni = db.getTreeMap("IscrizioniEsame");
 		
-		iscrizioni.put("analisi", new IscrizioneEsame("analisi", "mari"));
+		iscrizioni.put("web", new IscrizioneEsame("web", "marianna@unibo.it"));
 		db.commit();
 		
 		ArrayList<String> esamiOutput = new ArrayList<String>();

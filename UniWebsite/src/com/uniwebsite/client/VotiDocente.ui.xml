@@ -29,7 +29,7 @@
 				<p>Carica e invia i tuoi voti alla segreteria!</p>
 			    <div>
 					<label>Nome Esame</label><gwt:ListBox ui:field="listaEsami"></gwt:ListBox>
-				    <label>Email Studente</label><gwt:TextBox ui:field="txtEmail"></gwt:TextBox>
+				    <label>Email Studente</label><gwt:ListBox ui:field="listaEmail"></gwt:ListBox>
 				    <label>Voto</label><gwt:TextBox ui:field="txtVoto"></gwt:TextBox>
 			  		<gwt:Button ui:field="btnAgg" text="Aggiungi Voto"></gwt:Button>
 		    	</div>

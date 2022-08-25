@@ -23,8 +23,10 @@ public class corsiDB {
 		DB db = getDB();
 		BTreeMap<String, Corso> corsi = db.getTreeMap("Corsi");
 		
-		corsi.put("analisi", new Corso("analisi", "docente", "descr", "12/06", "13/07"));
-		corsi.put("albebra", new Corso("algebra", "docente2", "descr", "12/06", "13/07"));
+		corsi.put("economia", new Corso("economia", "docente@unibo.it", "corso di economia aziendale", "12/03", "13/05"));
+		corsi.put("web", new Corso("web", "docente@unibo.it", "corso di tecnologie web", "15/09", "23/12"));
+		corsi.put("app", new Corso("app", "docente2@unibo.it", "corso di applicazioni mobili", "20/09", "18/12"));
+		corsi.put("ingegneria", new Corso("ingegneria", "docente2@unibo.it", "corso di ingegneria del software", "20/09", "18/12"));
 		db.commit();
 		
 		ArrayList<Corso> corsiOutput = new ArrayList<Corso>();

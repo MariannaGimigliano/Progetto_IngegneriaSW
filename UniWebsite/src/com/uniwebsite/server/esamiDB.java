@@ -22,9 +22,11 @@ public class esamiDB {
 	public static ArrayList<Esame> getEsami() {
 		DB db = getDB();
 		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");
-		
-		esami.put("analisi", new Esame("analisi", "docente", "12/05", "12:00", "1h", "A1"));
-		esami.put("algebra", new Esame("algebra", "docente2", "29/12", "09:00", "2h", "A2"));
+
+		esami.put("economia", new Esame("economia", "docente@unibo.it", "12/05", "12:00", "1h", "A1"));
+		esami.put("web", new Esame("web", "docente@unibo.it", "15/05", "14:30", "1:30h", "B12"));
+		esami.put("app", new Esame("app", "docente2@unibo.it", "29/12", "09:00", "2h", "A2"));
+		esami.put("ingegneria", new Esame("ingegneria", "docente2@unibo.it", "03/12", "15:30", "3h", "C5"));
 		db.commit();
 		
 		ArrayList<Esame> esamiAll = new ArrayList<Esame>();
@@ -38,9 +40,7 @@ public class esamiDB {
 	public static ArrayList<Esame> getEsamiDocente(String email) {
 		DB db = getDB();
 		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");
-		
-		esami.put("analisi", new Esame("analisi", "docente", "12/05", "12:00", "1h", "A1"));
-		esami.put("algebra", new Esame("algebra", "docente2", "29/12", "09:00", "2h", "A2"));
+
 		db.commit();
 		
 		ArrayList<Esame> esamiOutput = new ArrayList<Esame>();

@@ -15,7 +15,7 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
-import com.uniwebsite.shared.Esame;
+import com.uniwebsite.shared.*;
 
 public class VotiDocente extends Composite {
 
@@ -47,7 +47,7 @@ public class VotiDocente extends Composite {
 	ListBox listaEsami;
 	
 	@UiField
-	TextBox txtEmail;
+	ListBox listaEmail;
 	
 	@UiField
 	TextBox txtVoto;
@@ -58,7 +58,8 @@ public class VotiDocente extends Composite {
 	public VotiDocente(String email) {
 		initWidget(uiBinder.createAndBindUi(this));
 		logged = email;
-		listBox();
+		listBoxEsami();
+		listBoxStudenti();
 	}
 	
 	@UiHandler("btnHome")
@@ -91,8 +92,8 @@ public class VotiDocente extends Composite {
 		RootPanel.get().add(new Home());
 	}
 	
-	/* Riempie le listbox con gli esami del docente */
-	public void listBox() {
+	/* metodo che riempie le listbox con gli esami del docente */
+	public void listBoxEsami() {
 		try {
 			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 
@@ -108,24 +109,44 @@ public class VotiDocente extends Composite {
 		}catch(Error e){};
 	}
 	
+	/* metodo che riempie le listbox con gli studenti */
+	public void listBoxStudenti() {
+		try {
+			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+
+			greetingService.getStudenti(new AsyncCallback<ArrayList<Studente>>() {
+				public void onFailure(Throwable caught) {}
+				@Override
+				public void onSuccess(ArrayList<Studente> studenti) {
+					for(int i=0;i<studenti.size();i++){
+						listaEmail.addItem(studenti.get(i).getEmail());
+					}
+				}
+			});
+		}catch(Error e){};
+	}
+	
+	/* metodo che invia il voto di un'esame alla segreteria */
 	@UiHandler("btnAgg")
 	void doClickAgg(ClickEvent event) {
 		ArrayList<String> dati = new ArrayList<String>();
-		dati.add(0, "");
-		dati.add(1, listaEsami.getSelectedValue());
-		dati.add(2, txtEmail.getText());
-		dati.add(3, txtVoto.getText());
+		dati.add("");
+		dati.add(listaEsami.getSelectedValue());
+		dati.add(listaEmail.getSelectedValue());
+		dati.add(txtVoto.getText());
 		
 		final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 		greetingService.aggiuntaVoto(dati, new AsyncCallback<String>() {
-			public void onFailure(Throwable c) {}
+			public void onFailure(Throwable c) {
+				RootPanel.get().clear();
+				RootPanel.get().add(new HomeDocente(logged));
+			}
 			@Override
 			public void onSuccess(String result) {
 				if(result.equals("Successo")) {
 					RootPanel.get().clear();
 					RootPanel.get().add(new VotiDocente(logged));
-					
-				}else {
+				} else if(result.equals("Errore")) {
 					//esame già esistente
 				} 	
 

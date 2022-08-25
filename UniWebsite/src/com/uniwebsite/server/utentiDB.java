@@ -29,12 +29,12 @@ public class utentiDB {
 		DB db = getDB();
 		BTreeMap<String, Utente> utenti = db.getTreeMap("Utenti");
 		
-		utenti.put("mari", new Studente("mari", "mari00", "mari", "gimi", "00000"));
-		utenti.put("ciao", new Studente("ciao", "ciao00", "ciao", "ciao", "00001"));
-		utenti.put("docente", new Docente("docente", "docente", "doc", "doc"));
-		utenti.put("docente2", new Docente("docente2", "docente", "doc", "doc"));
-		utenti.put("segreteria", new Segreteria("segreteria", "segreteria", "seg", "seg"));
-		utenti.put("amm", new Amministratore("amm", "amm", "amm", "amm"));
+		utenti.put("marianna@unibo.it", new Studente("marianna@unibo.it", "mari", "Marianna", "Gimigliano", "0000915343"));
+		utenti.put("martina@unibo.it", new Studente("martina@unibo.it", "marti", "Martina", "Daghia", "0000915287"));
+		utenti.put("docente@unibo.it", new Docente("docente@unibo.it", "doc", "Martina", "Zauli"));
+		utenti.put("docente2@unibo.it", new Docente("docente2@unibo.it", "doc2", "Francesco", "Bianchi"));
+		utenti.put("segreteria@unibo.it", new Segreteria("segreteria@unibo.it", "segr", "Chiara", "Verdi"));
+		utenti.put("amministratore@unibo.it", new Amministratore("amministratore@unibo.it", "amm", "Marco", "Rossi"));
 		db.commit();
 		
 		if(trovaUtente(email)) {
@@ -235,6 +235,7 @@ public class utentiDB {
 			if(utente.getValue().getEmail().equals(email)) {
 				trovato = true;
 			}
-		} return trovato;
+		} 
+		return trovato;
 	}
 }

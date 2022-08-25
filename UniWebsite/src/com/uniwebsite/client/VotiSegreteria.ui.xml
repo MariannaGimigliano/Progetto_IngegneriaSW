@@ -1,4 +1,5 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:gwt = 'urn:import:com.google.gwt.user.client.ui'
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	
 	<ui:style>
@@ -22,7 +23,16 @@
 	    	</g:HorizontalPanel> 
 	    	
 	    	<div>
-
+				<h2>Pubblica i voti degli studenti</h2>
+			  	<div>
+					<label>Email Studente</label><gwt:ListBox ui:field="listaStudenti"></gwt:ListBox>
+					<gwt:Button ui:field="btnCerca" text="Cerca"></gwt:Button>
+				</div>
+				<br></br>
+				<div>
+					<label>Voti non pubblicati</label><gwt:ListBox ui:field="listaVoti"></gwt:ListBox>
+			  		<gwt:Button ui:field="btnPubb" text="Pubblica Voto"></gwt:Button>
+		    	</div>
 	    	</div>
 	    	
 		</div>

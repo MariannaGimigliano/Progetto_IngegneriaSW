@@ -21,11 +21,13 @@ public class iscrizioneCorsoDB {
 	/* Metodo per ottenere tutti i corsi a cui uno studente è iscritto 
 	 * (ritona un arraylist di nomi di corsi)
 	 */
-	public static ArrayList<String> getCorsiStudente(String email){       	//NON FUNZIONA !!!??????
+	public static ArrayList<String> getCorsiStudente(String email){ 
 		DB db = getDB();
 		BTreeMap<String, IscrizioneCorso> iscrizioni = db.getTreeMap("IscrizioniCorso");
 		
-		iscrizioni.put("algebra", new IscrizioneCorso("algebra", "mari"));
+		iscrizioni.put("web", new IscrizioneCorso("web", "marianna@unibo.it"));
+		iscrizioni.put("ingegneria", new IscrizioneCorso("ingegneria", "marianna@unibo.it"));
+		iscrizioni.put("web", new IscrizioneCorso("web", "martina@unibo.it"));
 		db.commit();
 		
 		ArrayList<String> corsiOutput = new ArrayList<String>();
@@ -57,7 +59,7 @@ public class iscrizioneCorsoDB {
 		} else {
 			db.commit();
 			db.close();		
-			return "già presente";
+			return "già iscritto";
 		}
 	}
 }

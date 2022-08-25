@@ -10,14 +10,17 @@ private static final long serialVersionUID = 1L;
 	private String esame;
 	private String email;
 	private String voto;
+	private boolean pubblicato;
 		
 	public Voto() {}
 
-	public Voto(Integer idVoto, String esame, String email, String voto) {
+	public Voto(Integer idVoto, String esame, String email, String voto, boolean pubblicato) {
+		super();
 		this.idVoto = idVoto;
 		this.esame = esame;
 		this.email = email;
 		this.voto = voto;
+		this.pubblicato = pubblicato;
 	}
 
 	public Integer getIdVoto() {
@@ -50,5 +53,13 @@ private static final long serialVersionUID = 1L;
 
 	public void setVoto(String voto) {
 		this.voto = voto;
+	}
+
+	public boolean isPubblicato() {
+		return pubblicato;
+	}
+
+	public void setPubblicato(boolean pubblicato) {
+		this.pubblicato = pubblicato;
 	}
 }

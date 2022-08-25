@@ -74,6 +74,8 @@ public interface GreetingService extends RemoteService {
 	String aggiuntaVoto(ArrayList<String> dati) throws IllegalArgumentException; 
 
 	ArrayList<Voto> getVotiStudente(String email) throws IllegalArgumentException; 
+	
+	ArrayList<Voto> getVotiNonPubblicati(String email) throws IllegalArgumentException; 
 
 	String pubblicazioneVoti(ArrayList<String> dati) throws IllegalArgumentException;
 }
