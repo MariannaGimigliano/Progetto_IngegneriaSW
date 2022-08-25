@@ -33,7 +33,7 @@ public class utentiDB {
 		utenti.put("martina@unibo.it", new Studente("martina@unibo.it", "marti", "Martina", "Daghia", "0000915287"));
 		utenti.put("docente@unibo.it", new Docente("docente@unibo.it", "doc", "Martina", "Zauli"));
 		utenti.put("docente2@unibo.it", new Docente("docente2@unibo.it", "doc2", "Francesco", "Bianchi"));
-		utenti.put("segreteria@unibo.it", new Segreteria("segreteria@unibo.it", "segr", "Chiara", "Verdi"));
+		utenti.put("segreteria@unibo.it", new Segreteria("segreteria@unibo.it", "seg", "Chiara", "Verdi"));
 		utenti.put("amministratore@unibo.it", new Amministratore("amministratore@unibo.it", "amm", "Marco", "Rossi"));
 		db.commit();
 		
@@ -52,68 +52,65 @@ public class utentiDB {
 	/* metodo che crea un nuovo studente */
 	public static String registrazioneStudente(ArrayList<String> dati) {
 		DB db = getDB();
-		BTreeMap<String, Studente> utenti;
+		BTreeMap<String, Studente> utenti = db.getTreeMap("Utenti");
 
-		if(!trovaUtente(dati.get(0)) ) {
-			utenti = db.getTreeMap("Utenti");
-
-			Studente utente = new Studente(
-					dati.get(0), // email
-					dati.get(1), // password
-					dati.get(2), // nome
-					dati.get(3), // cognome
-					dati.get(4) // matricola
-					);
+		Studente utente = new Studente(
+				dati.get(0), // email
+				dati.get(1), // password
+				dati.get(2), // nome
+				dati.get(3), // cognome
+				dati.get(4) // matricola
+				);
+		
+		if(!trovaUtente(utente.getEmail()) && dati.get(0).length()>=1 && dati.get(1).length()>=1 && dati.get(2).length()>=1 
+				&& dati.get(3).length()>=1 && dati.get(4).length()>=1) {		
 			utenti.put(utente.getEmail(), utente);
 			db.commit();
 			db.close();
-			return "Successo";
-		}
-		else return "Errore";
+			return "successo";
+		} else return "errore";
 	}
 
 	/* metodo che crea un nuovo utente segreteria */
 	public static String registrazioneSegreteria(ArrayList<String> dati) {
 		DB db = getDB();
-		BTreeMap<String, Segreteria> utenti;
+		BTreeMap<String, Segreteria> utenti = db.getTreeMap("Utenti");
 
-		if(!trovaUtente(dati.get(0)) ) {
-			utenti = db.getTreeMap("Utenti");
-
-			Segreteria segreteria = new Segreteria(
-					dati.get(0), // email
-					dati.get(1), // password
-					dati.get(2), // nome
-					dati.get(3) // cognome
-					);
+		Segreteria segreteria = new Segreteria(
+				dati.get(0), // email
+				dati.get(1), // password
+				dati.get(2), // nome
+				dati.get(3) // cognome
+				);
+		
+		if(!trovaUtente(segreteria.getEmail()) && dati.get(0).length()>=1 && dati.get(1).length()>=1 && 
+				dati.get(2).length()>=1 && dati.get(3).length()>=1) {
 			utenti.put(segreteria.getEmail(), segreteria);
 			db.commit();
 			db.close();
-			return "Successo";
-		}
-		else return "Errore";
+			return "successo";
+		} else return "errore";
 	}
 
 	/* metodo che crea un nuovo docente */
 	public static String registrazioneDocente(ArrayList<String> dati) {
 		DB db = getDB();
-		BTreeMap<String, Docente> utenti;
+		BTreeMap<String, Docente> utenti = db.getTreeMap("Utenti");
 
-		if(!trovaUtente(dati.get(0)) ) {
-			utenti = db.getTreeMap("Utenti");
-
-			Docente docente = new Docente(
-					dati.get(0), // email
-					dati.get(1), // password
-					dati.get(2), // nome
-					dati.get(3) // cognome
-					);
+		Docente docente = new Docente(
+				dati.get(0), // email
+				dati.get(1), // password
+				dati.get(2), // nome
+				dati.get(3) // cognome
+				);
+		
+		if(!trovaUtente(docente.getEmail()) && dati.get(0).length()>=1 && dati.get(1).length()>=1 && 
+				dati.get(2).length()>=1 && dati.get(3).length()>=1) {
 			utenti.put(docente.getEmail(), docente);
 			db.commit();
 			db.close();
-			return "Successo";
-		}
-		else return "Errore";
+			return "successo";
+		} else return "errore";
 	}
 	
 	/* metodo che data l'email trova un utente specifico */
@@ -199,7 +196,7 @@ public class utentiDB {
 		utenti.put(email, utente);
 		db.commit();
 		db.close();
-		return "Successo";
+		return "successo";
 	}
 	
 	/* metodo che aggiorna i dati di un docente data la sua email */
@@ -222,7 +219,7 @@ public class utentiDB {
 		utenti.put(email, utente);
 		db.commit();
 		db.close();
-		return "Successo";
+		return "successo";
 	}
 	
 	/* metodo per eseguire un controllo: se l'utente esiste già nel sistema */

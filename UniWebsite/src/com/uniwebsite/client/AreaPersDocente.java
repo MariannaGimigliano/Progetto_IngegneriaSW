@@ -28,6 +28,9 @@ public class AreaPersDocente extends Composite {
 	Button btnHome;
 	
 	@UiField
+	Button btnVisualizza;
+	
+	@UiField
 	Button btnCorsi;
 
 	@UiField
@@ -69,6 +72,12 @@ public class AreaPersDocente extends Composite {
 	void doClickHome(ClickEvent event) {
 		RootPanel.get().clear();
 		RootPanel.get().add(new HomeDocente(logged));
+	}
+	
+	@UiHandler("btnVisualizza")
+	void doClickVis(ClickEvent event) {
+		RootPanel.get().clear();
+		RootPanel.get().add(new InfoCorsiEsamiDocente(logged));
 	}
 	
 	@UiHandler("btnCorsi")

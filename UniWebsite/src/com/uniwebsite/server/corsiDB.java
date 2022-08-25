@@ -54,7 +54,8 @@ public class corsiDB {
 	public static String creazioneCorso(ArrayList<String> dati) {
 		DB db = getDB();
 		BTreeMap<String, Corso> corsi = db.getTreeMap("Corsi");
-
+		boolean trovato = false;
+		
 		Corso corso = new Corso(
 				dati.get(0), // corso
 				dati.get(1), // docente
@@ -62,10 +63,20 @@ public class corsiDB {
 				dati.get(3), // data inizio 
 				dati.get(4)  // data fine  
 				);
-		corsi.put(corso.getNomeCorso(), corso);
-		db.commit();
-		db.close();
-		return "Successo";			
+		
+		for(Entry<String, Corso> test : corsi.entrySet()) {
+			if(test.getValue().getNomeCorso().equals(corso.getNomeCorso())) {
+				trovato = true;
+			}
+		}
+		
+		if (!trovato && dati.get(0).length()>=1 && dati.get(1).length()>=1 && dati.get(2).length()>=1 
+				&& dati.get(3).length()>=1 && dati.get(4).length()>=1) {
+			corsi.put(corso.getNomeCorso(), corso);
+			db.commit();
+			db.close();
+			return "successo";
+		} else return "errore";
 	}
 
 	/* metodo che elimina un corso dato il suo nome */
@@ -80,7 +91,7 @@ public class corsiDB {
 		}
 		db.commit();
 		db.close();
-		return "Successo";
+		return "successo";
 	}
 
 	/* metodo che aggiorna i dati di un corso dato il suo nome */
@@ -103,6 +114,6 @@ public class corsiDB {
 		corsi.put(nomeCorso, corso);
 		db.commit();
 		db.close();
-		return "Successo";
+		return "successo";
 	}
 }

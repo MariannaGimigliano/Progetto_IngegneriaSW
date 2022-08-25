@@ -32,6 +32,9 @@ public class EsamiDocente extends Composite {
 	Button btnHome;
 	
 	@UiField
+	Button btnVisualizza;
+	
+	@UiField
 	Button btnCorsi;
 
 	@UiField
@@ -99,6 +102,12 @@ public class EsamiDocente extends Composite {
 	void doClickHome(ClickEvent event) {
 		RootPanel.get().clear();
 		RootPanel.get().add(new HomeDocente(logged));
+	}
+	
+	@UiHandler("btnVisualizza")
+	void doClickVis(ClickEvent event) {
+		RootPanel.get().clear();
+		RootPanel.get().add(new InfoCorsiEsamiDocente(logged));
 	}
 
 	@UiHandler("btnCorsi")
@@ -177,11 +186,15 @@ public class EsamiDocente extends Composite {
 			public void onFailure(Throwable c) {}
 			@Override
 			public void onSuccess(String result) {
-				if(result.equals("Successo")) {
-					RootPanel.get().clear();
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Esame creato con successo!");
+					System.out.println(alert);
 					RootPanel.get().add(new EsamiDocente(logged));
-				}else {
-					//esame già esistente
+				} else if(result.equals("errore")) {
+					Alert alert = new Alert("Errore. L'esame creato esiste già o mancano dei dati.");
+					System.out.println(alert);
+					RootPanel.get().add(new EsamiDocente(logged));
 				} 	
 
 			}
@@ -228,11 +241,12 @@ public class EsamiDocente extends Composite {
 			public void onFailure(Throwable c) {}
 			@Override
 			public void onSuccess(String result) {
-				if(result.equals("Successo")) {
-					RootPanel.get().clear();
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Esame modificato con successo!");
+					System.out.println(alert);
 					RootPanel.get().add(new EsamiDocente(logged));
-				}else {} 	
-
+				}
 			}
 		}); 
 	}
@@ -247,10 +261,12 @@ public class EsamiDocente extends Composite {
 			public void onFailure(Throwable c) {}
 			@Override
 			public void onSuccess(String result) {
-				if(result.equals("Successo")) {
-					RootPanel.get().clear();
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Esame eliminato con successo!");
+					System.out.println(alert);
 					RootPanel.get().add(new EsamiDocente(logged));
-				}else {} 	
+				}
 			}
 		}); 
 	}

@@ -29,6 +29,9 @@ public class VotiDocente extends Composite {
 	Button btnHome;
 	
 	@UiField
+	Button btnVisualizza;
+	
+	@UiField
 	Button btnCorsi;
 
 	@UiField
@@ -66,6 +69,12 @@ public class VotiDocente extends Composite {
 	void doClickHome(ClickEvent event) {
 		RootPanel.get().clear();
 		RootPanel.get().add(new HomeDocente(logged));
+	}
+	
+	@UiHandler("btnVisualizza")
+	void doClickVis(ClickEvent event) {
+		RootPanel.get().clear();
+		RootPanel.get().add(new InfoCorsiEsamiDocente(logged));
 	}
 
 	@UiHandler("btnCorsi")
@@ -143,13 +152,16 @@ public class VotiDocente extends Composite {
 			}
 			@Override
 			public void onSuccess(String result) {
-				if(result.equals("Successo")) {
-					RootPanel.get().clear();
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Voto inviato con successo!");
+					System.out.println(alert);
 					RootPanel.get().add(new VotiDocente(logged));
-				} else if(result.equals("Errore")) {
-					//esame già esistente
+				} else if(result.equals("errore")) {
+					Alert alert = new Alert("Errore. Il voto è già stato inviato o mancano dei dati.");
+					System.out.println(alert);
+					RootPanel.get().add(new VotiDocente(logged));
 				} 	
-
 			}
 		});
 	}

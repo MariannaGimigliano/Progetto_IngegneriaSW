@@ -56,7 +56,8 @@ public class esamiDB {
 	public static String creazioneEsame(ArrayList<String> dati) {
 		DB db = getDB();
 		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");
-
+		boolean trovato = false;
+		
 		Esame esame = new Esame(
 				dati.get(0), // esame
 				dati.get(1), // docente
@@ -65,10 +66,20 @@ public class esamiDB {
 				dati.get(4), // durata  
 				dati.get(5)  // aula  
 				);
-		esami.put(esame.getEsame(), esame);
-		db.commit();
-		db.close();
-		return "Successo";			
+		
+		for(Entry<String, Esame> test : esami.entrySet()) {
+			if(test.getValue().getEsame().equals(esame.getEsame())) {
+				trovato = true;
+			}
+		}
+		
+		if (!trovato && dati.get(0).length()>=1 && dati.get(1).length()>=1 && dati.get(2).length()>=1 
+				&& dati.get(3).length()>=1 && dati.get(4).length()>=1 && dati.get(5).length()>=1) {
+			esami.put(esame.getEsame(), esame);
+			db.commit();
+			db.close();
+			return "successo";
+		} else return "errore";
 	}
 
 	/* metodo che elimina un'esame dato il suo nome */
@@ -83,7 +94,7 @@ public class esamiDB {
 		}
 		db.commit();
 		db.close();
-		return "Successo";
+		return "successo";
 	}
 
 	/* metodo che aggiorna i dati di un'esame dato il suo nome */
@@ -93,6 +104,7 @@ public class esamiDB {
 
 		Esame esame = esami.get(nomeEsame);
 		esami.remove(nomeEsame);
+		
 		if(dati.get(0) != "") {
 			esame.setData(dati.get(0));
 		}
@@ -108,6 +120,6 @@ public class esamiDB {
 		esami.put(nomeEsame, esame);
 		db.commit();
 		db.close();
-		return "Successo";
+		return "successo";
 	}
 }

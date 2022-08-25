@@ -101,16 +101,19 @@ public class EsamiStudente extends Composite {
 			public void onFailure(Throwable caught) {}
 			@Override
 			public void onSuccess(String result) {
-				if(result=="iscritto") {
-					//Alert nice = new Alert("Iscrizione al corso effettuata!");
-				}else {
-					//Alert e = new Alert("Sei gia iscritto a questo corso!");
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Iscrizione effetuata con successo!");
+					System.out.println(alert);
+					RootPanel.get().add(new EsamiStudente(logged));
+				}else if(result.equals("errore")) {
+					Alert alert = new Alert("Sei già iscritto a questo esame.");
+					System.out.println(alert);
+					RootPanel.get().add(new EsamiStudente(logged));
 				}
 			}
 
 		});
-		RootPanel.get().clear();
-		RootPanel.get().add(new EsamiStudente(logged));
 	}
 	
 	/* Ritorna tutti i corsi a cui lo studente è iscritto */

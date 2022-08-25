@@ -23,6 +23,9 @@ public class HomeDocente extends Composite {
 	Button btnHome;
 	
 	@UiField
+	Button btnVisualizza;
+	
+	@UiField
 	Button btnCorsi;
 
 	@UiField
@@ -40,6 +43,12 @@ public class HomeDocente extends Composite {
 	public HomeDocente(String email) {
 		initWidget(uiBinder.createAndBindUi(this));
 		logged = email;
+	}
+	
+	@UiHandler("btnVisualizza")
+	void doClickVis(ClickEvent event) {
+		RootPanel.get().clear();
+		RootPanel.get().add(new InfoCorsiEsamiDocente(logged));
 	}
 	
 	@UiHandler("btnCorsi")

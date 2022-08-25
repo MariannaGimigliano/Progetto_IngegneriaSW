@@ -183,14 +183,12 @@ public class ModificaUtentiAmministratore extends Composite {
 			public void onFailure(Throwable c) {}
 			@Override
 			public void onSuccess(String result) {
-				if(result.equals("Successo")) {
-					RootPanel.get().clear();
-					//Alert a = new Alert("Utente modificato con successo!");
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Utente modificato con successo!");
+					System.out.println(alert);
 					RootPanel.get().add(new ModificaUtentiAmministratore());
-				}else {
-					//Alert a = new Alert("Errore!");
-				} 	
-
+				}
 			}
 		}); 
 	}
@@ -228,14 +226,12 @@ public class ModificaUtentiAmministratore extends Composite {
 			public void onFailure(Throwable c) {}
 			@Override
 			public void onSuccess(String result) {
-				if(result.equals("Successo")) {
-					RootPanel.get().clear();
-					//Alert a = new Alert("Utente modificato con successo!");
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Utente modificato con successo!");
+					System.out.println(alert);
 					RootPanel.get().add(new ModificaUtentiAmministratore());
-				}else {
-					//Alert a = new Alert("Errore!");
-				} 	
-
+				}
 			}
 		}); 
 	}

@@ -23,13 +23,14 @@ public class iscrizioneEsameDB {
 	 */
 	public static ArrayList<String> getEsamiStudente(String email){
 		DB db = getDB();
-		BTreeMap<String, IscrizioneEsame> iscrizioni = db.getTreeMap("IscrizioniEsame");
+		BTreeMap<Integer, IscrizioneEsame> iscrizioni = db.getTreeMap("IscrizioniEsame");
 		
-		iscrizioni.put("web", new IscrizioneEsame("web", "marianna@unibo.it"));
+		iscrizioni.put(1, new IscrizioneEsame(1, "web", "marianna@unibo.it"));
+		iscrizioni.put(2, new IscrizioneEsame(2, "web", "martina@unibo.it"));
 		db.commit();
 		
 		ArrayList<String> esamiOutput = new ArrayList<String>();
-		for(Entry<String, IscrizioneEsame> test : iscrizioni.entrySet()) {
+		for(Entry<Integer, IscrizioneEsame> test : iscrizioni.entrySet()) {
 			if(email.equals(test.getValue().getEmailStudente())) {
 				esamiOutput.add(test.getValue().getEsame());
 			}
@@ -40,25 +41,20 @@ public class iscrizioneEsameDB {
 	/* Metodo che permette ad uno studente di iscriversi ad un esame */
 	public static String iscrizioneEsame(String email, String esame) { 
 		DB db = getDB();
-		BTreeMap<String, IscrizioneEsame> iscrizioni = db.getTreeMap("IscrizioniEsame");
+		BTreeMap<Integer, IscrizioneEsame> iscrizioni = db.getTreeMap("IscrizioniEsame");
 
-		IscrizioneEsame iscrizione = new IscrizioneEsame(esame, email);
+		IscrizioneEsame iscrizione = new IscrizioneEsame(iscrizioni.size() +1, esame, email);
 		boolean trovato = false;
-		for(Entry<String, IscrizioneEsame> test : iscrizioni.entrySet()) {
-			if(esame == test.getValue().getEsame() && email.equals(test.getValue().getEmailStudente())) {
+		for(Entry<Integer, IscrizioneEsame> test : iscrizioni.entrySet()) {
+			if(esame.equals(test.getValue().getEsame()) && email.equals(test.getValue().getEmailStudente())) {
 				trovato = true;
 			}
 		}
 		if(!trovato) {
-			iscrizioni.put(iscrizione.getEsame(), iscrizione); 
+			iscrizioni.put(iscrizione.getIdIscrizione(), iscrizione); 
 			db.commit();
 			db.close();	
-			return "iscritto";
-
-		} else {
-			db.commit();
-			db.close();	
-			return "già presente";
-		}
+			return "successo";
+		} else return "errore";
 	}
 }

@@ -23,15 +23,15 @@ public class iscrizioneCorsoDB {
 	 */
 	public static ArrayList<String> getCorsiStudente(String email){ 
 		DB db = getDB();
-		BTreeMap<String, IscrizioneCorso> iscrizioni = db.getTreeMap("IscrizioniCorso");
+		BTreeMap<Integer, IscrizioneCorso> iscrizioni = db.getTreeMap("IscrizioniCorso");
 		
-		iscrizioni.put("web", new IscrizioneCorso("web", "marianna@unibo.it"));
-		iscrizioni.put("ingegneria", new IscrizioneCorso("ingegneria", "marianna@unibo.it"));
-		iscrizioni.put("web", new IscrizioneCorso("web", "martina@unibo.it"));
+		iscrizioni.put(1, new IscrizioneCorso(1, "web", "marianna@unibo.it"));
+		iscrizioni.put(2, new IscrizioneCorso(2, "ingegneria", "marianna@unibo.it"));
+		iscrizioni.put(3, new IscrizioneCorso(3, "web", "martina@unibo.it"));
 		db.commit();
 		
 		ArrayList<String> corsiOutput = new ArrayList<String>();
-		for(Entry<String, IscrizioneCorso> test : iscrizioni.entrySet()) {
+		for(Entry<Integer, IscrizioneCorso> test : iscrizioni.entrySet()) {
 			if(email.equals(test.getValue().getEmailStudente())) {
 				corsiOutput.add(test.getValue().getCorso());
 			}
@@ -42,24 +42,20 @@ public class iscrizioneCorsoDB {
 	/* Metodo che permette ad uno studente di iscriversi ad un corso */
 	public static String iscrizioneCorso(String email, String corso) { 
 		DB db = getDB();
-		BTreeMap<String, IscrizioneCorso> iscrizioni = db.getTreeMap("IscrizioniCorso");
+		BTreeMap<Integer, IscrizioneCorso> iscrizioni = db.getTreeMap("IscrizioniCorso");
 
-		IscrizioneCorso iscrizione = new IscrizioneCorso(corso, email);
+		IscrizioneCorso iscrizione = new IscrizioneCorso(iscrizioni.size() +1, corso, email);
 		boolean trovato = false;
-		for(Entry<String, IscrizioneCorso> test : iscrizioni.entrySet()) {
-			if(corso == test.getValue().getCorso() && email.equals(test.getValue().getEmailStudente())) {
+		for(Entry<Integer, IscrizioneCorso> test : iscrizioni.entrySet()) {
+			if(corso.equals(test.getValue().getCorso()) && email.equals(test.getValue().getEmailStudente())) {
 				trovato = true;
 			}
 		}
 		if(!trovato) {
-			iscrizioni.put(iscrizione.getCorso(), iscrizione);
+			iscrizioni.put(iscrizione.getIdIscrizione(), iscrizione);
 			db.commit();
 			db.close();
-			return "iscritto";
-		} else {
-			db.commit();
-			db.close();		
-			return "già iscritto";
-		}
+			return "successo";
+		} else return "errore";
 	}
 }

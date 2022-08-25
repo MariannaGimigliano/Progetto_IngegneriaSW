@@ -110,6 +110,7 @@ public class CreaUtentiAmministratore extends Composite {
 		RootPanel.get().add(new Home());
 	}
 	
+	/* Crea un nuovo utente Studente */
 	@UiHandler("btnCreaStud")
 	void doClickStud(ClickEvent event) {
 		ArrayList<String> dati = new ArrayList<String>();
@@ -124,18 +125,22 @@ public class CreaUtentiAmministratore extends Composite {
 			public void onFailure(Throwable c) {}
 			@Override
 			public void onSuccess(String result) {
-				if(result.equals("Successo")) {
-					//Alert a = new Alert("Registrazione avvenuta con successo!");
-					RootPanel.get().clear();
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Registrazione avvenuta con successo!");
+					System.out.println(alert);
 					RootPanel.get().add(new CreaUtentiAmministratore());
-				}else if(result.equals("Errore")){
-					//Alert a = new Alert("Esiste già un account con questa email o hai commesso qualche errore");
+				} else if(result.equals("errore")){
+					Alert alert = new Alert("Errore. Esiste già un utente con questa email o mancano dei dati.");
+					System.out.println(alert);
+					RootPanel.get().add(new CreaUtentiAmministratore());
 				} 	
 
 			}
 		});
 	}
 	
+	/* Crea un nuovo utente Docente */
 	@UiHandler("btnCreaDoc")
 	void doClickDoc(ClickEvent event) {
 		ArrayList<String> dati = new ArrayList<String>();
@@ -149,18 +154,22 @@ public class CreaUtentiAmministratore extends Composite {
 			public void onFailure(Throwable c) {}
 			@Override
 			public void onSuccess(String result) {
-				if(result.equals("Successo")) {
-					//Alert a = new Alert("Registrazione avvenuta con successo!");
-					RootPanel.get().clear();
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Registrazione avvenuta con successo!");
+					System.out.println(alert);
 					RootPanel.get().add(new CreaUtentiAmministratore());
-				}else if(result.equals("Errore")){
-					//Alert a = new Alert("Esiste già un account con questa email o hai commesso qualche errore");
+				} else if(result.equals("errore")){
+					Alert alert = new Alert("Errore. Esiste già un utente con questa email o mancano dei dati.");
+					System.out.println(alert);
+					RootPanel.get().add(new CreaUtentiAmministratore());
 				} 	
 
 			}
 		});
 	}
 	
+	/* Crea un nuovo utente Segreteria */
 	@UiHandler("btnCreaSeg")
 	void doClickSeg(ClickEvent event) {
 		ArrayList<String> dati = new ArrayList<String>();
@@ -174,14 +183,16 @@ public class CreaUtentiAmministratore extends Composite {
 			public void onFailure(Throwable c) {}
 			@Override
 			public void onSuccess(String result) {
-				if(result.equals("Successo")) {
-					//Alert a = new Alert("Registrazione avvenuta con successo!");
-					RootPanel.get().clear();
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Registrazione avvenuta con successo!");
+					System.out.println(alert);
 					RootPanel.get().add(new CreaUtentiAmministratore());
-				}else if(result.equals("Errore")){
-					//Alert a = new Alert("Esiste già un account con questa email o hai commesso qualche errore");
-				} 	
-
+				} else if(result.equals("errore")){
+					Alert alert = new Alert("Errore. Esiste già un utente con questa email o mancano dei dati.");
+					System.out.println(alert);
+					RootPanel.get().add(new CreaUtentiAmministratore());
+				} 		
 			}
 		});
 	}

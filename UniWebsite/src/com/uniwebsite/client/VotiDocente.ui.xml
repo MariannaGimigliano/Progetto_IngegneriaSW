@@ -17,6 +17,7 @@
 	    
 	    	<g:HorizontalPanel>
 	    		<g:Button ui:field = "btnHome" text="Home"/>
+	    		<g:Button ui:field = "btnVisualizza" text="Visualizza Corsi e Esami"/>
 	       		<g:Button ui:field = "btnCorsi" text="Gestisci Corsi"/>
 	       		<g:Button ui:field = "btnEsami" text="Gestisci Esami"/>
 	      		<g:Button ui:field = "btnVoti" text="Gestisci Voti"/>

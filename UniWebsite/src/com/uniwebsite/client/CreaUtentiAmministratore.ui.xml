@@ -26,11 +26,11 @@
 	    	<div>
 				<h2>Crea un account Studente</h2>
 			    <div>
-					<label>Matricola</label><gwt:TextBox ui:field="txtMatrStud"></gwt:TextBox>
 				    <label>Email</label><gwt:TextBox ui:field="txtEmailStud"></gwt:TextBox>
 				    <label>Password</label><gwt:TextBox ui:field="txtPsswStud"></gwt:TextBox>
 					<label>Nome</label><gwt:TextBox ui:field="txtNomeStud"></gwt:TextBox>
 					<label>Cognome</label><gwt:TextBox ui:field="txtCognomeStud"></gwt:TextBox>
+					<label>Matricola</label><gwt:TextBox ui:field="txtMatrStud"></gwt:TextBox>
 			  		<gwt:Button ui:field="btnCreaStud" text="Crea Studente"></gwt:Button>
 		    	</div>
 			  

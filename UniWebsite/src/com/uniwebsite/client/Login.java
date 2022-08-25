@@ -87,7 +87,9 @@ public class Login extends Composite {
 					RootPanel.get().add(new HomeSegreteria());
 				}
 				else {
-					RootPanel.get().add(new Home()); //mettere alert errore
+					Alert alert = new Alert("Email o Password non corrette.");
+					System.out.println(alert);
+					RootPanel.get().add(new Login());
 				}
 			}
 		});

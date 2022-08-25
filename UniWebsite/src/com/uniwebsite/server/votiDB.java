@@ -33,19 +33,16 @@ public class votiDB {
 			
 		for(Entry<Integer, Voto> test : voti.entrySet()) {
 			if(test.getValue().getEmail().equals(voto.getEmail()) && test.getValue().getEsame().equals(voto.getEsame())) {
-				trovato=true; //ritorna id del Corso
+				trovato = true; 
 			}
 		}
 		
-		if (!trovato) {
+		if (!trovato && dati.get(1).length()>=1 && dati.get(2).length()>=1 && dati.get(3).length()>=1) {
 			voti.put(voto.getIdVoto(), voto);
 			db.commit();
 			db.close();
-			return "Successo";
-		} else {
-			return "Errore";
-		}
-
+			return "successo";
+		} else return "errore";
 	}
 	
 	/* metodo per ottenere tutti i voti (già pubblicati) di uno studente data la sua email */
@@ -104,7 +101,7 @@ public class votiDB {
 		voti.put(voto.getIdVoto(), voto);
 		db.commit();
 		db.close();
-		return "Successo";
+		return "successo";
 	}
 
 }

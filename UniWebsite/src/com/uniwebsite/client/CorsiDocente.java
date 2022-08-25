@@ -31,6 +31,9 @@ public class CorsiDocente extends Composite {
 	Button btnHome;
 	
 	@UiField
+	Button btnVisualizza;
+	
+	@UiField
 	Button btnCorsi;
 
 	@UiField
@@ -93,6 +96,12 @@ public class CorsiDocente extends Composite {
 		RootPanel.get().add(new HomeDocente(logged));
 	}
 	
+	@UiHandler("btnVisualizza")
+	void doClickVis(ClickEvent event) {
+		RootPanel.get().clear();
+		RootPanel.get().add(new InfoCorsiEsamiDocente(logged));
+	}
+	
 	@UiHandler("btnEsami")
 	void doClickEsami(ClickEvent event) {
 		RootPanel.get().clear();
@@ -151,12 +160,15 @@ public class CorsiDocente extends Composite {
 			public void onFailure(Throwable c) {}
 			@Override
 			public void onSuccess(String result) {
-				if(result.equals("Successo")) {
-					RootPanel.get().clear();
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Corso creato con successo!");
+					System.out.println(alert);
 					RootPanel.get().add(new CorsiDocente(logged));
-				}else {
-					txtCorso.setText("esiste gia");
-					//esame già esistente
+				} else if(result.equals("errore")) {
+					Alert alert = new Alert("Errore. Il corso creato esiste già o mancano dei dati.");
+					System.out.println(alert);
+					RootPanel.get().add(new CorsiDocente(logged));
 				} 	
 
 			}
@@ -197,16 +209,18 @@ public class CorsiDocente extends Composite {
 			public void onFailure(Throwable c) {}
 			@Override
 			public void onSuccess(String result) {
-				if(result.equals("Successo")) {
-					RootPanel.get().clear();
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Corso modificato con successo!");
+					System.out.println(alert);
 					RootPanel.get().add(new CorsiDocente(logged));
-				}else {} 	
+				}	
 
 			}
 		}); 
 	}
 	
-	/* Elimina un corso associato al docente */
+	/* Elimina un corso associato al docente e a cascata il relativo esame */
 	@UiHandler("btnElimina")
 	void doClickCanc(ClickEvent event) {
 		String nomeCorso = listaCorsiElimina.getSelectedValue();
@@ -216,11 +230,20 @@ public class CorsiDocente extends Composite {
 			public void onFailure(Throwable c) {}
 			@Override
 			public void onSuccess(String result) {
-				if(result.equals("Successo")) {
-					RootPanel.get().clear();
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Corso eliminato con successo!");
+					System.out.println(alert);
 					RootPanel.get().add(new CorsiDocente(logged));
-				}else {} 	
+				}	
 			}
+		}); 
+		
+		final GreetingServiceAsync greetingService2 = GWT.create(GreetingService.class);
+		greetingService2.eliminaEsame(nomeCorso, new AsyncCallback<String>() {
+			public void onFailure(Throwable c) {}
+			@Override
+			public void onSuccess(String result) {}
 		}); 
 	}
 }

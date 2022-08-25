@@ -125,13 +125,12 @@ public class VotiSegreteria extends Composite {
 			}
 			@Override
 			public void onSuccess(String result) {
-				if(result.equals("Successo")) {
-					RootPanel.get().clear();
+				RootPanel.get().clear();
+				if(result.equals("successo")) {
+					Alert alert = new Alert("Voto pubblicato con successo!");
+					System.out.println(alert);
 					RootPanel.get().add(new VotiSegreteria());
-				}else if(result.equals("Errore")){
-					//voto già pubblicato
-				} 	
-
+				}
 			}
 		});
 	}
