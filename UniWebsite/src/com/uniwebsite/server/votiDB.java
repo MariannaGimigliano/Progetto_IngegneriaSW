@@ -10,7 +10,7 @@ import org.mapdb.DBMaker;
 
 import com.uniwebsite.shared.Voto;
 
-public class votiDB {
+public class VotiDB {
 	
 	/* creazione database voti */
 	public static DB getDB() {
@@ -18,7 +18,7 @@ public class votiDB {
 		return db;
 	}
 
-	/* aggiunta voto (docente invia voto a segreteria) */
+	/* aggiunta voto (docente invia voto a segreteria), dato un array dei dati sul voto */
 	public static String aggiuntaVoto(ArrayList<String> dati) {
 		DB db = getDB();
 		BTreeMap<Integer, Voto> voti = db.getTreeMap("Voti");
@@ -45,7 +45,7 @@ public class votiDB {
 		} else return "errore";
 	}
 	
-	/* metodo per ottenere tutti i voti (già pubblicati) di uno studente data la sua email */
+	/* metodo che ritorna tutti i voti (già pubblicati) di uno studente, data la sua email */
 	public static ArrayList<Voto> getVotiStudente(String email){
 		DB db = getDB();
 		BTreeMap<Integer, Voto> voti = db.getTreeMap("Voti");
@@ -68,7 +68,7 @@ public class votiDB {
 		return votiOutput;
 	}
 	
-	/* metodo per ottenere l'elenco dei voti non pubblicati di uno studente data la sua email */
+	/* metodo che ritorna l'elenco dei voti non pubblicati di uno studente, data la sua email */
 	public static ArrayList<Voto> getVotiNonPubblicati(String email){
 		DB db = getDB();
 		BTreeMap<Integer, Voto> voti = db.getTreeMap("Voti");
@@ -84,7 +84,7 @@ public class votiDB {
 		return votiOutput;
 	}
 
-	/* aggiunta voto (segreteria pubblica voto per lo studente) */
+	/* aggiunta voto (segreteria pubblica voto per lo studente), dato un array dei dati sul voto */
 	public static String pubblicazioneVoti(ArrayList<String> dati) {
 		DB db = getDB();
 		BTreeMap<Integer, Voto> voti = db.getTreeMap("Voti");

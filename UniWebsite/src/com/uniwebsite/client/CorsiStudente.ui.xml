@@ -8,14 +8,32 @@
 		#content {
 			margin: 30px;
 		}
-	
+		
+		#nav {
+			background-color: lightgrey;
+		}
+		
+		#logo {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#btn {
+			margin-top: 10px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
 	</ui:style>
 
 	<g:HTMLPanel>
-		<div id="content">
 		
-			<img id="logo" src="logo.jpeg" height="150px"/>
-	    
+		<div id="nav">
+			<img id="logo" src="logo.png" height="150px"/>
+	    </div>
+	    <div id="btn">
 	    	<g:HorizontalPanel>
 	    		<g:Button ui:field = "btnHome" text="Home"/>
 	       		<g:Button ui:field = "btnCorsi" text="Corsi"/>
@@ -24,21 +42,19 @@
 	      		<g:Button ui:field = "btnPers" text="Area Personale"/>
 	      		<g:Button ui:field = "btnLogout" text="Logout"/>
 	    	</g:HorizontalPanel> 
-	    	
-	    	<div>
-				<h2>Elenco dei corsi disponibili</h2>
-				<c:CellTable ui:field='cellTable'></c:CellTable>
-				
-			    <br></br>
-			    
-			    <h2>Iscriviti ad un corso</h2>
-			    <div>
-					<label>Corso </label>
-				    <gwt:ListBox ui:field="listaCorsi"></gwt:ListBox>
-				  	<gwt:Button ui:field="btnIscriviti" text="Iscriviti"></gwt:Button>
-			    </div>
-	    	</div>
-	    	
+	    </div>
+	   	
+		<div id="content">
+			<h2>Elenco dei corsi disponibili</h2>
+			<c:CellTable ui:field='cellTable'></c:CellTable>
+			
+		    <br></br>
+		    
+		    <div>
+		    	<h2>Iscriviti ad un corso</h2>
+				<label>Corso </label><gwt:ListBox ui:field="listaCorsi"></gwt:ListBox>
+			  	<gwt:Button ui:field="btnIscriviti" text="Iscriviti"></gwt:Button>
+		    </div>	    	
 		</div>
 	</g:HTMLPanel>
 	

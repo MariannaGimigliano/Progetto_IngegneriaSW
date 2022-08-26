@@ -220,7 +220,7 @@ public class CorsiDocente extends Composite {
 		}); 
 	}
 	
-	/* Elimina un corso associato al docente e a cascata il relativo esame */
+	/* Elimina un corso associato al docente e il relativo esame */
 	@UiHandler("btnElimina")
 	void doClickCanc(ClickEvent event) {
 		String nomeCorso = listaCorsiElimina.getSelectedValue();

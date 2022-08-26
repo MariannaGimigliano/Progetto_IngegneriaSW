@@ -7,26 +7,43 @@
 		#content {
 			margin: 30px;
 		}
-	
+		
+		#nav {
+			background-color: lightgrey;
+		}
+		
+		#logo {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#btn {
+			margin-top: 10px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
 	</ui:style>
 
 	<g:HTMLPanel>
-		<div id="content">
 		
-			<img id="logo" src="logo.jpeg" height="150px"/>
-	    
+		<div id="nav">
+			<img id="logo" src="logo.png" height="150px"/>
+	    </div>
+	    <div id="btn">
 	    	<g:HorizontalPanel>
 	    		<g:Button ui:field = "btnHome" text="Home"/>
 	       		<g:Button ui:field = "btnStudenti" text="Visualizza Studenti"/>
 	       		<g:Button ui:field = "btnVoti" text="Pubblica Voti"/>
 	       		<g:Button ui:field = "btnLogout" text="Logout"/>
 	    	</g:HorizontalPanel> 
-	    	
-	    	<div>
-				<h2>Dati personali degli studenti</h2>
-				<c:CellTable ui:field='cellTable'></c:CellTable>
-	    	</div>
-	    	
+	    </div>
+	   	
+		<div id="content">
+			<h2>Dati personali degli studenti</h2>
+			<c:CellTable ui:field='cellTable'></c:CellTable>	    	
 		</div>
 	</g:HTMLPanel>
 	

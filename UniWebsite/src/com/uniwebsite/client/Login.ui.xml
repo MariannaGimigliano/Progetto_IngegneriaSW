@@ -7,33 +7,50 @@
 		#content {
 			margin: 30px;
 		}
-	
+		
+		#nav {
+			background-color: lightgrey;
+		}
+		
+		#logo {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#btn {
+			margin-top: 10px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
 	</ui:style>
 
 	<g:HTMLPanel>
-		<div id="content">
 		
-			<img id="logo" src="logo.jpeg" height="150px"/>
-	    
-	    	<g:HorizontalPanel>
-	    		<g:Button ui:field = "btnHome" text="Home"/>
-	       		<g:Button ui:field = "btnDipartimenti" text="Dipartimenti"/>
-	       		<g:Button ui:field = "btnContatti" text="Contatti"/>
-	      		<g:Button ui:field = "btnLogin" text="Login" />
-	    	</g:HorizontalPanel> 
-	    	
-	    	<div>
-	    		<br></br>
-				<form>
-					<h2>Accedi al portale</h2>
-				    <label for="emailInput">Email</label>
-				    <gwt:TextBox ui:field="emailInput"></gwt:TextBox>
-			    	<label for="passwordInput">Password</label>
-			    	<gwt:PasswordTextBox ui:field="passwordInput"></gwt:PasswordTextBox>
-					<gwt:Button ui:field="btnLog" text="Login"></gwt:Button>
-				</form>
-			</div>
-	    	
+		<div id="nav">
+			<img id="logo" src="logo.png" height="150px"/>
+	    </div>
+	    <div id="btn">
+		   	<g:HorizontalPanel>
+		   		<g:Button ui:field = "btnHome" text="Home"/>
+	      		<g:Button ui:field = "btnDipartimenti" text="Dipartimenti"/>
+	      		<g:Button ui:field = "btnContatti" text="Contatti"/>
+	     		<g:Button ui:field = "btnLogin" text="Login" />
+		   	</g:HorizontalPanel> 
+	   	</div>
+	   	
+		<div id="content">
+    		<br></br>
+			<form>
+				<h2>Accedi al portale</h2>
+			    <label for="emailInput">Email</label>
+			    <gwt:TextBox ui:field="emailInput"></gwt:TextBox>
+		    	<label for="passwordInput">Password</label>
+		    	<gwt:PasswordTextBox ui:field="passwordInput"></gwt:PasswordTextBox>
+				<gwt:Button ui:field="btnLog" text="Login"></gwt:Button>
+			</form>	    	
 		</div>
 	</g:HTMLPanel>
 	

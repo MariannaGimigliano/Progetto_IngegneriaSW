@@ -7,14 +7,32 @@
 		#content {
 			margin: 30px;
 		}
-	
+		
+		#nav {
+			background-color: lightgrey;
+		}
+		
+		#logo {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#btn {
+			margin-top: 10px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
 	</ui:style>
 
 	<g:HTMLPanel>
-		<div id="content">
 		
-			<img id="logo" src="logo.jpeg" height="150px"/>
-	    
+		<div id="nav">
+			<img id="logo" src="logo.png" height="150px"/>
+	    </div>
+	    <div id="btn">
 	    	<g:HorizontalPanel>
 	    		<g:Button ui:field = "btnHome" text="Home"/>
 	    		<g:Button ui:field = "btnVisualizza" text="Visualizza Corsi e Esami"/>
@@ -24,33 +42,32 @@
 	      		<g:Button ui:field = "btnPers" text="Area Personale"/>
 	      		<g:Button ui:field = "btnLogout" text="Logout"/>
 	    	</g:HorizontalPanel> 
-	    	
-	    	<div>
-				<h2>I tuoi dati personali</h2>
-				<div>
-			    	<p>
-			    		<label><b>Nome: </b></label>
-			    		<gwt:Label ui:field="lblNome" ></gwt:Label>
-			    	</p>
-			    	<p>
-			    		<label><b>Cognome: </b></label>
-			    		<gwt:Label ui:field="lblCognome" ></gwt:Label>
-			    	</p>
-			    	<p>
-			    		<label><b>Mail: </b></label>
-			    		<gwt:Label ui:field="lblMail" ></gwt:Label>
-			    	</p>
-			    	<p>
-			    		<label><b>Corsi: </b></label>
-			    		<gwt:Label ui:field="lblCorsi" ></gwt:Label>
-			    	</p>
-			    	<p>
-			    		<label><b>Esami: </b></label>
-			    		<gwt:Label ui:field="lblEsami" ></gwt:Label>
-			    	</p>
-			    </div>
-	    	</div>
-	    	
+	    </div>
+	   	
+		<div id="content">
+			<h2>I tuoi dati personali</h2>
+			<div>
+		    	<p>
+		    		<label><b>Nome: </b></label>
+		    		<gwt:Label ui:field="lblNome" ></gwt:Label>
+		    	</p>
+		    	<p>
+		    		<label><b>Cognome: </b></label>
+		    		<gwt:Label ui:field="lblCognome" ></gwt:Label>
+		    	</p>
+		    	<p>
+		    		<label><b>Mail: </b></label>
+		    		<gwt:Label ui:field="lblMail" ></gwt:Label>
+		    	</p>
+		    	<p>
+		    		<label><b>Corsi: </b></label>
+		    		<gwt:Label ui:field="lblCorsi" ></gwt:Label>
+		    	</p>
+		    	<p>
+		    		<label><b>Esami: </b></label>
+		    		<gwt:Label ui:field="lblEsami" ></gwt:Label>
+		    	</p>
+		    </div>	    	
 		</div>
 	</g:HTMLPanel>
 	

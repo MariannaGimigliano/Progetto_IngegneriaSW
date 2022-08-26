@@ -7,14 +7,32 @@
 		#content {
 			margin: 30px;
 		}
-	
+		
+		#nav {
+			background-color: lightgrey;
+		}
+		
+		#logo {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#btn {
+			margin-top: 10px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
 	</ui:style>
 
 	<g:HTMLPanel>
-		<div id="content">
 		
-			<img id="logo" src="logo.jpeg" height="150px"/>
-	    
+		<div id="nav">
+			<img id="logo" src="logo.png" height="150px"/>
+	    </div>
+	    <div id="btn">
 	    	<g:HorizontalPanel>
 	    		<g:Button ui:field = "btnHome" text="Home"/>
 	    		<g:Button ui:field = "btnVisualizza" text="Visualizza Corsi e Esami"/>
@@ -24,40 +42,41 @@
 	      		<g:Button ui:field = "btnPers" text="Area Personale"/>
 	      		<g:Button ui:field = "btnLogout" text="Logout"/>
 	    	</g:HorizontalPanel> 
-	    	
-	    	<div>
-	    		<h2>Crea un'esame</h2>
-	    		<p>Puoi creare solo esami di cui esiste già un corso!</p>
-			    <div>
-					<label>Nome Esame</label><gwt:ListBox ui:field="txtEsame"></gwt:ListBox>
-				    <label>Data</label><gwt:TextBox ui:field="txtData"></gwt:TextBox>
-				    <label>Ora</label><gwt:TextBox ui:field="txtOra"></gwt:TextBox>
-					<label>Durata</label><gwt:TextBox ui:field="txtDurata"></gwt:TextBox>
-					<label>Aula</label><gwt:TextBox ui:field="txtAula"></gwt:TextBox>
-			  		<gwt:Button ui:field="btnCrea" text="Crea Esame"></gwt:Button>
-		    	</div>
-			  
-			    <br></br>
-				<h2>Modifica un'esame</h2>
+	    </div>
+	   	
+		<div id="content">
+		    <div>
+		    	<h2>Crea un'esame</h2>
+    			<p>Puoi creare solo esami di cui esiste già un corso!</p>
+				<label>Nome Esame</label><gwt:ListBox ui:field="txtEsame"></gwt:ListBox>
+			    <label>Data</label><gwt:TextBox ui:field="txtData"></gwt:TextBox>
+			    <label>Ora</label><gwt:TextBox ui:field="txtOra"></gwt:TextBox>
+				<label>Durata</label><gwt:TextBox ui:field="txtDurata"></gwt:TextBox>
+				<label>Aula</label><gwt:TextBox ui:field="txtAula"></gwt:TextBox>
+		  		<gwt:Button ui:field="btnCrea" text="Crea Esame"></gwt:Button>
+	    	</div>
+		  
+		    <br></br>
+			
+		  	<div>
+		  		<h2>Modifica un'esame</h2>
 				<p>Puoi modificare solo esami da te creati!</p>
-			  	<div>
-					<label>Nome Esame</label><gwt:ListBox ui:field="listaEsami"></gwt:ListBox>
-				    <label>Data</label><gwt:TextBox ui:field="txtModData"></gwt:TextBox>
-				    <label>Ora</label><gwt:TextBox ui:field="txtModOra"></gwt:TextBox>
-				    <label>Durata</label><gwt:TextBox ui:field="txtModDurata"></gwt:TextBox>
-				    <label>Aula</label><gwt:TextBox ui:field="txtModAula"></gwt:TextBox>
-			  		<gwt:Button ui:field="btnModifica" text="Modifica Esame"></gwt:Button>
-		    	</div>
-			  
-			  	<br></br>
-				<h2>Elimina un'esame</h2>
+				<label>Nome Esame</label><gwt:ListBox ui:field="listaEsami"></gwt:ListBox>
+			    <label>Data</label><gwt:TextBox ui:field="txtModData"></gwt:TextBox>
+			    <label>Ora</label><gwt:TextBox ui:field="txtModOra"></gwt:TextBox>
+			    <label>Durata</label><gwt:TextBox ui:field="txtModDurata"></gwt:TextBox>
+			    <label>Aula</label><gwt:TextBox ui:field="txtModAula"></gwt:TextBox>
+		  		<gwt:Button ui:field="btnModifica" text="Modifica Esame"></gwt:Button>
+	    	</div>
+		  
+		  	<br></br>
+			
+		  	<div>
+		  		<h2>Elimina un'esame</h2>
 				<p>Puoi eliminare solo esami da te creati!</p>
-			  	<div>
-					<label>Nome Esame</label><gwt:ListBox ui:field="listaEsamiElimina"></gwt:ListBox>
-			  		<gwt:Button ui:field="btnElimina" text="Elimina Esame"></gwt:Button>
-		    	</div>
-			</div>
-	    	
+				<label>Nome Esame</label><gwt:ListBox ui:field="listaEsamiElimina"></gwt:ListBox>
+		  		<gwt:Button ui:field="btnElimina" text="Elimina Esame"></gwt:Button>
+	    	</div>	    	
 		</div>
 	</g:HTMLPanel>
 

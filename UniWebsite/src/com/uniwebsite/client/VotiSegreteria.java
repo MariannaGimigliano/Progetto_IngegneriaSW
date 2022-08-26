@@ -87,6 +87,7 @@ public class VotiSegreteria extends Composite {
 		}catch(Error e){};
 	}
 	
+	/* Chiama il metodo di ricerca dei voti non pubblicati dopo aver selezionato uno studente */
 	@UiHandler("btnCerca")
 	void doClickCerca(ClickEvent event) {
 		listBoxVoti();
@@ -111,7 +112,7 @@ public class VotiSegreteria extends Composite {
 		}catch(Error e){};
 	}
 	
-	/* metodo che pubblica voto per lo studente */
+	/* Pubblica un voto per lo studente */
 	@UiHandler("btnPubb")
 	void doClickPubb(ClickEvent event) {
 		ArrayList<String> dati = new ArrayList<String>();

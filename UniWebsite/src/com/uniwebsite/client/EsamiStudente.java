@@ -92,6 +92,7 @@ public class EsamiStudente extends Composite {
 		RootPanel.get().add(new Home());
 	}
 	
+	/* Permette allo studente di iscriversi all'esame selezionato */
 	@UiHandler("btnIscriviti")
 	void doClickIscr(ClickEvent event) {
 		final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
@@ -134,7 +135,7 @@ public class EsamiStudente extends Composite {
 		}catch(Error e){};
 	}
 	
-	/* Metodo che ritorna tutti gli esami nel db */
+	/* Ritorna tutti gli esami nel db */
 	public void getEsami() {
 		try {
 			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);

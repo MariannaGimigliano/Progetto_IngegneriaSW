@@ -10,7 +10,7 @@ import org.mapdb.DBMaker;
 
 import com.uniwebsite.shared.IscrizioneEsame;
 
-public class iscrizioneEsameDB {
+public class IscrizioneEsameDB {
 
 	/* creazione database iscrizione agli esami */
 	private static DB getDB() {
@@ -18,7 +18,7 @@ public class iscrizioneEsameDB {
 		return db;
 	}
 	
-	/* Metodo per ottenere tutti gli esami a cui uno studente è iscritto 
+	/* metodo che ritorna tutti gli esami a cui uno studente è iscritto 
 	 * (ritona un arraylist di nomi di esami)
 	 */
 	public static ArrayList<String> getEsamiStudente(String email){
@@ -38,7 +38,9 @@ public class iscrizioneEsameDB {
 		return esamiOutput;
 	}
 	
-	/* Metodo che permette ad uno studente di iscriversi ad un esame */
+	/* metodo che permette ad uno studente di iscriversi ad un'esame, data l'email dello studente
+	 * e il nome del'esame
+	 */
 	public static String iscrizioneEsame(String email, String esame) { 
 		DB db = getDB();
 		BTreeMap<Integer, IscrizioneEsame> iscrizioni = db.getTreeMap("IscrizioniEsame");

@@ -7,34 +7,54 @@
 		#content {
 			margin: 30px;
 		}
-	
+		
+		#nav {
+			background-color: lightgrey;
+		}
+		
+		#logo {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#btn {
+			margin-top: 10px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
 	</ui:style>
 
 	<g:HTMLPanel>
-		<div id="content">
 		
-			<img id="logo" src="logo.jpeg" height="150px"/>
-	    
+		<div id="nav">
+			<img id="logo" src="logo.png" height="150px"/>
+	    </div>
+	    <div id="btn">
 	    	<g:HorizontalPanel>
 	    		<g:Button ui:field = "btnHome" text="Home"/>
 	       		<g:Button ui:field = "btnStudenti" text="Visualizza Studenti"/>
 	       		<g:Button ui:field = "btnVoti" text="Pubblica Voti"/>
 	       		<g:Button ui:field = "btnLogout" text="Logout"/>
 	    	</g:HorizontalPanel> 
-	    	
-	    	<div>
-				<h2>Pubblica i voti degli studenti</h2>
-			  	<div>
-					<label>Email Studente</label><gwt:ListBox ui:field="listaStudenti"></gwt:ListBox>
-					<gwt:Button ui:field="btnCerca" text="Cerca"></gwt:Button>
-				</div>
-				<br></br>
-				<div>
-					<label>Voti non pubblicati</label><gwt:ListBox ui:field="listaVoti"></gwt:ListBox>
-			  		<gwt:Button ui:field="btnPubb" text="Pubblica Voto"></gwt:Button>
-		    	</div>
+	    </div>
+	   	
+		<div id="content">
+			<h2>Pubblica i voti degli studenti</h2>
+		  	<div>
+				<label>Email Studente</label><gwt:ListBox ui:field="listaStudenti"></gwt:ListBox>
+				<gwt:Button ui:field="btnCerca" text="Cerca"></gwt:Button>
+			</div>
+			<br></br>
+			<div>
+				<label>Voti non pubblicati</label><gwt:ListBox ui:field="listaVoti"></gwt:ListBox>
 	    	</div>
-	    	
+	    	<br></br>
+	    	<div>
+		  		<gwt:Button ui:field="btnPubb" text="Pubblica Voto"></gwt:Button>
+	    	</div>	  	    	
 		</div>
 	</g:HTMLPanel>
 	

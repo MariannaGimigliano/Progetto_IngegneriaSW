@@ -91,6 +91,7 @@ public class CorsiStudente extends Composite {
 		RootPanel.get().add(new Home());
 	}
 	
+	/* Permette allo studente di iscriversi al corso selezionato */
 	@UiHandler("btnIscriviti")
 	void doClickIscr(ClickEvent event) {
 		final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);

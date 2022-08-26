@@ -65,6 +65,7 @@ public class Login extends Composite {
 		RootPanel.get().add(new Contatti());
 	}
 	
+	/* Metodo di login. A seconda del tipo di utente apre la sezione corretta. */
 	@UiHandler("btnLog")
 	void doClickLog(ClickEvent event) {
 		final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);

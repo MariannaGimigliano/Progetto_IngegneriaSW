@@ -6,33 +6,51 @@
 		#content {
 			margin: 30px;
 		}
-	
+		
+		#nav {
+			background-color: lightgrey;
+		}
+		
+		#logo {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#btn {
+			margin-top: 10px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
 	</ui:style>
 
 	<g:HTMLPanel>
-		<div id="content">
 		
-			<img id="logo" src="logo.jpeg" height="150px"/>
-	    
-	    	<g:HorizontalPanel>
-	    		<g:Button ui:field = "btnHome" text="Home"/>
-	       		<g:Button ui:field = "btnDipartimenti" text="Dipartimenti"/>
-	       		<g:Button ui:field = "btnContatti" text="Contatti"/>
-	      		<g:Button ui:field = "btnLogin" text="Login" />
-	    	</g:HorizontalPanel> 
-	    	
-	    	<div>
-				<h2>Contatti</h2>
-				<h3>Indirizzo dell'Amministrazione Generale</h3>
-				<p><a>Via Zamboni, 33 - 40126, Bologna</a></p>
-				<br></br>
-				<h3>Numero di telefono</h3>
-				<p><a>0547-1137365</a></p>
-				<h3>Indirizzo email</h3>
-				<p><a>almaBologna@unibo.it</a></p>
-			</div>
-	    	
+		<div id="nav">
+			<img id="logo" src="logo.png" height="150px"/>
+	    </div>
+	    <div id="btn">
+		   	<g:HorizontalPanel>
+		   		<g:Button ui:field = "btnHome" text="Home"/>
+	      		<g:Button ui:field = "btnDipartimenti" text="Dipartimenti"/>
+	      		<g:Button ui:field = "btnContatti" text="Contatti"/>
+	     		<g:Button ui:field = "btnLogin" text="Login" />
+		   	</g:HorizontalPanel> 
+	   	</div>
+	   	
+		<div id="content">
+			<h2>Contatti</h2>
+			<h3>Indirizzo dell'Amministrazione Generale</h3>
+			<p><a>Via Zamboni, 33 - 40126, Bologna</a></p>
+			<br></br>
+			<h3>Numero di telefono</h3>
+			<p><a>0547-1137365</a></p>
+			<h3>Indirizzo email</h3>
+			<p><a>almaBologna@unibo.it</a></p>
 		</div>
+	    	
 	</g:HTMLPanel>
 	
 </ui:UiBinder> 

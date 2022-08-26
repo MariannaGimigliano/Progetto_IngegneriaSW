@@ -7,14 +7,32 @@
 		#content {
 			margin: 30px;
 		}
-	
+		
+		#nav {
+			background-color: lightgrey;
+		}
+		
+		#logo {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#btn {
+			margin-top: 10px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
 	</ui:style>
 
 	<g:HTMLPanel>
-		<div id="content">
 		
-			<img id="logo" src="logo.jpeg" height="150px"/>
-	    
+		<div id="nav">
+			<img id="logo" src="logo.png" height="150px"/>
+	    </div>
+	    <div id="btn">
 	    	<g:HorizontalPanel>
 	    		<g:Button ui:field = "btnHome" text="Home"/>
 	    		<g:Button ui:field = "btnVisualizza" text="Visualizza Corsi e Esami"/>
@@ -24,39 +42,39 @@
 	      		<g:Button ui:field = "btnPers" text="Area Personale"/>
 	      		<g:Button ui:field = "btnLogout" text="Logout"/>
 	    	</g:HorizontalPanel> 
-	    	
-	    	<div>
-	    		<h2>Crea un corso</h2>
-			    <div>
-					<label>Nome Corso</label><gwt:TextBox ui:field="txtCorso"></gwt:TextBox>
-				    <label>Descrizione</label><gwt:TextBox ui:field="txtDescr"></gwt:TextBox>
-				    <label>Data inizio</label><gwt:TextBox ui:field="txtInizio"></gwt:TextBox>
-					<label>Data fine</label><gwt:TextBox ui:field="txtFine"></gwt:TextBox>
-			  		<gwt:Button ui:field="btnCrea" text="Crea Corso"></gwt:Button>
-		    	</div>
-			  
-			    <br></br>
-			    
-				<h2>Modifica un corso</h2>
+	    </div>
+	   	
+		<div id="content">
+		    <div>
+		    	<h2>Crea un corso</h2>
+				<label>Nome Corso</label><gwt:TextBox ui:field="txtCorso"></gwt:TextBox>
+			    <label>Descrizione</label><gwt:TextBox ui:field="txtDescr"></gwt:TextBox>
+			    <label>Data inizio</label><gwt:TextBox ui:field="txtInizio"></gwt:TextBox>
+				<label>Data fine</label><gwt:TextBox ui:field="txtFine"></gwt:TextBox>
+		  		<gwt:Button ui:field="btnCrea" text="Crea Corso"></gwt:Button>
+	    	</div>
+		  
+		    <br></br>
+		    
+		  	<div>
+		  		<h2>Modifica un corso</h2>
 				<p>Puoi modificare solo corsi da te creati!</p>
-			  	<div>
-					<label>Nome Corso</label><gwt:ListBox ui:field="listaCorsi"></gwt:ListBox>
-				    <label>Descrizione</label><gwt:TextBox ui:field="txtModDescr"></gwt:TextBox>
-				    <label>Data inizio</label><gwt:TextBox ui:field="txtModInizio"></gwt:TextBox>
-				    <label>Data fine</label><gwt:TextBox ui:field="txtModFine"></gwt:TextBox>
-			  		<gwt:Button ui:field="btnModifica" text="Modifica Corso"></gwt:Button>
-		    	</div>
-			  
-			  	<br></br>
-			  	
-				<h2>Elimina un corso</h2>
+				<label>Nome Corso</label><gwt:ListBox ui:field="listaCorsi"></gwt:ListBox>
+			    <label>Descrizione</label><gwt:TextBox ui:field="txtModDescr"></gwt:TextBox>
+			    <label>Data inizio</label><gwt:TextBox ui:field="txtModInizio"></gwt:TextBox>
+			    <label>Data fine</label><gwt:TextBox ui:field="txtModFine"></gwt:TextBox>
+		  		<gwt:Button ui:field="btnModifica" text="Modifica Corso"></gwt:Button>
+	    	</div>
+		  
+		  	<br></br>
+		  	
+		  	<div>
+			  	<h2>Elimina un corso</h2>
 				<p>Puoi eliminare solo corsi da te creati!</p>
-			  	<div>
-					<label>Nome Corso</label><gwt:ListBox ui:field="listaCorsiElimina"></gwt:ListBox>
-			  		<gwt:Button ui:field="btnElimina" text="Elimina Corso"></gwt:Button>
-		    	</div>
-			</div>
-	    	
+				<p>Attenzione! Se elimini un corso verrà eliminato anche il relativo esame.</p>
+				<label>Nome Corso</label><gwt:ListBox ui:field="listaCorsiElimina"></gwt:ListBox>
+		  		<gwt:Button ui:field="btnElimina" text="Elimina Corso"></gwt:Button>
+	    	</div>	    	
 		</div>
 	</g:HTMLPanel>
 	

@@ -101,7 +101,7 @@ public class VotiDocente extends Composite {
 		RootPanel.get().add(new Home());
 	}
 	
-	/* metodo che riempie le listbox con gli esami del docente */
+	/* Riempie le listbox con gli esami del docente */
 	public void listBoxEsami() {
 		try {
 			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
@@ -118,7 +118,7 @@ public class VotiDocente extends Composite {
 		}catch(Error e){};
 	}
 	
-	/* metodo che riempie le listbox con gli studenti */
+	/* Riempie le listbox con gli studenti */
 	public void listBoxStudenti() {
 		try {
 			final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
@@ -135,7 +135,7 @@ public class VotiDocente extends Composite {
 		}catch(Error e){};
 	}
 	
-	/* metodo che invia il voto di un'esame alla segreteria */
+	/* Invia il voto di un'esame alla segreteria */
 	@UiHandler("btnAgg")
 	void doClickAgg(ClickEvent event) {
 		ArrayList<String> dati = new ArrayList<String>();

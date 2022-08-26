@@ -81,6 +81,7 @@ public class InfoUtentiAmministratore extends Composite {
 		RootPanel.get().add(new Home());
 	}
 	
+	/* Ritorna tutti gli utenti di tipo Studente e riempie la tabella */
 	public void getStudenti() {
 		studenti.clear();
 		try {
@@ -136,6 +137,7 @@ public class InfoUtentiAmministratore extends Composite {
 		}catch(Error e){};
 	}
 	
+	/* Ritorna tutti gli utenti di tipo Docente e riempie la tabella */
 	public void getDocenti() {
 		docenti.clear();
 		try {
@@ -184,6 +186,7 @@ public class InfoUtentiAmministratore extends Composite {
 		}catch(Error e){};
 	}
 	
+	/* Ritorna tutti gli utenti di tipo Segreteria e riempie la tabella */
 	public void getSegreteria() {
 		segreteria.clear();
 		try {

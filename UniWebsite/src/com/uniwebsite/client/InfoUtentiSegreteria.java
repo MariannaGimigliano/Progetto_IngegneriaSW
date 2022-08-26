@@ -63,6 +63,7 @@ public class InfoUtentiSegreteria extends Composite {
 		RootPanel.get().add(new Home());
 	}
 	
+	/* Ritorna tutti gli utenti di tipo Studente e riempie la tabella */
 	public void getStudenti() {
 		studenti.clear();
 		try {

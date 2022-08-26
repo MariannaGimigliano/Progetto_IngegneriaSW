@@ -7,14 +7,32 @@ xmlns:c="urn:import:com.google.gwt.user.cellview.client"
 		#content {
 			margin: 30px;
 		}
-	
+		
+		#nav {
+			background-color: lightgrey;
+		}
+		
+		#logo {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#btn {
+			margin-top: 10px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
 	</ui:style>
 
 	<g:HTMLPanel>
-		<div id="content">
 		
-			<img id="logo" src="logo.jpeg" height="150px"/>
-	    
+		<div id="nav">
+			<img id="logo" src="logo.png" height="150px"/>
+	    </div>
+	    <div id="btn">
 	    	<g:HorizontalPanel>
 	    		<g:Button ui:field = "btnHome" text="Home"/>
 	    		<g:Button ui:field = "btnVisualizza" text="Visualizza Corsi e Esami"/>
@@ -24,17 +42,18 @@ xmlns:c="urn:import:com.google.gwt.user.cellview.client"
 	      		<g:Button ui:field = "btnPers" text="Area Personale"/>
 	      		<g:Button ui:field = "btnLogout" text="Logout"/>
 	    	</g:HorizontalPanel> 
-	    	
+	    </div>
+	   	
+		<div id="content">
 	    	<div>
 				<h2>I tuoi corsi</h2>
 				<c:CellTable ui:field='cellTableCorsi'></c:CellTable>
 	    	</div>
-	    	
+	    	<br></br>
 	    	<div>
 				<h2>I tuoi esami</h2>
 				<c:CellTable ui:field='cellTableEsami'></c:CellTable>
 	    	</div>
-	    	
 		</div>
 	</g:HTMLPanel>
 	

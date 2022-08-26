@@ -83,6 +83,7 @@ public class VotiStudente extends Composite {
 		RootPanel.get().add(new Home());
 	}
 	
+	/* Ritorna tutti i voti di uno studente e riempie la tabella */
 	public void getVoti() {
 		voti.clear();
 		try {

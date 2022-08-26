@@ -10,7 +10,7 @@ import org.mapdb.DBMaker;
 
 import com.uniwebsite.shared.Esame;
 
-public class esamiDB {
+public class EsamiDB {
 
 	/* creazione database esami */
 	private static DB getDB() {
@@ -18,7 +18,7 @@ public class esamiDB {
 		return db;
 	}
 	
-	/* Metodo per ottenere tutti gli esami presenti nel database */
+	/* metodo che ritorna tutti gli esami presenti nel db */
 	public static ArrayList<Esame> getEsami() {
 		DB db = getDB();
 		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");
@@ -36,7 +36,7 @@ public class esamiDB {
 		return esamiAll;
 	}
 
-	/* Metodo per ottenere tutti gli esami di un certo docente */
+	/* metodo che ritorna tutti gli esami di un docente, data la sua email */
 	public static ArrayList<Esame> getEsamiDocente(String email) {
 		DB db = getDB();
 		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");
@@ -52,7 +52,7 @@ public class esamiDB {
 		return esamiOutput;
 	}
 
-	/* metodo che crea un nuovo esame dato un array di dati */
+	/* metodo che crea un nuovo esame, dato un array dei dati sull'esame */
 	public static String creazioneEsame(ArrayList<String> dati) {
 		DB db = getDB();
 		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");
@@ -82,7 +82,7 @@ public class esamiDB {
 		} else return "errore";
 	}
 
-	/* metodo che elimina un'esame dato il suo nome */
+	/* metodo che elimina un'esame, dato il suo nome */
 	public static String eliminaEsame(String esame) {
 		DB db = getDB();
 		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");
@@ -97,7 +97,7 @@ public class esamiDB {
 		return "successo";
 	}
 
-	/* metodo che aggiorna i dati di un'esame dato il suo nome */
+	/* metodo che aggiorna i dati di un'esame, dato il suo nome e un array dei dati sull'esame */
 	public static String aggiornaEsame(ArrayList<String> dati, String nomeEsame) {
 		DB db = getDB();
 		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");

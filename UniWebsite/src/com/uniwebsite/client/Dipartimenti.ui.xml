@@ -6,51 +6,67 @@
 		#content {
 			margin: 30px;
 		}
-	
+		
+		#nav {
+			background-color: lightgrey;
+		}
+		
+		#logo {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#btn {
+			margin-top: 10px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
 	</ui:style>
 
 	<g:HTMLPanel>
-		<div id="content">
 		
-			<img id="logo" src="logo.jpeg" height="150px"/>
-	    
-	    	<g:HorizontalPanel>
-	    		<g:Button ui:field = "btnHome" text="Home"/>
-	       		<g:Button ui:field = "btnDipartimenti" text="Dipartimenti"/>
-	       		<g:Button ui:field = "btnContatti" text="Contatti"/>
-	      		<g:Button ui:field = "btnLogin" text="Login" />
-	    	</g:HorizontalPanel> 
-	    	
-	    	<div>
-				<h2>Dipartimenti dell'ateneo</h2>
-				
-				<ul id="list">
-			       <li>Architettura - DA</li>
-			       <li>Beni culturali - DBC</li>
-			       <li>Chimica "Giacomo Ciamician" - CHIM</li>
-			       <li>Chimica industriale "Toso Montanari" - CHIMIND</li>
-			       <li>Delle Arti - DAR</li>
-			       <li>Farmacia e Biotecnologie - FaBiT</li>
-			       <li>Filologia classica e Italianistica - FICLIT</li>
-			       <li>Filosofia e Comunicazione - FILCOM</li>
-			       <li>Fisica e Astronomia “Augusto Righi” - DIFA</li>
-			       <li>Informatica - Scienza e Ingegneria - DISI</li>
-			       <li>Ingegneria civile, chimica, ambientale e dei Materiali - DICAM</li>
-			       <li>Ingegneria dell'Energia elettrica e dell'Informazione "Guglielmo Marconi" - DEI</li>
-			       <li>Interpretazione e Traduzione - DIT</li>
-			       <li>Lingue, Letterature e Culture moderne - LILEC</li>
-			       <li>Matematica - MAT</li>
-			       <li>Medicina specialistica, diagnostica e sperimentale - DIMES</li>
-			       <li>Psicologia "Renzo Canestrari" - PSI</li>
-			       <li>Scienze biologiche, geologiche e ambientali - BiGeA</li>
-			       <li>Scienze economiche - DSE</li>
-			       <li>Scienze giuridiche - DSG</li>
-			       <li>Scienze per la Qualità della Vita - QUVI</li>
-			       <li>Storia Culture Civiltà - DiSCi</li>
-	    		</ul>
-	    		
-	    	</div>
-	    	
+		<div id="nav">
+			<img id="logo" src="logo.png" height="150px"/>
+	    </div>
+	    <div id="btn">
+		   	<g:HorizontalPanel>
+		   		<g:Button ui:field = "btnHome" text="Home"/>
+	      		<g:Button ui:field = "btnDipartimenti" text="Dipartimenti"/>
+	      		<g:Button ui:field = "btnContatti" text="Contatti"/>
+	     		<g:Button ui:field = "btnLogin" text="Login" />
+		   	</g:HorizontalPanel> 
+	   	</div>
+	   	
+		<div id="content">
+			<h2>Dipartimenti dell'ateneo</h2>
+			
+			<ul id="list">
+		       <li>Architettura - DA</li>
+		       <li>Beni culturali - DBC</li>
+		       <li>Chimica "Giacomo Ciamician" - CHIM</li>
+		       <li>Chimica industriale "Toso Montanari" - CHIMIND</li>
+		       <li>Delle Arti - DAR</li>
+		       <li>Farmacia e Biotecnologie - FaBiT</li>
+		       <li>Filologia classica e Italianistica - FICLIT</li>
+		       <li>Filosofia e Comunicazione - FILCOM</li>
+		       <li>Fisica e Astronomia “Augusto Righi” - DIFA</li>
+		       <li>Informatica - Scienza e Ingegneria - DISI</li>
+		       <li>Ingegneria civile, chimica, ambientale e dei Materiali - DICAM</li>
+		       <li>Ingegneria dell'Energia elettrica e dell'Informazione "Guglielmo Marconi" - DEI</li>
+		       <li>Interpretazione e Traduzione - DIT</li>
+		       <li>Lingue, Letterature e Culture moderne - LILEC</li>
+		       <li>Matematica - MAT</li>
+		       <li>Medicina specialistica, diagnostica e sperimentale - DIMES</li>
+		       <li>Psicologia "Renzo Canestrari" - PSI</li>
+		       <li>Scienze biologiche, geologiche e ambientali - BiGeA</li>
+		       <li>Scienze economiche - DSE</li>
+		       <li>Scienze giuridiche - DSG</li>
+		       <li>Scienze per la Qualità della Vita - QUVI</li>
+		       <li>Storia Culture Civiltà - DiSCi</li>
+    		</ul>
 		</div>
 	</g:HTMLPanel>
 	

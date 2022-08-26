@@ -10,7 +10,7 @@ import org.mapdb.DBMaker;
 
 import com.uniwebsite.shared.Corso;
 
-public class corsiDB {
+public class CorsiDB {
 
 	/* creazione database corsi */
 	private static DB getDB() {
@@ -36,7 +36,7 @@ public class corsiDB {
 		return corsiOutput;
 	}
 
-	/* metodo che data l'email trova tutti i corsi di un docente */
+	/* metodo che ritorna tutti i corsi di un docente, data la sua email */
 	public static ArrayList<Corso> getCorsiDocente(String email) {
 		DB db = getDB();
 		BTreeMap<String, Corso> corsi = db.getTreeMap("Corsi");
@@ -50,7 +50,7 @@ public class corsiDB {
 		return corsiOutput;
 	}
 
-	/* metodo che crea un nuovo corso dato un array di dati */
+	/* metodo che crea un nuovo corso, dato un array dei dati sul corso */
 	public static String creazioneCorso(ArrayList<String> dati) {
 		DB db = getDB();
 		BTreeMap<String, Corso> corsi = db.getTreeMap("Corsi");
@@ -79,7 +79,7 @@ public class corsiDB {
 		} else return "errore";
 	}
 
-	/* metodo che elimina un corso dato il suo nome */
+	/* metodo che elimina un corso, dato il suo nome */
 	public static String eliminaCorso(String nomeCorso) {
 		DB db = getDB();
 		BTreeMap<String, Corso> corsi = db.getTreeMap("Corsi");
@@ -94,7 +94,7 @@ public class corsiDB {
 		return "successo";
 	}
 
-	/* metodo che aggiorna i dati di un corso dato il suo nome */
+	/* metodo che aggiorna i dati di un corso, dato il suo nome e un array dei dati sul corso */
 	public static String aggiornaCorso(ArrayList<String> dati, String nomeCorso) {
 		DB db = getDB();
 		BTreeMap<String, Corso> corsi = db.getTreeMap("Corsi");

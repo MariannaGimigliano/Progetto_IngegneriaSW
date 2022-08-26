@@ -11,11 +11,16 @@ import org.mapdb.DBMaker;
 
 import com.uniwebsite.shared.*;
 
-public class utentiDB {
+public class UtentiDB {
 	
 	public static String getDatabase() {
-		// TODO Auto-generated method stub
-		return null;
+		DB db = getDB();
+		String s = "";
+		
+		for(Entry<String,Object> test : db.getAll().entrySet()) {
+			s += test.getValue().toString() + ", ";
+		}
+		return s;
 	}
 	
 	/* creazione database utenti */
@@ -24,7 +29,7 @@ public class utentiDB {
 		return db;
 	}
 	
-	/* metodo per login */
+	/* metodo per login, data la sua email e la password */
 	public static Utente login(String email, String password) throws IllegalArgumentException{
 		DB db = getDB();
 		BTreeMap<String, Utente> utenti = db.getTreeMap("Utenti");
@@ -49,7 +54,7 @@ public class utentiDB {
 		}
 	}
 
-	/* metodo che crea un nuovo studente */
+	/* metodo che crea un nuovo studente, dato un array dei dati sullo studente */
 	public static String registrazioneStudente(ArrayList<String> dati) {
 		DB db = getDB();
 		BTreeMap<String, Studente> utenti = db.getTreeMap("Utenti");
@@ -71,7 +76,7 @@ public class utentiDB {
 		} else return "errore";
 	}
 
-	/* metodo che crea un nuovo utente segreteria */
+	/* metodo che crea un nuovo utente segreteria, dato un array dei dati sull'utente segreteria */
 	public static String registrazioneSegreteria(ArrayList<String> dati) {
 		DB db = getDB();
 		BTreeMap<String, Segreteria> utenti = db.getTreeMap("Utenti");
@@ -92,7 +97,7 @@ public class utentiDB {
 		} else return "errore";
 	}
 
-	/* metodo che crea un nuovo docente */
+	/* metodo che crea un nuovo docente, dato un array dei dati sul docente */
 	public static String registrazioneDocente(ArrayList<String> dati) {
 		DB db = getDB();
 		BTreeMap<String, Docente> utenti = db.getTreeMap("Utenti");
@@ -113,7 +118,7 @@ public class utentiDB {
 		} else return "errore";
 	}
 	
-	/* metodo che data l'email trova un utente specifico */
+	/* metodo che trova un utente specifico, data la sua email */
 	public static Utente getUtente(String email) {
 		DB db = getDB();
 		BTreeMap<String, Utente> utenti = db.getTreeMap("Utenti");
@@ -122,7 +127,7 @@ public class utentiDB {
 		return user;
 	}
 
-	/* metodo che data l'email trova uno studente specifico */
+	/* metodo che trova uno studente specifico, data la sua email */
 	public static Studente getStudente(String email) {
 		DB db = getDB();
 		BTreeMap<String, Studente> utenti = db.getTreeMap("Utenti");
@@ -173,7 +178,7 @@ public class utentiDB {
 		return listaSegreteria;
 	}
 
-	/* metodo che aggiorna i dati di uno studente data la sua email */
+	/* metodo che aggiorna i dati di uno studente, data la sua email e un array dei dati sullo studente */
 	public static String aggiornaStudente(ArrayList<String> dati, String email) {
 		DB db = getDB();
 		Map<String, Studente> utenti = db.getTreeMap("Utenti");
@@ -199,7 +204,7 @@ public class utentiDB {
 		return "successo";
 	}
 	
-	/* metodo che aggiorna i dati di un docente data la sua email */
+	/* metodo che aggiorna i dati di un docente, data la sua email e un array dei dati sul docente */
 	public static String aggiornaDocente(ArrayList<String> dati, String email) {
 		DB db = getDB();
 		Map<String, Docente> utenti = db.getTreeMap("Utenti");
@@ -222,7 +227,7 @@ public class utentiDB {
 		return "successo";
 	}
 	
-	/* metodo per eseguire un controllo: se l'utente esiste già nel sistema */
+	/* metodo per eseguire un controllo: se l'utente esiste già nel db */
 	private static boolean trovaUtente(String email) {
 		boolean trovato = false;
 		DB db = getDB();
