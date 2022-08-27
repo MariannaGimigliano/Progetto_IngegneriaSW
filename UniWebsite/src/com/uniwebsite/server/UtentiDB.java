@@ -13,16 +13,6 @@ import com.uniwebsite.shared.*;
 
 public class UtentiDB {
 	
-	public static String getDatabase() {
-		DB db = getDB();
-		String s = "";
-		
-		for(Entry<String,Object> test : db.getAll().entrySet()) {
-			s += test.getValue().toString() + ", ";
-		}
-		return s;
-	}
-	
 	/* creazione database utenti */
 	private static DB getDB() {
 		DB db = DBMaker.newFileDB(new File("utentiDB")).make();
@@ -239,5 +229,14 @@ public class UtentiDB {
 			}
 		} 
 		return trovato;
+	}
+	
+	/* eliminazione dati db */
+	public static void clearUtentiDB() {
+		DB db = getDB();
+		BTreeMap<String, Utente> utenti = db.getTreeMap("Utenti");
+		utenti.clear();
+		db.commit();
+		db.close();
 	}
 }

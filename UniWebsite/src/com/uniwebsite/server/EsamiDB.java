@@ -122,4 +122,13 @@ public class EsamiDB {
 		db.close();
 		return "successo";
 	}
+
+	/* eliminazione dati db */
+	public static void clearEsamiDB() {
+		DB db = getDB();
+		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");
+		esami.clear();
+		db.commit();
+		db.close();
+	}
 }

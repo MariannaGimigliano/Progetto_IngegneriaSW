@@ -18,11 +18,6 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
  */
 @SuppressWarnings("serial")
 public class GreetingServiceImpl extends RemoteServiceServlet implements GreetingService {
-
-	@Override
-	public String getDatabase() throws IllegalArgumentException {
-		return UtentiDB.getDatabase();
-	}
 	
 	// METODI PER GESTIRE TUTTE LE TIPOLOGIE DI UTENTE
 	@Override
@@ -186,5 +181,29 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 
 	public void setMock(GreetingService mock) {
 		this.mock = mock;
+	}
+	
+	public void clearCorsiDB() {
+		CorsiDB.clearCorsiDB();
+	}
+	
+	public void clearEsamiDB() {
+		EsamiDB.clearEsamiDB();
+	}
+	
+	public void clearIscrizioneCorsoDB() {
+		IscrizioneCorsoDB.clearIscrizioneCorsoDB();
+	}
+	
+	public void clearIscrizioneEsameDB() {
+		IscrizioneEsameDB.clearIscrizioneEsameDB();
+	}
+	
+	public void clearVotiDB() {
+		VotiDB.clearVotiDB();
+	}
+	
+	public void clearUtentiDB() {
+		UtentiDB.clearUtentiDB();
 	}
 }

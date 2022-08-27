@@ -15,9 +15,7 @@ import com.uniwebsite.shared.Voto;
  * The async counterpart of <code>GreetingService</code>.
  */
 public interface GreetingServiceAsync {
-	
-	void getDatabase(AsyncCallback<String> callback) throws IllegalArgumentException;
-	
+		
 	// METODI PER GESTIRE TUTTE LE TIPOLOGIE DI UTENTE
 	void registrazioneStudente(ArrayList<String> dati, AsyncCallback<String> callback) throws IllegalArgumentException; 
 	

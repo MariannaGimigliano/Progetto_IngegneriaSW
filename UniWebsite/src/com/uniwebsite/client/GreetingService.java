@@ -11,9 +11,7 @@ import com.uniwebsite.shared.*;
  */
 @RemoteServiceRelativePath("greet")
 public interface GreetingService extends RemoteService {
-	
-	String getDatabase() throws IllegalArgumentException;
-	
+		
 	// METODI PER GESTIRE TUTTE LE TIPOLOGIE DI UTENTE
 	String registrazioneStudente(ArrayList<String> dati) throws IllegalArgumentException; 
 

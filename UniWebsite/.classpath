@@ -7,5 +7,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="/Users/mariannagimigliano/Desktop/Progetto_IngegneriaSW/UniWebsite/junit-jupiter-engine-5.8.2.jar"/>
 	<classpathentry kind="lib" path="/Users/mariannagimigliano/Desktop/Progetto_IngegneriaSW/UniWebsite/mapdb-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/Users/mariannagimigliano/Desktop/Progetto_IngegneriaSW/UniWebsite/mockito-all-1.9.5.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

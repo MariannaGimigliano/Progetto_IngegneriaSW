@@ -60,4 +60,13 @@ public class IscrizioneCorsoDB {
 			return "successo";
 		} else return "errore";
 	}
+
+	/* eliminazione dati db */
+	public static void clearIscrizioneCorsoDB() {
+		DB db = getDB();
+		BTreeMap<Integer, IscrizioneCorso> iscrizioni = db.getTreeMap("IscrizioniCorso");
+		iscrizioni.clear();
+		db.commit();
+		db.close();
+	}
 }

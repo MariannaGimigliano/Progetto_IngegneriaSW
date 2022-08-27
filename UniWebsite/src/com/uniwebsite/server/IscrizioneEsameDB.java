@@ -59,4 +59,13 @@ public class IscrizioneEsameDB {
 			return "successo";
 		} else return "errore";
 	}
+
+	/* eliminazione dati db */
+	public static void clearIscrizioneEsameDB() {
+		DB db = getDB();
+		BTreeMap<Integer, IscrizioneEsame> iscrizioni = db.getTreeMap("IscrizioniEsame");
+		iscrizioni.clear();
+		db.commit();
+		db.close();
+	}
 }

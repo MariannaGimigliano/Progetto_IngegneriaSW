@@ -104,4 +104,12 @@ public class VotiDB {
 		return "successo";
 	}
 
+	/* eliminazione dati db */
+	public static void clearVotiDB() {
+		DB db = getDB();
+		BTreeMap<Integer, Voto> voti = db.getTreeMap("Voti");
+		voti.clear();
+		db.commit();
+		db.close();
+	}
 }

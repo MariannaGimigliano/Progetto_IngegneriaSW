@@ -116,4 +116,13 @@ public class CorsiDB {
 		db.close();
 		return "successo";
 	}
+
+	/* eliminazione dati db */
+	public static void clearCorsiDB() {
+		DB db = getDB();
+		BTreeMap<String, Corso> corsi = db.getTreeMap("Corsi");
+		corsi.clear();
+		db.commit();
+		db.close();
+	}
 }
