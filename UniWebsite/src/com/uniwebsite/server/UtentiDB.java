@@ -29,7 +29,7 @@ public class UtentiDB {
 		utenti.put("docente@unibo.it", new Docente("docente@unibo.it", "doc", "Martina", "Zauli"));
 		utenti.put("docente2@unibo.it", new Docente("docente2@unibo.it", "doc2", "Francesco", "Bianchi"));
 		utenti.put("segreteria@unibo.it", new Segreteria("segreteria@unibo.it", "seg", "Chiara", "Verdi"));
-		utenti.put("amministratore@unibo.it", new Amministratore("amministratore@unibo.it", "amm", "Marco", "Rossi"));
+		utenti.put("admin", new Amministratore("admin", "admin", "Marco", "Rossi"));
 		db.commit();
 		
 		if(trovaUtente(email)) {
