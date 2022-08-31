@@ -115,7 +115,7 @@ public class EsamiDB {
 			esame.setDurata(dati.get(2));
 		}
 		if(dati.get(3) != "") {
-			esame.setAula(dati.get(2));
+			esame.setAula(dati.get(3));
 		}
 		esami.put(nomeEsame, esame);
 		db.commit();
