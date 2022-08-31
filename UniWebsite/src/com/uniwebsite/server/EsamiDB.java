@@ -82,7 +82,7 @@ public class EsamiDB {
 		} else return "errore";
 	}
 
-	/* metodo che elimina un'esame, dato il suo nome */
+	/* metodo che elimina un esame, dato il suo nome */
 	public static String eliminaEsame(String esame) {
 		DB db = getDB();
 		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");
@@ -97,7 +97,7 @@ public class EsamiDB {
 		return "successo";
 	}
 
-	/* metodo che aggiorna i dati di un'esame, dato il suo nome e un array dei dati sull'esame */
+	/* metodo che aggiorna i dati di un esame, dato il suo nome e un array dei dati sull'esame */
 	public static String aggiornaEsame(ArrayList<String> dati, String nomeEsame) {
 		DB db = getDB();
 		BTreeMap<String, Esame> esami = db.getTreeMap("Esami");

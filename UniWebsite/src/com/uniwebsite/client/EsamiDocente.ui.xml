@@ -46,7 +46,7 @@
 	   	
 		<div id="content">
 		    <div>
-		    	<h2>Crea un'esame</h2>
+		    	<h2>Crea un esame</h2>
     			<p>Puoi creare solo esami di cui esiste già un corso!</p>
 				<label>Nome Esame</label><gwt:ListBox ui:field="txtEsame"></gwt:ListBox>
 			    <label>Data</label><gwt:TextBox ui:field="txtData"></gwt:TextBox>
@@ -59,7 +59,7 @@
 		    <br></br>
 			
 		  	<div>
-		  		<h2>Modifica un'esame</h2>
+		  		<h2>Modifica un esame</h2>
 				<p>Puoi modificare solo esami da te creati!</p>
 				<label>Nome Esame</label><gwt:ListBox ui:field="listaEsami"></gwt:ListBox>
 			    <label>Data</label><gwt:TextBox ui:field="txtModData"></gwt:TextBox>
@@ -72,7 +72,7 @@
 		  	<br></br>
 			
 		  	<div>
-		  		<h2>Elimina un'esame</h2>
+		  		<h2>Elimina un esame</h2>
 				<p>Puoi eliminare solo esami da te creati!</p>
 				<label>Nome Esame</label><gwt:ListBox ui:field="listaEsamiElimina"></gwt:ListBox>
 		  		<gwt:Button ui:field="btnElimina" text="Elimina Esame"></gwt:Button>

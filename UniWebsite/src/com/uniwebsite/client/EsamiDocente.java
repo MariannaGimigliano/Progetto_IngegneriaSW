@@ -202,7 +202,7 @@ public class EsamiDocente extends Composite {
 
 	}
 	
-	/* Modifica un'esame associato al docente */
+	/* Modifica un esame associato al docente */
 	@UiHandler("btnModifica")
 	void doClickMod(ClickEvent event) {
 		ArrayList<String> dati = new ArrayList<String>();
@@ -251,7 +251,7 @@ public class EsamiDocente extends Composite {
 		}); 
 	}
 	
-	/* Elimina un'esame associato al docente */
+	/* Elimina un esame associato al docente */
 	@UiHandler("btnElimina")
 	void doClickCanc(ClickEvent event) {
 		String esame = listaEsamiElimina.getSelectedValue();
